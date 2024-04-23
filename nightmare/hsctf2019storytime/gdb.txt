@@ -1,0 +1,1889 @@
+logging debugredirect:  off: Debug output will go to both the screen and the log file.
+logging enabled:  on: Logging is enabled.
+logging file:  The current logfile is "gdb.txt".
+logging overwrite:  off: Logging appends to the log file.
+logging redirect:  off: Output will go to both the screen and the log file.
+Starting program: /home/ryohz/pentest/nightmare/hsctf2019storytime/storytime_patched < payload
+Downloading separate debug info for ./ld-2.23.so
+[###                                                                                                                    ][ ###                                                                                                                   ]                                                                                                                           Downloading separate debug info for system-supplied DSO at 0x7ffff7ffd000
+[###                                                                                                                    ]                                                                                                                           
+Breakpoint 1, 0x000000000040069c in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+*RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+*RDX  0x190
+ RDI  0x0
+*RSI  0x7fffffffe1a0 ◂— 0x4141414141414141 ('AAAAAAAA')
+*R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+*R10  0x37b
+*R11  0x246
+*R12  0x4004d0 (_start) ◂— xor ebp, ebp
+*R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x0
+*RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1d8 —▸ 0x400701 (__libc_csu_init+97) ◂— pop rsi
+*RIP  0x40069c (main+110) ◂— ret 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+ ► 0x40069c <main+110>               ret                                  <0x400701; __libc_csu_init+97>
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1d8 —▸ 0x400701 (__libc_csu_init+97) ◂— pop rsi
+01:0008│     0x7fffffffe1e0 —▸ 0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+02:0010│     0x7fffffffe1e8 ◂— 0x4141414141414141 ('AAAAAAAA')
+03:0018│     0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+04:0020│     0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+05:0028│     0x7fffffffe200 ◂— 0x0
+06:0030│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+07:0038│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069c main+110
+   1         0x400701 __libc_csu_init+97
+   2         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400701 in __libc_csu_init ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x7fffffffe1a0 ◂— 0x4141414141414141 ('AAAAAAAA')
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x0
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1e0 —▸ 0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+*RIP  0x400701 (__libc_csu_init+97) ◂— pop rsi
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x40069c <main+110>               ret    
+    ↓
+ ► 0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1e0 —▸ 0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+01:0008│     0x7fffffffe1e8 ◂— 0x4141414141414141 ('AAAAAAAA')
+02:0010│     0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+03:0018│     0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+04:0020│     0x7fffffffe200 ◂— 0x0
+05:0028│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+06:0030│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+07:0038│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400701 __libc_csu_init+97
+   1         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400702 in __libc_csu_init ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+*RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x0
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1e8 ◂— 0x4141414141414141 ('AAAAAAAA')
+*RIP  0x400702 (__libc_csu_init+98) ◂— pop r15
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x40069c <main+110>               ret    
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+ ► 0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1e8 ◂— 0x4141414141414141 ('AAAAAAAA')
+01:0008│     0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+02:0010│     0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+03:0018│     0x7fffffffe200 ◂— 0x0
+04:0020│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+05:0028│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+06:0030│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+07:0038│     0x7fffffffe220 ◂— 0x0
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400702 __libc_csu_init+98
+   1         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400704 in __libc_csu_init ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+*R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+*RIP  0x400704 (__libc_csu_init+100) ◂— ret 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x40069c <main+110>               ret    
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+ ► 0x400704 <__libc_csu_init+100>    ret                                  <0x400676; main+72>
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+01:0008│     0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+02:0010│     0x7fffffffe200 ◂— 0x0
+03:0018│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+04:0020│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+05:0028│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+06:0030│     0x7fffffffe220 ◂— 0x0
+07:0038│     0x7fffffffe228 ◂— 0x0
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400704 __libc_csu_init+100
+   1         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400676 in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x400676 (main+72) ◂— mov edi, 1
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x40069c <main+110>               ret    
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+ ► 0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x000000000040067b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+*RDI  0x1
+ RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x40067b (main+77) ◂— call 0x4004a0
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x40069c <main+110>               ret    
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+ ► 0x40067b <main+77>                call   write@plt                      <write@plt>
+        fd: 0x1 (/dev/pts/1)
+        buf: 0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+        n: 0x190
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40067b main+77
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400680 in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+*RAX  0x190
+ RBX  0x0
+*RCX  0x7ffff78f72c0 (__write_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x1
+ RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x400680 (main+82) ◂— lea rax, [rbp - 0x30]
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+ ► 0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>               mov    eax, 0
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400680 main+82
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400684 in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+*RAX  0x4141414141414111
+ RBX  0x0
+ RCX  0x7ffff78f72c0 (__write_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x1
+ RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x400684 (main+86) ◂— mov edx, 0x190
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+ ► 0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>               mov    eax, 0
+   0x40069b <main+109>               leave  
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400684 main+86
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400689 in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x4141414141414111
+ RBX  0x0
+ RCX  0x7ffff78f72c0 (__write_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x1
+ RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x400689 (main+91) ◂— mov rsi, rax
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+ ► 0x400689 <main+91>                mov    rsi, rax                      <write@got[plt]>
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>               mov    eax, 0
+   0x40069b <main+109>               leave  
+   0x40069c <main+110>               ret    
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400689 main+91
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x000000000040068c in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x4141414141414111
+ RBX  0x0
+ RCX  0x7ffff78f72c0 (__write_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x1
+*RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x40068c (main+94) ◂— mov edi, 0
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400676 <main+72>     mov    edi, 1
+   0x40067b <main+77>     call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>     lea    rax, [rbp - 0x30]
+   0x400684 <main+86>     mov    edx, 0x190
+   0x400689 <main+91>     mov    rsi, rax
+ ► 0x40068c <main+94>     mov    edi, 0
+   0x400691 <main+99>     call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>    mov    eax, 0
+   0x40069b <main+109>    leave  
+   0x40069c <main+110>    ret    
+ 
+   0x40069d               nop    dword ptr [rax]
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40068c main+94
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400691 in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x4141414141414111
+ RBX  0x0
+ RCX  0x7ffff78f72c0 (__write_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+*RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x400691 (main+99) ◂— call 0x4004b0
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x40067b <main+77>            call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>            lea    rax, [rbp - 0x30]
+   0x400684 <main+86>            mov    edx, 0x190
+   0x400689 <main+91>            mov    rsi, rax
+   0x40068c <main+94>            mov    edi, 0
+ ► 0x400691 <main+99>            call   read@plt                      <read@plt>
+        fd: 0x0 (/home/ryohz/pentest/nightmare/hsctf2019storytime/payload)
+        buf: 0x4141414141414111
+        nbytes: 0x190
+ 
+   0x400696 <main+104>           mov    eax, 0
+   0x40069b <main+109>           leave  
+   0x40069c <main+110>           ret    
+ 
+   0x40069d                      nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>    push   r15
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400691 main+99
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400696 in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+*RAX  0x0
+ RBX  0x0
+*RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x400696 (main+104) ◂— mov eax, 0
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400680 <main+82>              lea    rax, [rbp - 0x30]
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+ ► 0x400696 <main+104>             mov    eax, 0
+   0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400696 main+104
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Program received signal SIGBUS, Bus error.
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+ RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Program received signal SIGBUS, Bus error.
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+ RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Program received signal SIGBUS, Bus error.
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+ RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Program received signal SIGBUS, Bus error.
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+ RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Program received signal SIGBUS, Bus error.
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+ RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Program received signal SIGBUS, Bus error.
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+ RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Program received signal SIGBUS, Bus error.
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+ RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Program received signal SIGBUS, Bus error.
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+ RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Program received signal SIGBUS, Bus error.
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+ RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Program received signal SIGBUS, Bus error.
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+ RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Program received signal SIGBUS, Bus error.
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+ RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Program received signal SIGBUS, Bus error.
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+ RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Program received signal SIGBUS, Bus error.
+0x000000000040069b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x4141414141414111
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+ RIP  0x40069b (main+109) ◂— leave 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400684 <main+86>              mov    edx, 0x190
+   0x400689 <main+91>              mov    rsi, rax
+   0x40068c <main+94>              mov    edi, 0
+   0x400691 <main+99>              call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>             mov    eax, 0
+ ► 0x40069b <main+109>             leave  
+   0x40069c <main+110>             ret    
+ 
+   0x40069d                        nop    dword ptr [rax]
+   0x4006a0 <__libc_csu_init>      push   r15
+   0x4006a2 <__libc_csu_init+2>    push   r14
+   0x4006a4 <__libc_csu_init+4>    mov    r15, rdx
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xe372064c8a5a31a
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xf1c8df1b0625a31a
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069b main+109
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Starting program: /home/ryohz/pentest/nightmare/hsctf2019storytime/storytime_patched < payload
+                                                                                                                                                                                                                                                      
+Breakpoint 1, 0x000000000040069c in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+*RSI  0x7fffffffe1a0 ◂— 0x4141414141414141 ('AAAAAAAA')
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+*R15  0x0
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1d8 —▸ 0x400701 (__libc_csu_init+97) ◂— pop rsi
+*RIP  0x40069c (main+110) ◂— ret 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>               mov    eax, 0
+   0x40069b <main+109>               leave  
+ ► 0x40069c <main+110>               ret                                  <0x400701; __libc_csu_init+97>
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1d8 —▸ 0x400701 (__libc_csu_init+97) ◂— pop rsi
+01:0008│     0x7fffffffe1e0 —▸ 0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+02:0010│     0x7fffffffe1e8 ◂— 0x4141414141414141 ('AAAAAAAA')
+03:0018│     0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+04:0020│     0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+05:0028│     0x7fffffffe200 ◂— 0x0
+06:0030│     0x7fffffffe208 ◂— 0xf586396e4d7ffabe
+07:0038│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069c main+110
+   1         0x400701 __libc_csu_init+97
+   2         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400701 in __libc_csu_init ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x7fffffffe1a0 ◂— 0x4141414141414141 ('AAAAAAAA')
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x0
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1e0 —▸ 0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+*RIP  0x400701 (__libc_csu_init+97) ◂— pop rsi
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>               mov    eax, 0
+   0x40069b <main+109>               leave  
+   0x40069c <main+110>               ret    
+    ↓
+ ► 0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1e0 —▸ 0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+01:0008│     0x7fffffffe1e8 ◂— 0x4141414141414141 ('AAAAAAAA')
+02:0010│     0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+03:0018│     0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+04:0020│     0x7fffffffe200 ◂— 0x0
+05:0028│     0x7fffffffe208 ◂— 0xf586396e4d7ffabe
+06:0030│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+07:0038│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400701 __libc_csu_init+97
+   1         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400702 in __libc_csu_init ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+*RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x0
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1e8 ◂— 0x4141414141414141 ('AAAAAAAA')
+*RIP  0x400702 (__libc_csu_init+98) ◂— pop r15
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>               mov    eax, 0
+   0x40069b <main+109>               leave  
+   0x40069c <main+110>               ret    
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+ ► 0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1e8 ◂— 0x4141414141414141 ('AAAAAAAA')
+01:0008│     0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+02:0010│     0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+03:0018│     0x7fffffffe200 ◂— 0x0
+04:0020│     0x7fffffffe208 ◂— 0xf586396e4d7ffabe
+05:0028│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+06:0030│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+07:0038│     0x7fffffffe220 ◂— 0x0
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400702 __libc_csu_init+98
+   1         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400704 in __libc_csu_init ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+*R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+*RIP  0x400704 (__libc_csu_init+100) ◂— ret 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400696 <main+104>               mov    eax, 0
+   0x40069b <main+109>               leave  
+   0x40069c <main+110>               ret    
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+ ► 0x400704 <__libc_csu_init+100>    ret                                  <0x400676; main+72>
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+01:0008│     0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+02:0010│     0x7fffffffe200 ◂— 0x0
+03:0018│     0x7fffffffe208 ◂— 0xf586396e4d7ffabe
+04:0020│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+05:0028│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+06:0030│     0x7fffffffe220 ◂— 0x0
+07:0038│     0x7fffffffe228 ◂— 0x0
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400704 __libc_csu_init+100
+   1         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400676 in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x400676 (main+72) ◂— mov edi, 1
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x40069b <main+109>               leave  
+   0x40069c <main+110>               ret    
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+ ► 0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xf586396e4d7ffabe
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xa79c61183fffabe
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x000000000040067b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+*RDI  0x1
+ RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x40067b (main+77) ◂— call 0x4004a0
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x40069c <main+110>               ret    
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+ ► 0x40067b <main+77>                call   write@plt                      <write@plt>
+        fd: 0x1 (/dev/pts/1)
+        buf: 0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+        n: 0x190
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xf586396e4d7ffabe
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xa79c61183fffabe
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40067b main+77
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400680 in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+*RAX  0x190
+ RBX  0x0
+*RCX  0x7ffff78f72c0 (__write_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x1
+ RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x400680 (main+82) ◂— lea rax, [rbp - 0x30]
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+ ► 0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>               mov    eax, 0
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xf586396e4d7ffabe
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xa79c61183fffabe
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400680 main+82
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Starting program: /home/ryohz/pentest/nightmare/hsctf2019storytime/storytime_patched < payload
+                                                                                                                                                                                                                                                      
+Breakpoint 1, 0x000000000040069c in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+*RAX  0x0
+ RBX  0x0
+*RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+*RDI  0x0
+*RSI  0x7fffffffe1a0 ◂— 0x4141414141414141 ('AAAAAAAA')
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+*R15  0x0
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1d8 —▸ 0x400701 (__libc_csu_init+97) ◂— pop rsi
+*RIP  0x40069c (main+110) ◂— ret 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>               mov    eax, 0
+   0x40069b <main+109>               leave  
+ ► 0x40069c <main+110>               ret                                  <0x400701; __libc_csu_init+97>
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1d8 —▸ 0x400701 (__libc_csu_init+97) ◂— pop rsi
+01:0008│     0x7fffffffe1e0 —▸ 0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+02:0010│     0x7fffffffe1e8 ◂— 0x4141414141414141 ('AAAAAAAA')
+03:0018│     0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+04:0020│     0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+05:0028│     0x7fffffffe200 ◂— 0x0
+06:0030│     0x7fffffffe208 ◂— 0xf42d9cde5556757e
+07:0038│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40069c main+110
+   1         0x400701 __libc_csu_init+97
+   2         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400701 in __libc_csu_init ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x7fffffffe1a0 ◂— 0x4141414141414141 ('AAAAAAAA')
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x0
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1e0 —▸ 0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+*RIP  0x400701 (__libc_csu_init+97) ◂— pop rsi
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>               mov    eax, 0
+   0x40069b <main+109>               leave  
+   0x40069c <main+110>               ret    
+    ↓
+ ► 0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1e0 —▸ 0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+01:0008│     0x7fffffffe1e8 ◂— 0x4141414141414141 ('AAAAAAAA')
+02:0010│     0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+03:0018│     0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+04:0020│     0x7fffffffe200 ◂— 0x0
+05:0028│     0x7fffffffe208 ◂— 0xf42d9cde5556757e
+06:0030│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+07:0038│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400701 __libc_csu_init+97
+   1         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400702 in __libc_csu_init ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+*RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x0
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1e8 ◂— 0x4141414141414141 ('AAAAAAAA')
+*RIP  0x400702 (__libc_csu_init+98) ◂— pop r15
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+ 
+   0x400696 <main+104>               mov    eax, 0
+   0x40069b <main+109>               leave  
+   0x40069c <main+110>               ret    
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+ ► 0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1e8 ◂— 0x4141414141414141 ('AAAAAAAA')
+01:0008│     0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+02:0010│     0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+03:0018│     0x7fffffffe200 ◂— 0x0
+04:0020│     0x7fffffffe208 ◂— 0xf42d9cde5556757e
+05:0028│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+06:0030│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+07:0038│     0x7fffffffe220 ◂— 0x0
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400702 __libc_csu_init+98
+   1         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400704 in __libc_csu_init ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+*R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+*RIP  0x400704 (__libc_csu_init+100) ◂— ret 
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x400696 <main+104>               mov    eax, 0
+   0x40069b <main+109>               leave  
+   0x40069c <main+110>               ret    
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+ ► 0x400704 <__libc_csu_init+100>    ret                                  <0x400676; main+72>
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f0 —▸ 0x400676 (main+72) ◂— mov edi, 1
+01:0008│     0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+02:0010│     0x7fffffffe200 ◂— 0x0
+03:0018│     0x7fffffffe208 ◂— 0xf42d9cde5556757e
+04:0020│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+05:0028│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+06:0030│     0x7fffffffe220 ◂— 0x0
+07:0038│     0x7fffffffe228 ◂— 0x0
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400704 __libc_csu_init+100
+   1         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x0000000000400676 in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+ RDI  0x0
+ RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+*RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x400676 (main+72) ◂— mov edi, 1
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x40069b <main+109>               leave  
+   0x40069c <main+110>               ret    
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+ ► 0x400676 <main+72>                mov    edi, 1
+   0x40067b <main+77>                call   write@plt                      <write@plt>
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xf42d9cde5556757e
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xbd263a19bd6757e
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x400676 main+72
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+0x000000000040067b in main ()
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+──────────────────────────────────[ REGISTERS / show-flags off / show-compact-regs off ]───────────────────────────────────
+ RAX  0x0
+ RBX  0x0
+ RCX  0x7ffff78f7260 (__read_nocancel+7) ◂— cmp rax, -0xfff
+ RDX  0x190
+*RDI  0x1
+ RSI  0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+ R8   0x7ffff7bc6780 (_IO_stdfile_1_lock) ◂— 0x0
+ R9   0x0
+ R10  0x37b
+ R11  0x246
+ R12  0x4004d0 (_start) ◂— xor ebp, ebp
+ R13  0x7fffffffe2b0 ◂— 0x1
+ R14  0x0
+ R15  0x4141414141414141 ('AAAAAAAA')
+ RBP  0x4141414141414141 ('AAAAAAAA')
+ RSP  0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+*RIP  0x40067b (main+77) ◂— call 0x4004a0
+───────────────────────────────────────────[ DISASM / x86-64 / set emulate on ]────────────────────────────────────────────
+   0x40069c <main+110>               ret    
+    ↓
+   0x400701 <__libc_csu_init+97>     pop    rsi
+   0x400702 <__libc_csu_init+98>     pop    r15
+   0x400704 <__libc_csu_init+100>    ret    
+    ↓
+   0x400676 <main+72>                mov    edi, 1
+ ► 0x40067b <main+77>                call   write@plt                      <write@plt>
+        fd: 0x1 (/dev/pts/1)
+        buf: 0x601018 (write@got[plt]) —▸ 0x7ffff78f72b0 (write) ◂— cmp dword ptr [rip + 0x2d2489], 0
+        n: 0x190
+ 
+   0x400680 <main+82>                lea    rax, [rbp - 0x30]
+   0x400684 <main+86>                mov    edx, 0x190
+   0x400689 <main+91>                mov    rsi, rax
+   0x40068c <main+94>                mov    edi, 0
+   0x400691 <main+99>                call   read@plt                      <read@plt>
+─────────────────────────────────────────────────────────[ STACK ]─────────────────────────────────────────────────────────
+00:0000│ rsp 0x7fffffffe1f8 —▸ 0x40062e (main) ◂— push rbp
+01:0008│     0x7fffffffe200 ◂— 0x0
+02:0010│     0x7fffffffe208 ◂— 0xf42d9cde5556757e
+03:0018│     0x7fffffffe210 —▸ 0x4004d0 (_start) ◂— xor ebp, ebp
+04:0020│     0x7fffffffe218 —▸ 0x7fffffffe2b0 ◂— 0x1
+05:0028│     0x7fffffffe220 ◂— 0x0
+06:0030│     0x7fffffffe228 ◂— 0x0
+07:0038│     0x7fffffffe230 ◂— 0xbd263a19bd6757e
+───────────────────────────────────────────────────────[ BACKTRACE ]───────────────────────────────────────────────────────
+ ► 0         0x40067b main+77
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+quit
