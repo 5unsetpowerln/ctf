@@ -1,0 +1,10 @@
+a = "lxpyrvmgduiprervmoqkvfqrblqpvqueeuzmpqgycirxthsjaw"
+b = "lyqasxojewksthuznqsnxitvdottyuyjfwbprtjcelubwlwocz"
+d = []
+
+for i in range(len(list(a))):
+    d.append(str(ord(a[i]) - ord(b[i])))
+
+print(a)
+print(b)
+print("".join(d))

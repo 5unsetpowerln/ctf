@@ -1,0 +1,47 @@
+**main**
+ユーザーの入力1を数値として受け取る。
+入力1の長さが0x40以下であれば処理を続ける
+	入力1で入力された数字回数分ループ
+		入力2を受け取り、Float型に変換する
+		変換済みの入力2をdouble配列に現在のループ回数番目に格納
+	
+	**printArray**
+	(入力1)回分ループ
+		現在のループ回数、double配列の現在のループ回数番目の値を出力
+	
+	**sumArray**
+	double配列の要素の和を返す
+	
+	sumArrayを使ってdouble配列の要素の和を得て、それを出力する
+	
+	**maxArray**
+	double配列の要素の中で最大のものを返す
+
+	maxArrayを使ってdouble配列の要素の中で最大のものを得て、それを出力する
+
+	**maxArray**
+	double配列の要素の中で最小のものを返す
+
+	maxArrayを使ってdouble配列の要素の中で最小のものを得て、それを出力する
+
+	**findArray** ***unknown***
+	v5にinput1を代入
+	ループ
+		第一引数(input1)がv5の二倍よりも大きかったら
+			input1にv5を代入し、0を返す
+		第一引数(input1)がv5の二倍以下だったら処理を続ける
+			-100 < input
+				ループ終了
+			input1を１つ増やす
+	input1 - v5を返す	
+
+	**sortArray**
+	(入力1)回ループ
+		n = 0 ... input1-1 までループして
+		double_list[n] > double_list[n + 1]だったら
+			変数1 = double_list[n+1]
+			double_list[n] = double_list[n+1]
+			double_list[n+1] = 変数1
+		ループ続行
+-入力1の長さが0x40よりも大きい場合はsystem関数のアドレスを出力して終わる
+ 

