@@ -2,6 +2,7 @@ import random, string
 from flask import Flask, request, render_template, abort
 from flask_socketio import SocketIO
 from threading import Thread
+import logging
 
 app = Flask(__name__)
 
@@ -9,8 +10,10 @@ socketio = SocketIO(app)
 
 registered_emails, socket_clients = [], {}
 
-generate = lambda x: "".join([random.choice(string.hexdigits) for _ in range(x)])
+generate = lambda x: "".join(
+    [random.choice(string.hexdigits) for _ in range(x)])
 BOT_TOKEN = generate(16)
+
 
 def blacklist_pass(email):
     email = email.lower()
@@ -22,6 +25,7 @@ def blacklist_pass(email):
 
 
 def send_flag(user_ip):
+    logging.info(f"clients: {socket_clients.items()}")
     for id, ip in socket_clients.items():
         if ip == user_ip:
             socketio.emit("flag", {"flag": open("flag.txt").read()}, room=id)
@@ -86,13 +90,13 @@ def index():
 def register():
     if not request.is_json or not request.json["email"]:
         return abort(400)
-    
+
     if not blacklist_pass(request.json["email"]):
         return abort(401)
 
     registered_emails.append(request.json["email"])
-    Thread(target=start_bot, args=(request.remote_addr,)).start()
-    return {"success":True}
+    Thread(target=start_bot, args=(request.remote_addr, )).start()
+    return {"success": True}
 
 
 @app.route("/bot")
