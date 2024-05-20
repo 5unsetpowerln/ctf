@@ -27,6 +27,9 @@ int check(char *a, char *b, int size, int op) {
 int main(){
     char buf[62];
     char blacklist[] = "\x3b\x54\x62\x69\x6e\x73\x68\xf6\xd2\xc0\x5f\xc9\x66\x6c\x61\x67";
+// bin sh
+// flag
+// push rsp
 
     setup();
 

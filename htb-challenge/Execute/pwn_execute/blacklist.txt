@@ -1,0 +1,46 @@
+   0:   3b                      .byte 0x3b
+   0:   54                      push   esp
+   0:   62                      .byte 0x62
+   0:   69                      .byte 0x69
+   0:   6e                      outs   dx, BYTE PTR ds:[esi]
+   0:   73                      .byte 0x73
+   0:   68                      .byte 0x68
+   0:   c3                      ret
+   1:   b6                      .byte 0xb6
+   0:   c3                      ret
+   1:   92                      xchg   edx, eax
+   0:   c3                      ret
+   1:   80                      .byte 0x80
+   0:   5f                      pop    edi
+   0:   c3                      ret
+   1:   89                      .byte 0x89
+   0:   66                      data16
+   0:   6c                      ins    BYTE PTR es:[edi], dx
+   0:   61                      popa
+   0:   67                      addr16
+
+b';'
+b'T'
+b'b'
+b'i'
+b'n'
+b's'
+b'h'
+b'\xc3\xb6'
+b'\xc3\x92'
+b'\xc3\x80'
+b'_'
+b'\xc3\x89'
+b'f'
+b'l'
+b'a'
+b'g'
+
+0:  3b 54 62 69             cmp    edx,DWORD PTR [rdx+riz*2+0x69]
+4:  6e                      outs   dx,BYTE PTR ds:[rsi]
+5:  73 68                   jae    0x6f
+7:  f6 d2                   not    dl
+9:  c0 5f c9 66             rcr    BYTE PTR [rdi-0x37],0x66
+d:  6c                      ins    BYTE PTR es:[rdi],dx
+e:  61                      (bad)
+f:  67                      addr32 
