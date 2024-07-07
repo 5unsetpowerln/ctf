@@ -1,0 +1,1 @@
+There was an error: Error generating PDF: Command '['wkhtmltopdf', '--margin-top', '0', '--margin-right', '0', '--margin-bottom', '0', '--margin-left', '0', 'http://localhost/', 'application/static/pdfs/9804493126ea78e02d411edf74cf.pdf']' returned non-zero exit status 1.

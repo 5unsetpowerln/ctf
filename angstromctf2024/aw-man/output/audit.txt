@@ -1,0 +1,23 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Mon May 27 17:59:39 2024
+Invocation: foremost mann.jpg 
+Output directory: /home/ryohz/ctf/angstromctf2024/aw-man/output
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: mann.jpg
+Start: Mon May 27 17:59:39 2024
+Length: 17 KB (17635 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000000.jpg 	      17 KB 	          0 	 
+Finish: Mon May 27 17:59:39 2024
+
+1 FILES EXTRACTED
+	
+jpg:= 1
+------------------------------------------------------------------
+
+Foremost finished at Mon May 27 17:59:39 2024

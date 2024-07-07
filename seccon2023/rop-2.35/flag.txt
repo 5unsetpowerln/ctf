@@ -1,0 +1,1 @@
+SECCON{fake_flag_string}
