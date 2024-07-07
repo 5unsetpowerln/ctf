@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="/style.css" />
+<div class="content"></div>
+<script src="${marked}"></script>
+<script>
+  const content = document.querySelector('.content')
+  const id = document.location.pathname.split('/').pop()
+
+  delete (async () => {
+      const response = await fetch(\`/content/\${id}\`)
+      const text = await response.text()
+      content.innerHTML = marked.parse(text)
+  })()
+</script>

