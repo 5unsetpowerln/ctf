@@ -1,0 +1,4 @@
+FADD:/NewFolder
+FMV:/NewFolder:/alpacahack
+IADD:00000005:/alpacahack/bofww
+IDSET:/alpacahack/bofww:c0a829f95757168123185786

