@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+import sys
+import ptrlib as ptr
+
+exe = ptr.ELF("./")
+libc = ptr.ELF("./")
+ld = ptr.ELF("./")
+
+
+def connect():
+    if len(sys.argv) > 1 and sys.argv[1] == "remote":
+        return ptr.Socket("localhost", 5000)
+    else:
+        return ptr.Process(exe.filepath)
+
+
+def p64(x: int | None, m="") -> bytes:
+    if x is None:
+        if m == "":
+            ptr.logger.error("p64: x is None")
+        else :
+            ptr.logger.error(f"p64: x is None in {m}")
+        exit()
+    else:
+        return ptr.p64(x)
+
+
+io = connect()
+io.sh()
