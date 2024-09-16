@@ -4,8 +4,7 @@
         <SAVE_STATE>
             <ARRAY NAME="EXPANDED_PATHS" TYPE="string">
                 <A VALUE="ctf:" />
-                <A VALUE="ctf:seccon_beginners2024_construct:" />
-                <A VALUE="ctf:alpacahack:" />
+                <A VALUE="ctf:csawctf2024:" />
             </ARRAY>
             <STATE NAME="SHOW_TABLE" TYPE="boolean" VALUE="false" />
         </SAVE_STATE>

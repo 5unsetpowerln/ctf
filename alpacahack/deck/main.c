@@ -46,7 +46,7 @@ void swap_cards(card_t *deck, size_t i, size_t j) {
 void shuffle_naive(card_t *deck) {
   size_t i;
 
-  for (i = 0; i < DECK_SIZE * 2; i++)    
+  for (i = 0; i < DECK_SIZE * 2; i++)
     swap_cards(deck, rand() % DECK_SIZE, rand() % DECK_SIZE);
 }
 
@@ -73,15 +73,15 @@ game_t* game_new() {
   char *name = NULL;
   card_t *deck = NULL;
 
-  if (!(deck = (card_t*)malloc(sizeof(card_t) * DECK_SIZE)))
+  if (!(deck = (card_t*)malloc(sizeof(card_t) * DECK_SIZE))) // malloc(0x68)
     goto err;
-  if (!(name = strdup("Human")))
+  if (!(name = strdup("Human"))) // *malloc(5) = "Human"
     goto err;
-  if (!(game = (game_t*)malloc(sizeof(game_t))))
+  if (!(game = (game_t*)malloc(sizeof(game_t)))) // malloc(0x18)
     goto err;
 
   for (size_t i = 0; i < DECK_SIZE; i++)
-    deck[i] = MAKE_CARD(i / 13, i % 13);
+    deck[i] = MAKE_CARD(i / 13, i % 13); // 0x(i/13)(i%13)
 
   game->deck = deck;
   game->name = name;

@@ -1,11 +1,13 @@
 VERSION=1
 /
   00000002:leftright_patched:c0a829f8e9f18635937114804
+/alpacahack
+  00000005:bofww:c0a829f95757168123185786
 /angstrom2022_parity
   00000003:parity:c0a829f865914839534484651
 /horsetrack
   00000001:vuln:c0a829f874b34982950838016
 /seccon_beginners2024_construct
   00000004:construct:c0a829f9cef4914858556179
-NEXT-ID:5
+NEXT-ID:6
 MD5:d41d8cd98f00b204e9800998ecf8427e
