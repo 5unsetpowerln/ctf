@@ -31,7 +31,6 @@ def main():
     io.recvuntil("csawctf")
     flag = "csawctf" + io.recvline().decode()
     ptr.logger.info(f"flag = {flag}")
-    io.sh()
     return
 
 

