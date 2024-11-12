@@ -1,0 +1,14 @@
+24/10/21@19:41:46 xinetd[1]: NOTICE: 2.3.15.4 started with libwrap loadavg labeled-networking options compiled in.
+24/10/21@19:41:46 xinetd[1]: NOTICE: Started working: 1 available service
+24/10/21@20:26:55 xinetd[1]: NOTICE: 2.3.15.4 started with libwrap loadavg labeled-networking options compiled in.
+24/10/21@20:26:55 xinetd[1]: NOTICE: Started working: 1 available service
+24/10/21@20:28:16 xinetd[1]: NOTICE: unknown child process 338 died
+24/10/21@20:31:44 xinetd[1]: NOTICE: unknown child process 1361 died
+24/10/21@20:31:46 xinetd[1]: NOTICE: unknown child process 1290 died
+24/10/21@20:32:36 xinetd[1]: NOTICE: unknown child process 1463 died
+24/10/21@20:33:00 xinetd[1]: NOTICE: unknown child process 1537 died
+24/10/21@20:33:15 xinetd[1]: NOTICE: unknown child process 1612 died
+24/10/21@20:33:52 xinetd[1]: NOTICE: unknown child process 1717 died
+24/10/21@20:34:35 xinetd[1]: NOTICE: unknown child process 1868 died
+24/10/21@20:40:41 xinetd[1]: NOTICE: unknown child process 2195 died
+24/10/21@20:41:18 xinetd[1]: NOTICE: unknown child process 2269 died

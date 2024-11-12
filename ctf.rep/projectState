@@ -3,8 +3,10 @@
     <PROJECT_DATA_XML_NAME NAME="DISPLAY_DATA">
         <SAVE_STATE>
             <ARRAY NAME="EXPANDED_PATHS" TYPE="string">
-                <A VALUE="ctf:" />
                 <A VALUE="ctf:csawctf2024:" />
+                <A VALUE="ctf:sunshinectf2024:" />
+                <A VALUE="ctf:" />
+                <A VALUE="ctf:sunshinectf2024:drone_adventure:" />
             </ARRAY>
             <STATE NAME="SHOW_TABLE" TYPE="boolean" VALUE="false" />
         </SAVE_STATE>

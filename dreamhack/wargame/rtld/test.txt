@@ -1,0 +1,26 @@
+$ export LD_PRELOAD=$(realpath ./libc-2.27.so)
+$ gdb ow_rtld
+pwndbg> entry
+pwndbg> vmmap
+LEGEND: STACK | HEAP | CODE | DATA | RWX | RODATA
+             Start                End Perm     Size Offset File
+    0x555555400000     0x555555401000 r-xp     1000      0 /home/dreamhack/ow_rtld
+    0x555555600000     0x555555601000 r--p     1000      0 /home/dreamhack/ow_rtld
+    0x555555601000     0x555555602000 rw-p     1000   1000 /home/dreamhack/ow_rtld
+    0x555555602000     0x555555603000 rw-p     1000   3000 /home/dreamhack/ow_rtld
+    0x7ffff79e4000     0x7ffff7bcb000 r-xp   1e7000      0 /home/dreamhack/libc-2.27.so
+    0x7ffff7bcb000     0x7ffff7dcb000 ---p   200000 1e7000 /home/dreamhack/libc-2.27.so
+    0x7ffff7dcb000     0x7ffff7dcf000 r--p     4000 1e7000 /home/dreamhack/libc-2.27.so
+    0x7ffff7dcf000     0x7ffff7dd1000 rw-p     2000 1eb000 /home/dreamhack/libc-2.27.so
+    0x7ffff7dd1000     0x7ffff7dd5000 rw-p     4000      0 [anon_7ffff7dd1]
+    0x7ffff7dd5000     0x7ffff7dfc000 r-xp    27000      0 /home/dreamhack/ld-2.27.so
+    0x7ffff7ff4000     0x7ffff7ff6000 rw-p     2000      0 [anon_7ffff7ff4]
+    0x7ffff7ff6000     0x7ffff7ffa000 r--p     4000      0 [vvar]
+    0x7ffff7ffa000     0x7ffff7ffc000 r-xp     2000      0 [vdso]
+    0x7ffff7ffc000     0x7ffff7ffd000 r--p     1000  27000 /home/dreamhack/ld-2.27.so
+    0x7ffff7ffd000     0x7ffff7ffe000 rw-p     1000  28000 /home/dreamhack/ld-2.27.so
+    0x7ffff7ffe000     0x7ffff7fff000 rw-p     1000      0 [anon_7ffff7ffe]
+    0x7ffffffde000     0x7ffffffff000 rw-p    21000      0 [stack]
+0xffffffffff600000 0xffffffffff601000 --xp     1000      0 [vsyscall]
+pwndbg> p/x 0x7ffff7dd5000 - 0x7ffff79e4000
+$1 = 0x3f1000

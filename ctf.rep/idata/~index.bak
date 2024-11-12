@@ -11,5 +11,8 @@ VERSION=1
   00000001:vuln:c0a829f874b34982950838016
 /seccon_beginners2024_construct
   00000004:construct:c0a829f9cef4914858556179
-NEXT-ID:7
+/sunshinectf2024
+/sunshinectf2024/drone_adventure
+  00000007:drone.bin:c0a829f98ab38114272853188
+NEXT-ID:8
 MD5:d41d8cd98f00b204e9800998ecf8427e

