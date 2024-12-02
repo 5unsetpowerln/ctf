@@ -7,6 +7,9 @@ VERSION=1
   00000003:parity:c0a829f865914839534484651
 /csawctf2024
   00000006:chal:c0a829f881336846841925203
+/dreamhack
+/dreamhack/ultra_c
+  00000008:prob:c0a829fb04d31707480065467
 /horsetrack
   00000001:vuln:c0a829f874b34982950838016
 /seccon_beginners2024_construct
@@ -14,5 +17,5 @@ VERSION=1
 /sunshinectf2024
 /sunshinectf2024/drone_adventure
   00000007:drone.bin:c0a829f98ab38114272853188
-NEXT-ID:8
+NEXT-ID:9
 MD5:d41d8cd98f00b204e9800998ecf8427e

